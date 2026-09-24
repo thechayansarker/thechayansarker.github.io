@@ -407,13 +407,16 @@
   // doesn't show as a white square in dark mode.
   var illustrated = false;
   function illustration(img) {
+    // show the whole image at its own proportions, no cropping
     var dpr = Math.min(window.devicePixelRatio || 1, 2), W = SIZE * dpr;
-    canvas.width = canvas.height = W;
+    var H = Math.round(W * img.height / img.width);
+    canvas.width = W;
+    canvas.height = H;
+    canvas.parentElement.style.aspectRatio = img.width + " / " + img.height;
     var ctx = canvas.getContext("2d");
-    var s = Math.max(W / img.width, W / img.height);
-    ctx.drawImage(img, (W - img.width * s) / 2, (W - img.height * s) / 2, img.width * s, img.height * s);
+    ctx.drawImage(img, 0, 0, W, H);
     try {
-      var d = ctx.getImageData(0, 0, W, W), p = d.data;
+      var d = ctx.getImageData(0, 0, W, H), p = d.data;
       for (var i = 0; i < p.length; i += 4) {
         var lo = Math.min(p[i], p[i + 1], p[i + 2]);      // white paper has every channel high
         if (lo > 236) p[i + 3] = Math.round(p[i + 3] * Math.max(0, (248 - lo) / 12));
