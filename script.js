@@ -309,26 +309,47 @@
   function isDark() { return document.documentElement.getAttribute("data-theme") === "dark"; }
 
   $("dock").innerHTML = S.dock.map(function (d) {
-    if (d.icon === "theme") return '<span class="sep"></span><button id="theme-btn" type="button"></button>';
+    if (d.icon === "theme") {
+      return '<span class="sep"></span>' +
+        '<div class="theme-toggle" id="theme-toggle" role="radiogroup" aria-label="Theme">' +
+          '<span class="theme-thumb" aria-hidden="true"></span>' +
+          '<button type="button" role="radio" data-mode="light" aria-label="Light mode">' + icon("sun") + "</button>" +
+          '<button type="button" role="radio" data-mode="dark" aria-label="Dark mode">' + icon("moon") + "</button>" +
+        "</div>";
+    }
     return "<a " + linkAttrs(d.href) + ' aria-label="' + esc(d.label) + '">' +
       icon(d.icon) + '<span class="tip">' + esc(d.label) + "</span></a>";
   }).join("");
 
   function paintTheme() {
-    var b = $("theme-btn");
-    if (!b) return;
-    b.innerHTML = icon(isDark() ? "moon" : "sun") +
-      '<span class="tip">' + (isDark() ? "Dark" : "Light") + "</span>";
-    b.setAttribute("aria-label", "Switch to " + (isDark() ? "light" : "dark") + " theme");
+    var mode = isDark() ? "dark" : "light";
+    document.querySelectorAll("#theme-toggle button").forEach(function (b) {
+      var on = b.dataset.mode === mode;
+      b.setAttribute("aria-checked", String(on));
+      b.tabIndex = on ? 0 : -1;
+    });
   }
-  paintTheme();
-  if ($("theme-btn")) {
-    $("theme-btn").addEventListener("click", function () {
+  function setTheme(mode) {
+    if ((mode === "dark") === isDark()) return;
+    document.documentElement.setAttribute("data-theme", mode);
+    localStorage.setItem("theme", mode);
+    paintTheme();
+    drawPortrait();
+  }
+  var toggle = $("theme-toggle");
+  if (toggle) {
+    paintTheme();
+    toggle.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-mode]");
+      if (b) setTheme(b.dataset.mode);
+    });
+    // arrow keys move between the two options, like a native radio group
+    toggle.addEventListener("keydown", function (e) {
+      if (!/^Arrow(Left|Right|Up|Down)$/.test(e.key)) return;
+      e.preventDefault();
       var next = isDark() ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-      paintTheme();
-      drawPortrait();
+      setTheme(next);
+      toggle.querySelector('[data-mode="' + next + '"]').focus();
     });
   }
 
