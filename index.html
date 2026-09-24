@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chayan Sarker, Product Designer</title>
+<meta name="description" content="Chayan Sarker is a product designer building 0 to 1 products and design systems across health tech, fintech, and SaaS." />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+
+<script>
+  // Apply the saved theme before first paint so there's no flash.
+  (function () {
+    var saved = localStorage.getItem("theme");
+    var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  })();
+</script>
+</head>
+
+<body id="top">
+  <div class="frame">
+
+    <header class="hero">
+      <div class="hero-text">
+        <h1><span id="name"></span><span class="flag" id="flag"></span></h1>
+        <div id="bio"></div>
+      </div>
+      <div class="hero-media">
+        <div class="portrait"><canvas id="portrait-canvas" aria-label="Portrait"></canvas></div>
+      </div>
+    </header>
+
+    <div class="rule"></div>
+    <nav class="stats" id="stats" aria-label="Sections"></nav>
+    <div class="rule"></div>
+
+    <section id="experience">
+      <div class="section-head" data-num="01">Experience</div>
+      <div id="experience-list"></div>
+    </section>
+
+    <section id="writing">
+      <div class="section-head" data-num="02">
+        Writing
+        <a class="more" id="writing-more" href="#">View all</a>
+      </div>
+      <div id="writing-list"></div>
+    </section>
+
+    <section id="rotation" class="bleed">
+      <div class="section-head" data-num="03">On rotation</div>
+      <div class="scroller"><div class="records" id="records"></div></div>
+    </section>
+
+    <section id="books" class="bleed">
+      <div class="section-head" data-num="04">Books I love</div>
+      <div class="scroller"><div class="shelf" id="shelf"></div></div>
+    </section>
+
+    <footer class="foot">
+      <div class="foot-meta">
+        <p class="copy" id="copyright"></p>
+        <div class="meta-lines">
+          <div class="meta-row">
+            <svg class="clock" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line id="hand-h" x1="12" y1="12" x2="12" y2="7.5" />
+              <line id="hand-m" x1="12" y1="12" x2="12" y2="5" />
+            </svg>
+            <div><span id="tz"></span><span id="time"></span></div>
+          </div>
+          <div class="meta-row">
+            <svg class="globe" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <ellipse cx="12" cy="12" rx="4.2" ry="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M4 7h16M4 17h16" />
+            </svg>
+            <div><span id="lat"></span><span id="lon"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="foot-tree">
+        <p class="tree-head">Contact</p>
+        <ul id="foot-contact"></ul>
+      </div>
+      <div class="foot-tree">
+        <p class="tree-head">Index</p>
+        <ul id="foot-index"></ul>
+      </div>
+    </footer>
+
+  </div>
+
+  <nav class="dock" id="dock" aria-label="Quick links"></nav>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
