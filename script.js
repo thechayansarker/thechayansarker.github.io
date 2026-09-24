@@ -403,7 +403,35 @@
     }
   }
 
+  // Draw the image as is, keying out its near white background so it
+  // doesn't show as a white square in dark mode.
+  var illustrated = false;
+  function illustration(img) {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), W = SIZE * dpr;
+    canvas.width = canvas.height = W;
+    var ctx = canvas.getContext("2d");
+    var s = Math.max(W / img.width, W / img.height);
+    ctx.drawImage(img, (W - img.width * s) / 2, (W - img.height * s) / 2, img.width * s, img.height * s);
+    try {
+      var d = ctx.getImageData(0, 0, W, W), p = d.data;
+      for (var i = 0; i < p.length; i += 4) {
+        var lo = Math.min(p[i], p[i + 1], p[i + 2]);      // white paper has every channel high
+        if (lo > 236) p[i + 3] = Math.round(p[i + 3] * Math.max(0, (248 - lo) / 12));
+      }
+      ctx.putImageData(d, 0, 0);
+    } catch (e) { /* tainted canvas (opened from file://): show unkeyed */ }
+    illustrated = true;
+  }
+
   function drawPortrait() {
+    if (S.portraitStyle === "illustration" && S.portrait) {
+      if (illustrated) return;
+      var pic = new Image();
+      pic.onload = function () { illustration(pic); };
+      pic.onerror = function () { source = sourceCanvas(null); halftone(source); };
+      pic.src = S.portrait;
+      return;
+    }
     if (source) return halftone(source);
     if (!S.portrait) { source = sourceCanvas(null); return halftone(source); }
     var img = new Image();

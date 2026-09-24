@@ -10,9 +10,11 @@ window.SITE = {
   role: "Product Designer",
   flag: "",
 
-  // Square photo here gets the halftone treatment automatically.
-  // Leave the file missing to show the generated placeholder.
-  portrait: "assets/portrait.jpg",
+  // portraitStyle "illustration" shows the image as is, with its white
+  // background removed so it sits on light and dark mode alike.
+  // "halftone" converts it to the dot style instead.
+  portrait: "assets/portrait.webp",
+  portraitStyle: "illustration",
 
   bio: [
     "I'm Chayan, a product designer with 6+ years of experience building *0 to 1* products and design systems.",
