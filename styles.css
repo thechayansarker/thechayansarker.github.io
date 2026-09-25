@@ -815,58 +815,72 @@ html[data-theme="dark"] .case-cover { box-shadow: 0 0 0 1px var(--hairline-stron
   .stat-pair.three, .quote-grid { grid-template-columns: 1fr; }
 }
 
-/* Placeholder text to replace: highlighted so it is easy to spot */
-mark.todo {
-  background: rgba(255, 210, 0, .32);
-  color: inherit;
-  padding: 0 3px;
-  border-radius: 3px;
-}
 
-/* Reading Faces: task card and redrawn tag grid */
-.task {
-  margin: 16px 0;
-  padding: 18px 18px 16px;
-  border: 1px solid var(--hairline-strong);
+/* At a glance summary */
+.glance {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 0 var(--pad) 34px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
   border-radius: 8px;
+  overflow: hidden;
 }
-.task p { margin: 0 0 8px; font-size: 13px; }
-.task .task-title { font-size: 17px; color: var(--text); letter-spacing: -0.01em; margin-bottom: 6px; }
-.task .task-title b { font-weight: 700; }
-.legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 12px; color: var(--text-soft); }
-.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.glance div { background: var(--bg); padding: 16px 16px 14px; }
+.glance h4 {
+  margin: 0 0 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.glance p { margin: 0; font-size: 13px; line-height: 1.55; color: var(--text); }
 
-.legend i, .tile .dots i {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1.5px solid;
+/* Numbered insights */
+.insights { list-style: none; margin: 16px 0 8px; padding: 0; counter-reset: ins; }
+.insights li {
+  counter-increment: ins;
+  position: relative;
+  padding: 12px 0 12px 34px;
+  border-top: 1px solid var(--hairline);
+  color: var(--text-soft);
+  font-size: 13.5px;
 }
-i.h { background: #a8e6fa; border-color: #1ea6d6; }
-i.m { background: #ffe066; border-color: #c99a06; }
-i.l { background: #ff9ee8; border-color: #d657bd; }
+.insights li:first-child { border-top: 0; }
+.insights li::before {
+  content: "0" counter(ins);
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.insights b { display: block; color: var(--text); font-weight: 500; font-size: 14px; margin-bottom: 2px; }
 
-.face-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-.tile {
-  aspect-ratio: 1;
-  padding: 8px;
-  border-radius: 5px;
-  background: linear-gradient(160deg, #e2e2df, #cfcfcb);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 0;
+/* State flow */
+.flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  gap: 8px;
+  margin: 16px 0 10px;
 }
-html[data-theme="dark"] .tile { background: linear-gradient(160deg, #26262a, #1b1b1e); }
-.tile b { font-family: var(--mono); font-size: 10px; font-weight: 500; color: var(--muted); }
-.tile .dots { display: flex; flex-wrap: wrap; gap: 3px; }
-.tile .n { font-size: 11px; color: var(--text-soft); }
+.flow .state { padding: 12px 12px 10px; border: 1px solid var(--hairline-strong); border-radius: 8px; }
+.flow .state b { display: flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; }
+.flow .state b::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.flow .state p { margin: 6px 0 0; font-size: 12px; line-height: 1.5; color: var(--text-soft); }
+.flow .arrow { align-self: center; color: var(--muted); font-size: 14px; }
+.flow-note { font-size: 12.5px; color: var(--muted); }
+
+.refs { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--text-soft); }
+.refs li { margin: 6px 0; }
 
 @media (max-width: 700px) {
-  .face-grid { gap: 4px; }
-  .tile { padding: 5px; }
-  .tile .dots { gap: 2px; }
-  .tile .dots i { width: 7px; height: 7px; border-width: 1px; }
-  .tile .n { font-size: 10px; }
+  .glance { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr; }
+  .flow .arrow { transform: rotate(90deg); justify-self: center; }
 }
