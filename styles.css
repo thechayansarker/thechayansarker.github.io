@@ -885,3 +885,8 @@ html[data-theme="dark"] .case-cover { box-shadow: 0 0 0 1px var(--hairline-stron
   .flow { grid-template-columns: 1fr; }
   .flow .arrow { transform: rotate(90deg); justify-self: center; }
 }
+
+/* Line diagrams exported on white: blend the white into the page instead of
+   showing a white box. Dark mode inverts them to light lines on dark. */
+.figure.diagram img { border: 0; border-radius: 0; mix-blend-mode: multiply; }
+html[data-theme="dark"] .figure.diagram img { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
