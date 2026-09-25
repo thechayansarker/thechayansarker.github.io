@@ -890,3 +890,4 @@ html[data-theme="dark"] .case-cover { box-shadow: 0 0 0 1px var(--hairline-stron
    showing a white box. Dark mode inverts them to light lines on dark. */
 .figure.diagram img { border: 0; border-radius: 0; mix-blend-mode: multiply; }
 html[data-theme="dark"] .figure.diagram img { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
+.refs a { overflow-wrap: anywhere; }

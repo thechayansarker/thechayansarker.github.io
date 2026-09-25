@@ -68,7 +68,7 @@
     <section id="question">
       <div class="section-head" data-num="01">Research question</div>
       <blockquote class="hmw">How might computer vision in AR glasses help transit riders anticipate risk, without turning the people around them into suspects?</blockquote>
-      <p>Riders on Boston&rsquo;s MBTA describe feeling exposed at night: poorly lit platforms, few visible staff, and little they can do when a situation feels wrong. Existing apps help with schedules and routes, but not with how safe a journey feels.</p>
+      <p>Riders on Boston&rsquo;s MBTA describe feeling exposed at night: poorly lit platforms, few visible staff, and little they can do when a situation feels wrong. Harassment and crime on public transit are a documented problem in cities worldwide [1]. Existing apps help with schedules and routes, but not with how safe a journey feels.</p>
       <p>SafeVision uses the camera in a pair of AR glasses to detect the people nearby, analyse their facial expressions in real time, and combine that with previous data to predict how safe the situation is. The prediction drives a calm interface that tells the rider when to relax and when to act.</p>
       <p>The project covers the full loop: research with riders, the design of the computer vision pipeline, and the experience built on top of it. The pipeline is specified as a system design, and the models are not trained yet.</p>
     </section>
@@ -202,13 +202,13 @@
       <p>A system that reads strangers&rsquo; faces and predicts how safe they are carries real risks. I treated them as design requirements, not afterthoughts.</p>
 
       <h3>Expressions are a noisy signal</h3>
-      <p>Psychology research questions whether facial movements reliably reveal inner states [1]. A tense face can mean worry, cold or tiredness. So the expression reading is never used alone: it is weighed with context and history, and the interface always shows the model&rsquo;s confidence.</p>
+      <p>Psychology research questions whether facial movements reliably reveal inner states [2], and using such inferences to judge people raises ethical problems of its own [3]. A tense face can mean worry, cold or tiredness. So the expression reading is never used alone: it is weighed with context and history, and the interface always shows the model&rsquo;s confidence.</p>
 
       <h3>Models can be biased</h3>
-      <p>Face analysis systems have been shown to perform unevenly across skin tones and genders [2], and historical records can over represent groups that are already over policed. Before deployment, the models would need testing for accuracy and false alarm rates across demographic groups.</p>
+      <p>Face analysis systems have been shown to perform unevenly across skin tones and genders [4], and emotion recognition tools have been found to read more negative emotions in Black faces than in white faces [5]. Historical records carry bias too: they can over represent groups that are already over policed [6]. Before deployment, the models would need testing for accuracy and false alarm rates across demographic groups.</p>
 
       <h3>Bystanders never agreed to this</h3>
-      <p>The people being analysed are not the ones wearing the glasses. Early mockups showed names and occupations, which exposes far more than a rider needs to feel safe.</p>
+      <p>The people being analysed are not the ones wearing the glasses. Research with bystanders of AR glasses shows real concern about being recorded, and a wish for ways to opt out [7]. Early mockups showed names and occupations, which exposes far more than a rider needs to feel safe.</p>
 
       <h3>Safeguards in the design</h3>
       <ul class="list-plain">
@@ -240,8 +240,13 @@
 
       <h3>References</h3>
       <ol class="refs">
-        <li>Barrett, L. F., Adolphs, R., Marsella, S., Martinez, A. M., &amp; Pollak, S. D. (2019). Emotional expressions reconsidered: Challenges to inferring emotion from human facial movements. <em>Psychological Science in the Public Interest, 20</em>(1), 1-68.</li>
-        <li>Buolamwini, J., &amp; Gebru, T. (2018). Gender shades: Intersectional accuracy disparities in commercial gender classification. <em>Proceedings of the Conference on Fairness, Accountability and Transparency</em>, 77-91.</li>
+        <li>Ceccato, V., &amp; Loukaitou-Sideris, A. (2020). <em>Transit crime and sexual violence in cities: International evidence and prevention.</em> Routledge. <a class="link" href="https://doi.org/10.4324/9780429290244" target="_blank" rel="noopener noreferrer">doi.org/10.4324/9780429290244</a></li>
+        <li>Barrett, L. F., Adolphs, R., Marsella, S., Martinez, A. M., &amp; Pollak, S. D. (2019). Emotional expressions reconsidered: Challenges to inferring emotion from human facial movements. <em>Psychological Science in the Public Interest, 20</em>(1), 1-68. <a class="link" href="https://doi.org/10.1177/1529100619832930" target="_blank" rel="noopener noreferrer">doi.org/10.1177/1529100619832930</a></li>
+        <li>Stark, L., &amp; Hoey, J. (2021). The ethics of emotion in artificial intelligence systems. <em>Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency</em>, 782-793. <a class="link" href="https://doi.org/10.1145/3442188.3445939" target="_blank" rel="noopener noreferrer">doi.org/10.1145/3442188.3445939</a></li>
+        <li>Buolamwini, J., &amp; Gebru, T. (2018). Gender shades: Intersectional accuracy disparities in commercial gender classification. <em>Proceedings of the Conference on Fairness, Accountability and Transparency</em>, 77-91. <a class="link" href="https://proceedings.mlr.press/v81/buolamwini18a.html" target="_blank" rel="noopener noreferrer">proceedings.mlr.press/v81/buolamwini18a</a></li>
+        <li>Rhue, L. (2018). <em>Racial influence on automated perceptions of emotions.</em> SSRN. <a class="link" href="https://doi.org/10.2139/ssrn.3281765" target="_blank" rel="noopener noreferrer">doi.org/10.2139/ssrn.3281765</a></li>
+        <li>Richardson, R., Schultz, J. M., &amp; Crawford, K. (2019). Dirty data, bad predictions: How civil rights violations impact police data, predictive policing systems, and justice. <em>New York University Law Review Online.</em> <a class="link" href="https://www.nyulawreview.org/online-features/dirty-data-bad-predictions-how-civil-rights-violations-impact-police-data-predictive-policing-systems-and-justice/" target="_blank" rel="noopener noreferrer">nyulawreview.org</a></li>
+        <li>Denning, T., Dehlawi, Z., &amp; Kohno, T. (2014). In situ with bystanders of augmented reality glasses: Perspectives on recording and privacy-mediating technologies. <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em>, 2377-2386. <a class="link" href="https://doi.org/10.1145/2556288.2557352" target="_blank" rel="noopener noreferrer">doi.org/10.1145/2556288.2557352</a></li>
       </ol>
     </section>
 
