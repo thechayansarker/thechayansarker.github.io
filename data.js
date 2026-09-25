@@ -31,7 +31,7 @@ window.SITE = {
 
   stats: [
     { icon: "writing",  label: "Writing",  meta: "5 posts",    href: "#writing" },
-    { icon: "disc",     label: "Rotation", meta: "7 albums",   href: "#rotation" },
+    { icon: "game",     label: "Playing",  meta: "5 games",    href: "#playing" },
     { icon: "book",     label: "Books",    meta: "15 books",   href: "#books" }
   ],
 
@@ -54,17 +54,16 @@ window.SITE = {
     { title: "A short personal note",               date: "25/06/24", href: "#" }
   ],
 
-  // 03 On rotation. `cover` takes an image path; leave null for a colour.
-  rotation: {
-    featured: 3,
+  // 03 Recently playing. Click a cover to feature it, click the featured
+  // cover to follow its link.
+  playing: {
+    featured: 2,
     items: [
-      { title: "Album One",   color: "#2d3f4f", cover: null, link: "https://example.com" },
-      { title: "Album Two",   color: "#8a7050", cover: null, link: "https://example.com" },
-      { title: "Album Three", color: "#33473a", cover: null, link: "https://example.com" },
-      { title: "Album Four",  color: "#6b3f4a", cover: null, link: "https://example.com" },
-      { title: "Album Five",  color: "#9a9088", cover: null, link: "https://example.com" },
-      { title: "Album Six",   color: "#3f3a4f", cover: null, link: "https://example.com" },
-      { title: "Album Seven", color: "#7a6248", cover: null, link: "https://example.com" }
+      { title: "Cricket 26",               color: "#2a1640", cover: "assets/games/cricket-26.jpg",               link: "https://www.xbox.com/en-US/search?q=Cricket+26" },
+      { title: "Assassin's Creed Odyssey", color: "#3d4a3a", cover: "assets/games/assassins-creed-odyssey.jpg", link: "https://www.xbox.com/en-US/search?q=Assassin%27s+Creed+Odyssey" },
+      { title: "EA Sports FC 26",          color: "#1b2a3a", cover: "assets/games/ea-sports-fc-26.jpg",          link: "https://www.xbox.com/en-US/search?q=EA+Sports+FC+26" },
+      { title: "Forza Horizon 6",          color: "#c9c9c9", cover: "assets/games/forza-horizon-6.jpg",          link: "https://www.xbox.com/en-US/search?q=Forza+Horizon+6" },
+      { title: "Cricket 24",               color: "#10365a", cover: "assets/games/cricket-24.jpg",               link: "https://www.xbox.com/en-US/search?q=Cricket+24" }
     ]
   },
 
@@ -104,7 +103,7 @@ window.SITE = {
       { label: "Home",        href: "#top" },
       { label: "Experience",  href: "#experience" },
       { label: "Writing",     href: "#writing" },
-      { label: "On rotation", href: "#rotation" },
+      { label: "Playing",     href: "#playing" },
       { label: "Books",       href: "#books" }
     ]
   },
@@ -112,7 +111,7 @@ window.SITE = {
   dock: [
     { icon: "home",    label: "Home",        href: "#top" },
     { icon: "writing", label: "Writing",     href: "#writing" },
-    { icon: "disc",    label: "On rotation", href: "#rotation" },
+    { icon: "game",    label: "Playing",     href: "#playing" },
     { icon: "book",    label: "Books",       href: "#books" },
     { icon: "chat",    label: "Say hi",      href: "mailto:srchayan@gmail.com" },
     { icon: "theme",   label: "Theme" }

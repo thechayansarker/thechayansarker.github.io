@@ -242,7 +242,7 @@ section.bleed .section-head { padding-left: var(--pad); padding-right: var(--pad
 .shelf-caption::after { content: " \2197"; }
 
 /* ============================================================
-   03 On rotation: overlapping records
+   03 Recently playing: overlapping covers
    ============================================================ */
 .records { width: 640px; margin: 0 auto; }
 .stage { position: relative; height: 176px; }

@@ -57,6 +57,7 @@
   var ICON = {
     home: '<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
     writing: '<path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
+    game: '<path d="M6 8h12a4 4 0 0 1 4 4v2.5a3.5 3.5 0 0 1-6.3 2.1L14.5 15h-5l-1.2 1.6A3.5 3.5 0 0 1 2 14.5V12a4 4 0 0 1 4-4z"/><path d="M7 10.5v3M5.5 12h3"/><path d="M16 11.5h.01M18 13.2h.01"/>',
     disc: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M7 12a5 5 0 0 1 5-5M17 12a5 5 0 0 1-5 5"/>',
     book: '<path d="M2 5h6a4 4 0 0 1 4 4v11a3 3 0 0 0-3-3H2zM22 5h-6a4 4 0 0 0-4 4v11a3 3 0 0 1 3-3h7z"/>',
     chat: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',
@@ -69,6 +70,7 @@
 
   var GLYPH = {
     writing: '<rect x="9" y="6" width="30" height="38" rx="3"/><path d="M15 16h18M15 23h18M15 30h11"/>',
+    game: '<path d="M13 16h22a8 8 0 0 1 8 8v5a7 7 0 0 1-12.6 4.2L28 30h-8l-2.4 3.2A7 7 0 0 1 5 29v-5a8 8 0 0 1 8-8z"/><path d="M14 21.5v6M11 24.5h6"/><path d="M31 23h.01M35 26h.01"/>',
     disc: '<circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="4"/><path d="M14 24a10 10 0 0 1 10-10M34 24a10 10 0 0 1-10 10"/>',
     book: '<path d="M6 11h12a6 6 0 0 1 6 6v22a4 4 0 0 0-4-4H6zM42 11H30a6 6 0 0 0-6 6v22a4 4 0 0 1 4-4h14z"/>'
   };
@@ -120,14 +122,17 @@
   }).join("");
 
   /* =============================================================
-     03 On rotation: overlapping records, click to feature
+     03 Recently playing: overlapping covers, click to feature
      ============================================================= */
 
   (function records() {
-    var R = S.rotation, items = R.items, n = items.length;
+    var R = S.playing, items = R.items, n = items.length;
     var featured = Math.min(R.featured || 0, n - 1);
     var root = $("records");
-    var W = 640, BIG = 160, SMALL = 118, STEP = 70, STEP_BIG = 150;
+    var W = 640, BIG = 160, SMALL = 118, STEP_BIG = 150;
+    // spread the covers across the shelf: fewer covers overlap less, so more
+    // of each one's art is visible
+    var STEP = n > 2 ? Math.max(60, Math.min(100, (600 - STEP_BIG - SMALL) / (n - 2))) : SMALL;
 
     root.innerHTML = '<div class="stage"></div><div class="plank"></div>' +
       '<a class="shelf-caption" target="_blank" rel="noopener noreferrer"></a>';
