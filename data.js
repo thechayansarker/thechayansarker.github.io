@@ -59,7 +59,7 @@ window.SITE = {
   playing: {
     featured: 2,
     items: [
-      { title: "Cricket 26",               color: "#2a1640", cover: "assets/games/cricket-26.jpg",               link: "https://www.xbox.com/en-US/search?q=Cricket+26" },
+      { title: "Batman: Arkham Knight",    color: "#26282c", cover: "assets/games/batman-arkham-knight.jpg",     link: "https://www.xbox.com/en-US/search?q=Batman+Arkham+Knight" },
       { title: "Assassin's Creed Odyssey", color: "#3d4a3a", cover: "assets/games/assassins-creed-odyssey.jpg", link: "https://www.xbox.com/en-US/search?q=Assassin%27s+Creed+Odyssey" },
       { title: "EA Sports FC 26",          color: "#1b2a3a", cover: "assets/games/ea-sports-fc-26.jpg",          link: "https://www.xbox.com/en-US/search?q=EA+Sports+FC+26" },
       { title: "Forza Horizon 6",          color: "#c9c9c9", cover: "assets/games/forza-horizon-6.jpg",          link: "https://www.xbox.com/en-US/search?q=Forza+Horizon+6" },
