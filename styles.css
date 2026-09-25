@@ -578,3 +578,192 @@ html[data-theme="dark"] .theme-thumb {
   :root { --dur: 1ms; }
   html { scroll-behavior: auto; }
 }
+
+/* ============================================================
+   Work list (home)
+   ============================================================ */
+.work-item { align-items: start; padding: 12px 0; }
+.work-item .t { display: grid; gap: 1px; }
+.work-item .wt { font-weight: 500; color: var(--text); }
+.work-item .wt::after { content: " \2192"; color: var(--muted); transition: margin .2s var(--ease); }
+.work-item:hover .wt::after { margin-left: 3px; }
+.work-item .ws { font-size: 13px; color: var(--text-soft); }
+.work-item .d { padding-top: 3px; }
+.work-item:hover .t { opacity: 1; }
+.work-item:hover .wt { opacity: .6; }
+
+/* ============================================================
+   Case study pages
+   ============================================================ */
+.case-hero { padding: 34px var(--pad) 30px; }
+.back {
+  display: inline-flex;
+  gap: 6px;
+  margin-bottom: 30px;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.back:hover { color: var(--text); }
+.eyebrow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.case-hero h1 {
+  margin: 8px 0 10px;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.lede { margin: 0; font-size: 15px; line-height: 1.6; color: var(--text-soft); max-width: 44ch; }
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 20px;
+  margin: 28px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+}
+.case-meta dt {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.case-meta dd { margin: 0; font-size: 13px; line-height: 1.5; }
+
+/* The cover export carries its Figma frame's dark fill (#1e1e1e), so the
+   panel matches it exactly and the phones read as sitting on a stage. */
+.case-cover {
+  margin: 0 var(--pad) 34px;
+  padding: 26px 20px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+html[data-theme="dark"] .case-cover { box-shadow: 0 0 0 1px var(--hairline-strong); }
+.case-cover img { width: 100%; max-width: 300px; height: auto; display: block; }
+
+.case section p { margin: 0 0 14px; color: var(--text-soft); }
+.case section p strong { color: var(--text); font-weight: 600; }
+.case h3 {
+  margin: 26px 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.figure { margin: 18px 0 8px; }
+.figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--hairline);
+}
+.figure figcaption { margin-top: 8px; font-size: 12px; color: var(--muted); }
+
+.stat-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin: 20px 0;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.stat-pair div { background: var(--bg); padding: 18px 18px 16px; }
+.stat-pair b { display: block; font-size: 26px; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; }
+.stat-pair span { display: block; margin-top: 6px; font-size: 12.5px; color: var(--text-soft); line-height: 1.5; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 24px;
+  margin: 18px 0 8px;
+}
+.card-grid h4 {
+  margin: 0 0 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text);
+  font-weight: 500;
+}
+.card-grid p { margin: 0; font-size: 13px; line-height: 1.6; }
+
+.hmw {
+  margin: 22px 0 6px;
+  padding: 4px 0 4px 16px;
+  border-left: 2px solid var(--text);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.testers { display: grid; gap: 0; margin: 16px 0 8px; }
+.tester {
+  padding: 16px 0;
+  border-top: 1px solid var(--hairline);
+}
+.tester:first-child { border-top: 0; padding-top: 4px; }
+.tester-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.tester-head b { font-weight: 500; }
+.tester-head span { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; }
+.tester ul { margin: 8px 0 10px; padding-left: 18px; color: var(--text-soft); }
+.tester li { margin: 2px 0; }
+.quote {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text);
+  font-style: italic;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: 16px;
+}
+.split img { width: 100%; height: auto; display: block; }
+.split ul { margin: 0; padding: 0; list-style: none; }
+.split li { padding: 10px 0; border-top: 1px solid var(--hairline); color: var(--text-soft); font-size: 13px; }
+.split li:first-child { border-top: 0; padding-top: 0; }
+.split li b { display: block; color: var(--text); font-weight: 500; font-size: 14px; margin-bottom: 2px; }
+
+.list-plain { margin: 6px 0 14px; padding-left: 18px; color: var(--text-soft); }
+.list-plain li { margin: 4px 0; }
+.list-plain b { color: var(--text); font-weight: 500; }
+
+.case-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px var(--pad);
+  border-top: 1px solid var(--hairline);
+  font-size: 13px;
+}
+.case-next a { color: var(--text-soft); text-decoration: none; }
+.case-next a:hover { color: var(--text); }
+
+@media (max-width: 700px) {
+  .case-meta { grid-template-columns: 1fr 1fr; }
+  .case-hero h1 { font-size: 28px; }
+  .card-grid, .stat-pair { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .split img { max-width: 220px; margin: 0 auto; }
+}

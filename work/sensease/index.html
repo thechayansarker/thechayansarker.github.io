@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SensEase case study, Chayan Sarker</title>
+<meta name="description" content="SensEase helps people with sensory sensitivities know what a public space will feel like before they walk in." />
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../styles.css" />
+
+<script>
+  (function () {
+    var saved = localStorage.getItem("theme");
+    var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  })();
+</script>
+</head>
+
+<body id="top" data-root="../../">
+  <div class="frame case">
+
+    <header class="case-hero">
+      <a class="back" href="../../#work">&larr; Work</a>
+      <p class="eyebrow">Case study &middot; 2025</p>
+      <h1>SensEase</h1>
+      <p class="lede">A navigation app that helps people with sensory sensitivities know what a public space will feel like before they walk in.</p>
+      <dl class="case-meta">
+        <div><dt>Team</dt><dd>Chayan Sarker<br />Preet Singh</dd></div>
+        <div><dt>Course</dt><dd>ARTG6600, Northeastern University</dd></div>
+        <div><dt>Instructor</dt><dd>Dr. Maitraye Das</dd></div>
+      </dl>
+    </header>
+
+    <figure class="case-cover">
+      <img src="images/hero.png" width="727" height="847" alt="Two SensEase screens: the onboarding screen asking to enable location, and a list of food places ranked by how well they match the user's sensory preferences." />
+    </figure>
+
+    <div class="rule"></div>
+
+    <section id="problem">
+      <div class="section-head" data-num="01">The problem</div>
+      <p>Public spaces like airports, malls and restaurants can be overwhelming for people with sensory sensitivities. The hardest part is unpredictability. There is no way to know what a place will be like until you are already there, which makes everyday outings stressful and exhausting.</p>
+      <p>This affects autistic people, and also people with ADHD, PTSD, migraines, anxiety and more. Some places offer fixes like quiet hours, but they are inconsistent and don't reflect how noise, crowds or lighting change through the day.</p>
+      <div class="stat-pair">
+        <div><b>1 in 36</b><span>children in the U.S. are autistic (CDC, 2023).</span></div>
+        <div><b>69 to 95%</b><span>of autistic people experience sensory sensitivities.</span></div>
+      </div>
+      <p><strong>The goal:</strong> a sensory friendly navigation tool with live insights about each place, ratings from other visitors, and recommendations tuned to each person's needs.</p>
+    </section>
+
+    <section id="research">
+      <div class="section-head" data-num="02">Research</div>
+      <p>We grounded the work in a study by Keren MacLennan and colleagues on the sensory experiences of autistic adults in public spaces. Supermarkets, restaurants, public transport and shopping centers were the most overwhelming. Outdoor spaces, museums and some entertainment venues were easier.</p>
+      <p>The study describes six factors that decide whether a space enables or disables someone. We used them as the framework for everything the app measures.</p>
+      <div class="card-grid">
+        <div><h4>Sensoryscape</h4><p>Sounds, lights and smells that are hard to control or escape.</p></div>
+        <div><h4>Space</h4><p>Layout and crowd density. Tight or busy areas cause overload.</p></div>
+        <div><h4>Predictability</h4><p>Knowing what to expect. Unfamiliar or inconsistent layouts add stress.</p></div>
+        <div><h4>Understanding</h4><p>How staff and the public respond to sensory needs.</p></div>
+        <div><h4>Adjustments</h4><p>Flexible accommodations, like sensory friendly hours or other ways to communicate.</p></div>
+        <div><h4>Recovery</h4><p>Quiet areas and the chance to take a break and regroup.</p></div>
+      </div>
+      <p class="figure"><small style="color: var(--muted); font-size: 12px;">Source: MacLennan et al., <em>&ldquo;It Is a Big Spider Web of Things&rdquo;: Sensory Experiences of Autistic Adults in Public Spaces.</em></small></p>
+      <blockquote class="hmw">How might we empower individuals with sensory sensitivities to predict and navigate public spaces based on their unique sensory needs?</blockquote>
+    </section>
+
+    <section id="design">
+      <div class="section-head" data-num="03">Designing it</div>
+      <p>We started by deciding what the app needed to do. Six core features came out of that:</p>
+      <div class="card-grid">
+        <div><h4>Sensory preferences</h4><p>Set what matters to you: noise, crowds, odors, lighting, quiet spaces and staff.</p></div>
+        <div><h4>Nearby places</h4><p>See at a glance which places around you match your needs.</p></div>
+        <div><h4>Structured reviews</h4><p>Rate a place with tags, noise recordings and photos, and read reviews that matter to you.</p></div>
+        <div><h4>Smart search</h4><p>Tailored suggestions for food, coffee, shopping and more.</p></div>
+        <div><h4>Sensory breakdown</h4><p>Current and past conditions for each place, built from visitor reports.</p></div>
+        <div><h4>Saved places</h4><p>Save places, add notes, and check the details before going back.</p></div>
+      </div>
+
+      <h3>Sketches</h3>
+      <figure class="figure">
+        <img src="images/sketches.jpg" width="1600" height="900" loading="lazy" alt="Whiteboard sketches of the onboarding, search, place detail, review and saved screens, with arrows showing the flow between them." />
+        <figcaption>Initial sketches of the screens and the flow between them.</figcaption>
+      </figure>
+
+      <h3>Initial wireframes</h3>
+      <p>We worked out which screens needed to be prototyped, put in rough content, and defined the navigation bar, the main calls to action and a first visual layout.</p>
+      <figure class="figure">
+        <img src="images/wireframes-1.jpg" width="1600" height="900" loading="lazy" alt="Grey low fidelity wireframes of about a dozen screens connected by flow lines." />
+        <figcaption>First round of wireframes.</figcaption>
+      </figure>
+
+      <h3>Second iteration</h3>
+      <p>Next we added fidelity and consistency, and experimented with different kinds of interactions. We still had open questions about some interactions, how much detail to ask for in prompts, and which information to show.</p>
+      <figure class="figure">
+        <img src="images/wireframes-2.jpg" width="1600" height="900" loading="lazy" alt="Thirteen higher fidelity grey screens covering preferences, map, search results, place details, reviews, saved places and filters." />
+        <figcaption>Second iteration, covering onboarding through reviews and filters.</figcaption>
+      </figure>
+    </section>
+
+    <section id="testing">
+      <div class="section-head" data-num="04">Pilot testing</div>
+      <p>To answer those questions we ran three 45 minute sessions: a 10 minute project intro, a 10 minute walkthrough of the app, and 25 minutes of open feedback. Each tester brought a different lens.</p>
+      <div class="testers">
+        <div class="tester">
+          <div class="tester-head"><b>Anmol Singh</b><span>Medical student</span></div>
+          <ul>
+            <li>Use words instead of numbers, like &ldquo;quiet&rdquo; rather than a 4 out of 5 noise score.</li>
+            <li>Simplify staff accommodation to Yes, Somewhat or No.</li>
+            <li>Only show the details that matter to each person, with a deeper breakdown on request.</li>
+          </ul>
+          <p class="quote">&ldquo;How do you compare one person&rsquo;s 4 to another person&rsquo;s 5?&rdquo;</p>
+        </div>
+        <div class="tester">
+          <div class="tester-head"><b>Eunju Pak</b><span>PhD design student</span></div>
+          <ul>
+            <li>Places change through the day, so show conditions for the time of a visit, like transit apps show how crowded it is right now.</li>
+            <li>Be clear whether a preference measures how much something matters or how hard it is to cope with.</li>
+            <li>Highlight the most relevant review as people browse.</li>
+          </ul>
+          <p class="quote">&ldquo;Some places aren&rsquo;t as static as others. Think of a way to communicate peak hours and how conditions change.&rdquo;</p>
+        </div>
+        <div class="tester">
+          <div class="tester-head"><b>Isabelle Hou</b><span>BFA design student</span></div>
+          <ul>
+            <li>Use tiered importance levels, plus a Hard No toggle that filters a trigger out completely.</li>
+            <li>Crowds feel different depending on the activity, so factor that into recommendations.</li>
+            <li>Treat accommodation as how flexible a place is, not a fixed score.</li>
+          </ul>
+          <p class="quote">&ldquo;Some preferences should definitely have a HARD NO option so that people don&rsquo;t get recommended places with triggers that they want to avoid.&rdquo;</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="final">
+      <div class="section-head" data-num="05">Final prototype</div>
+      <p>Their feedback shaped five main changes.</p>
+      <div class="split">
+        <img src="images/final-listing.png" width="393" height="852" loading="lazy" alt="Final design of a food place listing for The Tranquil Cafe, showing a Sensory Match of 5 out of 5, quiet noise, natural lighting, low crowd and accommodating staff." />
+        <ul>
+          <li><b>More specific preferences</b>People now pick detailed triggers in each category, like types of noise, lighting conditions and odors.</li>
+          <li><b>Richer place details</b>Every place shows noise, lighting and crowd levels, when the data was last updated, and a Sensory Match score.</li>
+          <li><b>Expanded filters</b>Filters cover every sensory preference, and each condition can be switched on or off.</li>
+          <li><b>Redesigned place pages</b>A quick overview with a detailed dropdown, and conditions for now, morning, afternoon or evening.</li>
+          <li><b>Better reviews</b>Reviews mirror the onboarding questions, and people can add photos, record noise and log exactly when they visited.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="reflection">
+      <div class="section-head" data-num="06">Reflection</div>
+      <p>The prototype makes public spaces more predictable in three ways: personal recommendations built from detailed preferences, fine control over triggers including Hard No exclusions, and conditions that change with the time of day.</p>
+
+      <h3>Limitations</h3>
+      <ul class="list-plain">
+        <li><b>We didn&rsquo;t test with people who have sensory sensitivities.</b> That is the biggest gap, and it limits how far we can say the app works in real life.</li>
+        <li><b>Crowdsourced data</b> can be stale or incomplete, and it only works once enough people contribute.</li>
+        <li><b>Perception is subjective.</b> Quiet for one person isn&rsquo;t quiet for another, which makes a match score hard to get right.</li>
+        <li><b>Onboarding fatigue.</b> Asking detailed questions up front can overwhelm new users.</li>
+      </ul>
+
+      <h3>Ethics</h3>
+      <ul class="list-plain">
+        <li><b>Privacy.</b> Sensory preferences, location and reviews are sensitive, so consent and anonymity matter.</li>
+        <li><b>Bias.</b> Reviews may not represent less common sensory profiles, and the ranking must not exclude them.</li>
+        <li><b>Scope.</b> The app focuses on sensory needs and doesn&rsquo;t cover mobility, vision or other accessibility needs.</li>
+      </ul>
+
+      <h3>What&rsquo;s next</h3>
+      <p>In the short term: test with people who have sensory sensitivities, refine the prompts and interactions, and build a working prototype to try at places around Northeastern. Longer term: partner with venues to share their own sensory conditions, explore live sensors for noise, lighting and air quality, and reward people for leaving good reviews.</p>
+    </section>
+
+    <nav class="case-next" aria-label="Case study navigation">
+      <a href="../../#work">&larr; All work</a>
+      <a href="#top">Back to top &uarr;</a>
+    </nav>
+
+    <footer class="foot">
+      <div class="foot-meta">
+        <p class="copy" id="copyright"></p>
+        <div class="meta-lines">
+          <div class="meta-row">
+            <svg class="clock" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line id="hand-h" x1="12" y1="12" x2="12" y2="7.5" />
+              <line id="hand-m" x1="12" y1="12" x2="12" y2="5" />
+            </svg>
+            <div><span id="tz"></span><span id="time"></span></div>
+          </div>
+          <div class="meta-row">
+            <svg class="globe" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <ellipse cx="12" cy="12" rx="4.2" ry="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M4 7h16M4 17h16" />
+            </svg>
+            <div><span id="lat"></span><span id="lon"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="foot-tree">
+        <p class="tree-head">Contact</p>
+        <ul id="foot-contact"></ul>
+      </div>
+      <div class="foot-tree">
+        <p class="tree-head">Index</p>
+        <ul id="foot-index"></ul>
+      </div>
+    </footer>
+
+  </div>
+
+  <nav class="dock" id="dock" aria-label="Quick links"></nav>
+
+  <script src="../../data.js"></script>
+  <script src="../../script.js"></script>
+</body>
+</html>

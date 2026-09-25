@@ -30,7 +30,7 @@ window.SITE = {
   },
 
   stats: [
-    { icon: "writing",  label: "Writing",  meta: "5 posts",    href: "#writing" },
+    { icon: "work",     label: "Work",     meta: "1 project",  href: "#work" },
     { icon: "game",     label: "Playing",  meta: "6 games",    href: "#playing" },
     { icon: "book",     label: "Books",    meta: "15 books",   href: "#books" }
   ],
@@ -44,14 +44,9 @@ window.SITE = {
     { org: "Twinbit",    role: "UI/UX Designer",          period: "2020 → 2021" }
   ],
 
-  // 02 Writing (placeholders)
-  writingHref: "#",
-  writing: [
-    { title: "A post title goes here",              date: "26/07/24", href: "#" },
-    { title: "Another post title goes here",        date: "25/12/23", href: "#" },
-    { title: "Something you wrote about your work", date: "25/07/15", href: "#" },
-    { title: "An opinion you hold about the craft", date: "25/07/03", href: "#" },
-    { title: "A short personal note",               date: "25/06/24", href: "#" }
+  // 02 Work. Each project gets a row; `href` points at its case study page.
+  work: [
+    { title: "SensEase", summary: "Sensory friendly navigation for public spaces", year: "2025", href: "work/sensease/" }
   ],
 
   // 03 Recently playing. Click a cover to feature it, click the featured
@@ -103,7 +98,7 @@ window.SITE = {
     index: [
       { label: "Home",        href: "#top" },
       { label: "Experience",  href: "#experience" },
-      { label: "Writing",     href: "#writing" },
+      { label: "Work",        href: "#work" },
       { label: "Playing",     href: "#playing" },
       { label: "Books",       href: "#books" }
     ]
@@ -111,7 +106,7 @@ window.SITE = {
 
   dock: [
     { icon: "home",    label: "Home",        href: "#top" },
-    { icon: "writing", label: "Writing",     href: "#writing" },
+    { icon: "work",    label: "Work",        href: "#work" },
     { icon: "game",    label: "Playing",     href: "#playing" },
     { icon: "book",    label: "Books",       href: "#books" },
     { icon: "chat",    label: "Say hi",      href: "mailto:srchayan@gmail.com" },

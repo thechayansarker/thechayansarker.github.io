@@ -18,7 +18,7 @@ Then open http://localhost:8823
 ## Edit the content
 
 Everything you would want to change lives in **`data.js`**: name, bio,
-experience, writing, records, books, footer links and the dock.
+experience, work, the games you're playing, books, footer links and the dock.
 
 Bio paragraphs support two markers:
 
@@ -46,10 +46,22 @@ Shelf settings in `data.js`:
 | `titleLine`  | How far above the shelf the spine titles start |
 | `align`      | `packed`, `even`, `split` or `centered` |
 
-### Records
+### Work and case studies
 
-Same idea: each record has a title, a colour or `cover` image, and a `link`.
-Click to feature one, click the featured record to follow its link.
+Each entry in `work` in `data.js` is a row on the home page with a title,
+a one line summary, a year and an `href`. Case studies live in their own
+folder, for example `work/sensease/index.html`, with images beside them in
+`work/sensease/images/`.
+
+To add a project, copy the `work/sensease` folder, rename it, rewrite the
+page, and add a row to `work` pointing at the new folder. Keep
+`data-root="../../"` on the page's `<body>` so the dock and footer links lead
+back to the home page.
+
+### Recently playing
+
+Each game has a title, a `cover` image and a `link`. Click to feature one,
+click the featured cover to follow its link.
 
 ## Deploy to GitHub Pages
 

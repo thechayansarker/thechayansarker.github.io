@@ -17,7 +17,15 @@
 
   function isExternal(href) { return /^https?:/.test(href || ""); }
 
+  // Pages below the root (like work/sensease/) set data-root="../../" on
+  // <body> so links written relative to the home page still resolve.
+  var ROOT = document.body.getAttribute("data-root") || "";
+  function resolve(href) {
+    return !href || /^(https?:|mailto:|tel:|\/)/.test(href) ? href : ROOT + href;
+  }
+
   function linkAttrs(href) {
+    href = resolve(href);
     return 'href="' + esc(href) + '"' +
       (isExternal(href) ? ' target="_blank" rel="noopener noreferrer"' : "");
   }
@@ -55,6 +63,7 @@
   /* ---- icons ------------------------------------------------- */
 
   var ICON = {
+    work: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 12.5h18"/>',
     home: '<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
     writing: '<path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
     game: '<path d="M6 8h12a4 4 0 0 1 4 4v2.5a3.5 3.5 0 0 1-6.3 2.1L14.5 15h-5l-1.2 1.6A3.5 3.5 0 0 1 2 14.5V12a4 4 0 0 1 4-4z"/><path d="M7 10.5v3M5.5 12h3"/><path d="M16 11.5h.01M18 13.2h.01"/>',
@@ -69,6 +78,7 @@
   }
 
   var GLYPH = {
+    work: '<rect x="6" y="14" width="36" height="26" rx="3"/><path d="M18 14v-3a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3M6 25h36M21 25v4h6v-4"/>',
     writing: '<rect x="9" y="6" width="30" height="38" rx="3"/><path d="M15 16h18M15 23h18M15 30h11"/>',
     game: '<path d="M13 16h22a8 8 0 0 1 8 8v5a7 7 0 0 1-12.6 4.2L28 30h-8l-2.4 3.2A7 7 0 0 1 5 29v-5a8 8 0 0 1 8-8z"/><path d="M14 21.5v6M11 24.5h6"/><path d="M31 23h.01M35 26h.01"/>',
     disc: '<circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="4"/><path d="M14 24a10 10 0 0 1 10-10M34 24a10 10 0 0 1-10 10"/>',
@@ -80,8 +90,11 @@
       (GLYPH[name] || "") + "</svg>";
   }
 
+  var isHome = !!$("bio");
+
   /* ---- hero -------------------------------------------------- */
 
+  if (isHome) {
   $("name").textContent = S.name;
   $("flag").textContent = S.flag || "";
   $("bio").innerHTML = S.bio.map(function (p) { return "<p>" + inline(p) + "</p>"; }).join("");
@@ -95,6 +108,8 @@
       '<div class="meta">' + esc(s.meta) + "</div></a>";
   }).join("");
 
+  }
+
   /* ---- section markers: [ 01 | hatch ] ----------------------- */
 
   document.querySelectorAll(".section-head[data-num]").forEach(function (h) {
@@ -104,6 +119,7 @@
 
   /* ---- 01 experience ----------------------------------------- */
 
+  if (isHome) {
   $("experience-list").innerHTML = S.experience.map(function (r) {
     var org = r.href
       ? '<a class="org ext" ' + linkAttrs(r.href) + ">" + esc(r.org) + "</a>"
@@ -113,19 +129,22 @@
       '<div class="period">' + esc(r.period) + "</div></div>";
   }).join("");
 
-  /* ---- 02 writing -------------------------------------------- */
+  /* ---- 02 work ----------------------------------------------- */
 
-  $("writing-more").href = S.writingHref || "#";
-  $("writing-list").innerHTML = S.writing.map(function (p) {
-    return '<a class="post" ' + linkAttrs(p.href || "#") + ">" +
-      '<span class="t">' + esc(p.title) + '</span><span class="d">' + esc(p.date) + "</span></a>";
+  $("work-list").innerHTML = S.work.map(function (w) {
+    return '<a class="post work-item" ' + linkAttrs(w.href || "#") + ">" +
+      '<span class="t"><span class="wt">' + esc(w.title) + "</span>" +
+      '<span class="ws">' + esc(w.summary || "") + "</span></span>" +
+      '<span class="d">' + esc(w.year || "") + "</span></a>";
   }).join("");
+  }
 
   /* =============================================================
      03 Recently playing: overlapping covers, click to feature
      ============================================================= */
 
   (function records() {
+    if (!$("records")) return;
     var R = S.playing, items = R.items, n = items.length;
     var featured = Math.min(R.featured || 0, n - 1);
     var root = $("records");
@@ -183,6 +202,7 @@
      ============================================================= */
 
   (function bookshelf() {
+    if (!$("shelf")) return;
     var B = S.books, items = B.items, n = items.length;
     var coverW = B.coverWidth, gap = B.gap, lean = B.lean, align = B.align || "packed";
     var open = 0;
@@ -432,6 +452,7 @@
   }
 
   function drawPortrait() {
+    if (!canvas) return;
     if (S.portraitStyle === "illustration" && S.portrait) {
       if (illustrated) return;
       var pic = new Image();
