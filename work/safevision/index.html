@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SafeVision case study, Chayan Sarker</title>
-<meta name="description" content="SafeVision is a concept for AR glasses that help public transit riders feel safer and more in control of their journeys." />
+<meta name="description" content="SafeVision explores how an AR experience could help transit riders feel safer, and where such a system should draw the line." />
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,158 +26,155 @@
 
     <header class="case-hero">
       <a class="back" href="../../#work">&larr; Work</a>
-      <p class="eyebrow">Case study &middot; 2024</p>
+      <p class="eyebrow">Experience design research &middot; 2024</p>
       <h1>SafeVision</h1>
-      <p class="lede">A concept for AR glasses that give public transit riders calm, real time reassurance about the people and places around them.</p>
+      <p class="lede">Designing a calm AR experience that helps transit riders feel safer, and working out what such a system should never do.</p>
       <dl class="case-meta">
-        <div><dt>Role</dt><dd>UX Design &amp; Research</dd></div>
+        <div><dt>Role</dt><dd>Experience design &amp; research</dd></div>
         <div><dt>Timeline</dt><dd>October 2024 to present</dd></div>
         <div><dt>Advisor</dt><dd>Tad Hirsch</dd></div>
       </dl>
     </header>
 
     <figure class="case-photo">
-      <img src="images/cover.jpg" width="1400" height="898" alt="A man waiting at a transit stop at night, with an AR panel beside him showing his name, a green Safe meter and a low Anxiety level." />
+      <img src="images/cover.jpg" width="1400" height="898" alt="A man waiting at a transit stop at night, with an AR panel beside him showing a green Safe meter and a low Anxiety level." />
     </figure>
 
     <div class="rule"></div>
 
-    <section id="overview">
-      <div class="section-head" data-num="01">Overview</div>
-      <p>SafeVision is a conceptual product that makes public transit safer and easier to navigate. It combines AI, mixed reality and wearable glasses to give riders tools for personal safety and a better journey.</p>
-      <p><strong>The result:</strong> real time visual reassurance that lowers anxiety and helps riders feel in control.</p>
-      <div class="card-grid">
-        <div><h4>Read the room</h4><p>See how the people nearby are feeling at a glance, so interactions stay calm and aware.</p></div>
-        <div><h4>Danger Mode</h4><p>When tension rises, the glasses switch to Danger Mode with one tap emergency actions.</p></div>
-        <div><h4>Safer routes</h4><p>Get route guidance that knows where you are and what is happening around you.</p></div>
-        <div><h4>Five week process</h4><p>Research, problem framing, ideation, prototyping, then final design and testing.</p></div>
-      </div>
-      <h3>Process</h3>
-      <ul class="list-plain">
-        <li><b>Kickoff:</b> research into who, what and why.</li>
-        <li><b>Week 2:</b> identifying and validating the problem.</li>
-        <li><b>Weeks 3 and 4:</b> ideation, more research, an evaluation plan, storyboards and a prototype.</li>
-        <li><b>Week 5 to final:</b> final design and testing.</li>
-      </ul>
+    <section id="question">
+      <div class="section-head" data-num="01">Research question</div>
+      <blockquote class="hmw">How might an AR experience support transit riders&rsquo; sense of safety without turning the people around them into suspects?</blockquote>
+      <p>Riders on Boston&rsquo;s MBTA describe feeling exposed at night: poorly lit platforms, few visible staff, and little they can do when something feels wrong. SafeVision is a speculative concept for AR glasses that explores how a safety experience could feel calm, give riders control, and stay out of the way.</p>
+      <p><strong>What this project is and isn&rsquo;t.</strong> It is experience design: research, principles, states, interactions and critique. It is not a built computer vision system. The sensing it imagines is a design assumption, and questioning that assumption became part of the work.</p>
     </section>
 
     <section id="research">
-      <div class="section-head" data-num="02">Research</div>
+      <div class="section-head" data-num="02">Understanding riders</div>
+      <p>I combined four methods to understand when and why riders feel unsafe.</p>
 
       <h3>Territory map</h3>
-      <p>I started with secondary research into the wider challenges of the MBTA. From that I built a territory map of the main rider groups, like commuters, tourists and elderly passengers, and the issues they face, like poor signage, missing real time information and accessibility gaps.</p>
+      <p>Secondary research into the MBTA, mapped as rider groups (commuters, tourists, elderly passengers, people with disabilities) and the issues around them, like poor signage, missing live information and safety concerns.</p>
       <figure class="figure">
         <img src="images/territory.jpg" width="1338" height="1358" loading="lazy" alt="Concentric territory map with the MBTA logo at the center, surrounded by transit lines, then rider groups, then issues such as inadequate signage, poor audio announcements and safety and security." />
-        <figcaption>Transit lines, rider groups and the issues around them.</figcaption>
       </figure>
 
       <h3>Survey</h3>
-      <p>I surveyed 50 people on Reddit about how safe they feel on the MBTA, especially at night, and which tools they use to feel more secure.</p>
+      <p>50 respondents recruited on Reddit, asked how safe they feel on the MBTA, especially at night, and which tools they rely on.</p>
       <div class="stat-pair three">
-        <div><b>58%</b><span>feel unsafe at night because of poor lighting, few visible staff and general safety concerns.</span></div>
-        <div><b>23%</b><span>feel safe, usually because they ride busier routes and know the system well.</span></div>
-        <div><b>19%</b><span>say apps like Transit and other live tracking tools make them feel more secure.</span></div>
+        <div><b>58%</b><span>feel unsafe at night, citing poor lighting, few visible staff and general safety concerns.</span></div>
+        <div><b>23%</b><span>feel safe, usually on busier routes they know well.</span></div>
+        <div><b>19%</b><span>say live tracking apps like Transit make them feel more secure.</span></div>
       </div>
-      <figure class="figure">
-        <img src="images/survey.jpg" width="1400" height="876" loading="lazy" alt="A collage of Reddit comments from MBTA riders describing when and why they feel unsafe on trains and at stations." />
-        <figcaption>Some of the responses from riders on Reddit.</figcaption>
-      </figure>
 
       <h3>Interviews</h3>
-      <p>I then interviewed 6 people with more than 25 questions. A few of the answers:</p>
-      <dl class="qa">
-        <div><dt>What times of day do you typically travel?</dt><dd>&ldquo;I usually travel during peak hours, which are very crowded.&rdquo;</dd></div>
-        <div><dt>Do you use any tools or apps to help with your MBTA experience?</dt><dd>&ldquo;Apps like Google Maps and Transit are helpful, but they don&rsquo;t always show safety concerns.&rdquo;</dd></div>
-        <div><dt>Have you ever felt unsafe while using the MBTA?</dt><dd>&ldquo;I feel unsafe at night, especially in less busy stations or areas with poor lighting.&rdquo;</dd></div>
-        <div><dt>Are the signage and announcements clear and helpful?</dt><dd>&ldquo;I sometimes miss my stop because the announcements are unclear or inaudible.&rdquo;</dd></div>
-      </dl>
+      <p>Six semi structured interviews with more than 25 questions, covering travel patterns, tools, and moments of feeling unsafe. Three comments shaped the design more than any others:</p>
       <div class="quote-grid">
-        <blockquote>&ldquo;When I&rsquo;m on the train late at night, I keep checking my surroundings. I just wish I knew who&rsquo;s around me, it would make me feel calmer.&rdquo;<cite>User 4</cite></blockquote>
-        <blockquote>&ldquo;If something feels off, I don&rsquo;t always know what to do. I want to feel like I have some control before things get serious.&rdquo;<cite>User 2</cite></blockquote>
-        <blockquote>&ldquo;I don&rsquo;t want the system to make me afraid of people. I want it to help me stay calm and safe, like it&rsquo;s watching out for me quietly.&rdquo;<cite>User 3</cite></blockquote>
+        <blockquote>&ldquo;When I&rsquo;m on the train late at night, I keep checking my surroundings. I just wish I knew who&rsquo;s around me, it would make me feel calmer.&rdquo;<cite>Participant 4</cite></blockquote>
+        <blockquote>&ldquo;If something feels off, I don&rsquo;t always know what to do. I want to feel like I have some control before things get serious.&rdquo;<cite>Participant 2</cite></blockquote>
+        <blockquote>&ldquo;I don&rsquo;t want the system to make me afraid of people. I want it to help me stay calm and safe, like it&rsquo;s watching out for me quietly.&rdquo;<cite>Participant 3</cite></blockquote>
       </div>
 
       <h3>Journey map</h3>
-      <p>I mapped a real trip from Hung Ave to Park Street. Anxiety peaks while waiting for a delayed train, when a stranger sits close by, and when trying to find the right exit at a crowded station.</p>
+      <p>A real trip from Hung Ave to Park Street. Anxiety peaked while waiting for a delayed train, when a stranger sat close by, and when searching for the right exit in a crowded station.</p>
       <figure class="figure">
         <img src="images/journey.jpg" width="1400" height="671" loading="lazy" alt="Journey map with seven phases from planning the trip to leaving the station, each with a photo and notes, above a line tracking how the rider's mood rises and falls." />
-        <figcaption>Seven phases of one journey and how the rider felt through each.</figcaption>
       </figure>
+
+      <p><strong>Limits of this research.</strong> The survey is a convenience sample from one online community, and six interviews point to patterns rather than prove them. I treat these findings as direction for design, not as measurement.</p>
     </section>
 
-    <section id="problem">
-      <div class="section-head" data-num="03">The problem</div>
-      <p>Public transit safety is still a challenge. Riders feel exposed to harassment, violence and emergencies, and have little to help them in the moment.</p>
-      <blockquote class="hmw">How might we help public transit passengers feel safer and more in control during their journeys?</blockquote>
-    </section>
-
-    <section id="ideation">
-      <div class="section-head" data-num="04">Ideation</div>
-      <p>Through ideation sessions and sketching I explored features for the pain points from research: safety concerns, navigation problems and reporting incidents as they happen.</p>
-      <div class="chips">
-        <span>Audio alerts</span><span>SOS in kiosks</span><span>Panic buttons at platforms</span><span>Text to emergency service</span><span>Live location on display</span><span>Weather responsive schedules</span><span>Live crowd heat maps</span><span>Easier CharlieCard access</span><span>Live incident notifications</span><span>Haptic feedback</span><span>AR glasses for safety</span><span>Time based safety features</span><span>Emergency lighting</span><span>Train carriage number</span><span>Emergency contact</span><span>Transfer assistance</span><span>Universal signage</span><span>Interactive digital maps</span><span>Report incidents in app</span><span>Station design</span>
+    <section id="principles">
+      <div class="section-head" data-num="03">Design principles</div>
+      <p>The research pointed to a tension: riders want awareness, but not a system that makes them fearful of others. I turned that into four principles that every design decision was tested against.</p>
+      <div class="card-grid">
+        <div><h4>Calm over alarm</h4><p>The default state should reassure. Alerts are rare, and the interface stays quiet when nothing is wrong.</p></div>
+        <div><h4>Control before escalation</h4><p>Give riders clear options early, before a situation becomes an emergency.</p></div>
+        <div><h4>Awareness, not identification</h4><p>Help riders read the situation without labelling or identifying the people in it.</p></div>
+        <div><h4>Heads up, hands free</h4><p>Keep riders looking at their surroundings, not down at a phone.</p></div>
       </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head" data-num="04">The experience</div>
+      <p>I explored twenty early ideas through sketching, from panic buttons and SOS kiosks to crowd maps and haptic stop alerts. Using the Three Horizons framework, I placed them on a timeline: fixes for today, app features for the near term, and AR glasses as the longer term vision this project focuses on.</p>
       <figure class="figure">
         <img src="images/sketches.jpg" width="1400" height="559" loading="lazy" alt="Eight rough sketches of ideas including a driver call button, station kiosks, a platform alarm, crowd maps and haptic alerts before your stop." />
-        <figcaption>Early sketches, from panic buttons and kiosks to haptic stop alerts.</figcaption>
+        <figcaption>Early sketches across all three horizons.</figcaption>
       </figure>
-    </section>
 
-    <section id="solution">
-      <div class="section-head" data-num="05">Design solution</div>
-      <p>I used the Three Horizons framework to balance what could help now, like panic buttons and SOS kiosks, with nearer term ideas like crowd heat maps in an app, and a longer term vision: AR glasses.</p>
+      <p>The experience is built around three states, and the transitions between them matter as much as the states themselves.</p>
+
+      <h3>1. Shield: the calm default</h3>
+      <p>While riding, the glasses show a quiet green meter. It signals that nothing needs attention, so riders can relax without constantly scanning the carriage.</p>
       <figure class="figure">
-        <img src="images/concept.jpg" width="1400" height="639" loading="lazy" alt="Silhouette of a woman wearing smart glasses, surrounded by feature labels: Shield Mode, Incident Reporting System, AR Navigation Guidance, Audio Alerts, Easy Conversation and Real Time Crowd Detection." />
-        <figcaption>The glasses and their core features.</figcaption>
+        <img src="images/shield.jpg" width="786" height="811" loading="lazy" alt="A subway carriage seen through the glasses, with a calm green Safe meter beside a seated passenger." />
       </figure>
 
-      <h3>Shield Mode: calm, live insight</h3>
-      <p>The glasses scan the carriage and show a calm Safe meter for the people nearby. The green interface offers quiet reassurance, so riders stay aware without being distracted.</p>
+      <h3>2. Danger: escalation with control</h3>
+      <p>If the situation changes, the panel shifts to a warm red meter and offers one tap actions: call emergency services, alert staff, or share location. Riders choose what happens next, in line with <em>control before escalation</em>.</p>
       <figure class="figure">
-        <img src="images/shield.jpg" width="786" height="811" loading="lazy" alt="A woman on a subway train outlined in green and labeled human, with a panel showing her name and a green Safe meter." />
+        <img src="images/emergency.jpg" width="855" height="472" loading="lazy" alt="A subway platform seen through the glasses, with a red Danger meter and a Call Emergency button." />
       </figure>
 
-      <h3>Emergency Shield: immediate response</h3>
-      <p>When high risk cues are detected, the panel turns to Danger with a red meter and one tap actions like Call Emergency, Alert Staff and Share Location, so riders can act quickly and safely.</p>
-      <figure class="figure">
-        <img src="images/emergency.jpg" width="855" height="472" loading="lazy" alt="A man on a subway platform outlined in red, with a panel marking him Unknown, a red Danger meter and a Call Emergency button." />
-      </figure>
-
-      <h3>Safer navigation</h3>
-      <p>Route guidance is drawn onto the street, with the nearest station and a small map, so riders can keep their heads up instead of looking down at a phone.</p>
+      <h3>3. Navigate: safer routes, heads up</h3>
+      <p>Route guidance is drawn onto the street, with the nearest station and a small map, so riders keep their eyes on their surroundings.</p>
       <figure class="figure">
         <img src="images/navigation.jpg" width="1400" height="712" loading="lazy" alt="A city street seen through the glasses, with blue arrows on the road, a label for Congress station half a minute away, and a map panel showing the route." />
       </figure>
     </section>
 
     <section id="feedback">
-      <div class="section-head" data-num="06">Feedback</div>
+      <div class="section-head" data-num="05">Critique and iteration</div>
       <div class="split">
         <img src="images/critique.jpg" width="655" height="874" loading="lazy" alt="A group of people, faces blurred, gathered around a table covered in printed journey maps and sticky notes during a critique." />
         <div>
-          <p>During the critique, people said that feeling safe also depends on understanding other people&rsquo;s emotions. They described moments when someone seemed tense or distracted and it was hard to know how to act around them.</p>
-          <p><strong>Design response:</strong> safety also means social awareness. That led to the Anxiety Level feature at the top of this page, which lets riders sense how stressed the people around them are, so they know when it is a good time to talk and when to give someone space.</p>
+          <p>In a critique session, participants said feeling safe also depends on understanding how others are feeling. They described moments when someone nearby seemed tense or distracted, and not knowing whether to engage or give space.</p>
+          <p>This led to an <strong>Anxiety Level</strong> concept, shown at the top of this page, meant to help riders judge when to talk and when to step back.</p>
+          <p>It also raised the hardest question in the project, which the next section takes on.</p>
         </div>
       </div>
     </section>
 
-    <section id="data">
-      <div class="section-head" data-num="07">Data</div>
-      <p>The glasses would draw on public safety databases, live video feeds, transit system records and feedback from riders. They would also use environmental data like lighting and weather, along with trained AI models, to spot potential threats and alert riders in real time.</p>
+    <section id="reflection">
+      <div class="section-head" data-num="06">Critical reflection</div>
+      <p>Looking back, several parts of the concept conflict with its own principles. Naming them is the most useful outcome of the project.</p>
+
+      <h3>Can feelings be read from faces?</h3>
+      <p>The Anxiety Level feature assumes a system can infer how someone feels from their face. In a separate labelling study, <a class="link" href="../reading-faces/">Reading Faces</a>, people tagged neutral faces as happy, mostly with low confidence and little agreement. If people cannot agree on these labels, a model trained on them inherits that uncertainty. The feature would need strong evidence before it could be trusted.</p>
+
+      <h3>Awareness, not identification</h3>
+      <p>Early mockups show names and occupations for the people around the rider. That breaks the principle of <em>awareness, not identification</em>, and raises questions of bystander consent. A revised version would show only the state of the situation, never who is in it.</p>
+
+      <h3>Whose data, and who gets flagged</h3>
+      <p>The concept assumed sources like public safety records, video feeds and rider reports. Some of these carry historical bias, so the system could flag certain people more often than others. The groups already over policed on transit would bear the cost of false alarms.</p>
       <figure class="figure">
-        <img src="images/data.jpg" width="1400" height="659" loading="lazy" alt="Mind map of AI data sources: public safety databases, behavioral analysis, transit system data, crowdsourced data, optional user profile data, environmental data and AI training data." />
-        <figcaption>Where the glasses would get their data.</figcaption>
+        <img src="images/data.jpg" width="1400" height="659" loading="lazy" alt="Mind map of data sources the concept assumed: public safety databases, behavioral analysis, transit system data, crowdsourced data, optional user profile data, environmental data and AI training data." />
+        <figcaption>The data sources the concept assumed, several of which I would now remove or restrict.</figcaption>
       </figure>
+
+      <h3>What I would change</h3>
+      <ul class="list-plain">
+        <li><b>Remove identity</b> from every state of the interface.</li>
+        <li><b>Drop inference about individuals</b> and focus on environmental signals like lighting, crowd density and staff presence.</li>
+        <li><b>Restrict data sources</b> to ones with clear consent and known limitations.</li>
+      </ul>
     </section>
 
-    <section id="reflection">
-      <div class="section-head" data-num="08">Reflection</div>
-      <p>Through feedback and iteration I learned that safety is also about emotional awareness and social comfort. People don&rsquo;t just want to feel protected, they want to understand how the people around them feel. Designing the Anxiety Level feature showed me how technology can build empathy, calm and connection, not fear.</p>
+    <section id="next">
+      <div class="section-head" data-num="07">Next steps</div>
+      <p>The concept hasn&rsquo;t been tested with riders. The next step is a study that can tell whether the experience actually helps.</p>
+      <ul class="list-plain">
+        <li><b>Wizard of Oz study:</b> simulate the three states in a staged station setting, with a researcher triggering transitions, and measure perceived safety and anxiety before and after.</li>
+        <li><b>Bystander interviews:</b> ask riders how they would feel being seen through someone else&rsquo;s glasses.</li>
+        <li><b>A more diverse sample:</b> recruit beyond one online community, including riders with disabilities and frequent night travellers.</li>
+      </ul>
+      <p>The broader question I want to keep pursuing: how can AI powered experiences support people&rsquo;s sense of safety without shifting the risk onto others?</p>
     </section>
 
     <nav class="case-next" aria-label="Case study navigation">
       <a href="../../#work">&larr; All work</a>
-      <a href="../sensease/">SensEase &rarr;</a>
+      <a href="../reading-faces/">Reading Faces &rarr;</a>
     </nav>
 
     <footer class="foot">

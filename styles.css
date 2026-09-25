@@ -814,3 +814,59 @@ html[data-theme="dark"] .case-cover { box-shadow: 0 0 0 1px var(--hairline-stron
 @media (max-width: 700px) {
   .stat-pair.three, .quote-grid { grid-template-columns: 1fr; }
 }
+
+/* Placeholder text to replace: highlighted so it is easy to spot */
+mark.todo {
+  background: rgba(255, 210, 0, .32);
+  color: inherit;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+/* Reading Faces: task card and redrawn tag grid */
+.task {
+  margin: 16px 0;
+  padding: 18px 18px 16px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 8px;
+}
+.task p { margin: 0 0 8px; font-size: 13px; }
+.task .task-title { font-size: 17px; color: var(--text); letter-spacing: -0.01em; margin-bottom: 6px; }
+.task .task-title b { font-weight: 700; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 12px; color: var(--text-soft); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+.legend i, .tile .dots i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid;
+}
+i.h { background: #a8e6fa; border-color: #1ea6d6; }
+i.m { background: #ffe066; border-color: #c99a06; }
+i.l { background: #ff9ee8; border-color: #d657bd; }
+
+.face-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.tile {
+  aspect-ratio: 1;
+  padding: 8px;
+  border-radius: 5px;
+  background: linear-gradient(160deg, #e2e2df, #cfcfcb);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+html[data-theme="dark"] .tile { background: linear-gradient(160deg, #26262a, #1b1b1e); }
+.tile b { font-family: var(--mono); font-size: 10px; font-weight: 500; color: var(--muted); }
+.tile .dots { display: flex; flex-wrap: wrap; gap: 3px; }
+.tile .n { font-size: 11px; color: var(--text-soft); }
+
+@media (max-width: 700px) {
+  .face-grid { gap: 4px; }
+  .tile { padding: 5px; }
+  .tile .dots { gap: 2px; }
+  .tile .dots i { width: 7px; height: 7px; border-width: 1px; }
+  .tile .n { font-size: 10px; }
+}
