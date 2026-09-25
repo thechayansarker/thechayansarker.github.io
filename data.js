@@ -31,7 +31,7 @@ window.SITE = {
 
   stats: [
     { icon: "writing",  label: "Writing",  meta: "5 posts",    href: "#writing" },
-    { icon: "game",     label: "Playing",  meta: "5 games",    href: "#playing" },
+    { icon: "game",     label: "Playing",  meta: "6 games",    href: "#playing" },
     { icon: "book",     label: "Books",    meta: "15 books",   href: "#books" }
   ],
 
@@ -63,7 +63,8 @@ window.SITE = {
       { title: "Assassin's Creed Odyssey", color: "#3d4a3a", cover: "assets/games/assassins-creed-odyssey.jpg", link: "https://www.xbox.com/en-US/search?q=Assassin%27s+Creed+Odyssey" },
       { title: "EA Sports FC 26",          color: "#1b2a3a", cover: "assets/games/ea-sports-fc-26.jpg",          link: "https://www.xbox.com/en-US/search?q=EA+Sports+FC+26" },
       { title: "Forza Horizon 6",          color: "#c9c9c9", cover: "assets/games/forza-horizon-6.jpg",          link: "https://www.xbox.com/en-US/search?q=Forza+Horizon+6" },
-      { title: "Cricket 24",               color: "#10365a", cover: "assets/games/cricket-24.jpg",               link: "https://www.xbox.com/en-US/search?q=Cricket+24" }
+      { title: "Call of Duty: Black Ops 6", color: "#2a2418", cover: "assets/games/call-of-duty-black-ops-6.jpg", link: "https://www.xbox.com/en-US/search?q=Call+of+Duty+Black+Ops+6" },
+      { title: "Far Cry 5",                 color: "#3b5a78", cover: "assets/games/far-cry-5.jpg",                link: "https://www.xbox.com/en-US/search?q=Far+Cry+5" }
     ]
   },
 
