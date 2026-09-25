@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SafeVision case study, Chayan Sarker</title>
+<meta name="description" content="SafeVision is a concept for AR glasses that help public transit riders feel safer and more in control of their journeys." />
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../styles.css" />
+
+<script>
+  (function () {
+    var saved = localStorage.getItem("theme");
+    var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  })();
+</script>
+</head>
+
+<body id="top" data-root="../../">
+  <div class="frame case">
+
+    <header class="case-hero">
+      <a class="back" href="../../#work">&larr; Work</a>
+      <p class="eyebrow">Case study &middot; 2024</p>
+      <h1>SafeVision</h1>
+      <p class="lede">A concept for AR glasses that give public transit riders calm, real time reassurance about the people and places around them.</p>
+      <dl class="case-meta">
+        <div><dt>Role</dt><dd>UX Design &amp; Research</dd></div>
+        <div><dt>Timeline</dt><dd>October 2024 to present</dd></div>
+        <div><dt>Advisor</dt><dd>Tad Hirsch</dd></div>
+      </dl>
+    </header>
+
+    <figure class="case-photo">
+      <img src="images/cover.jpg" width="1400" height="898" alt="A man waiting at a transit stop at night, with an AR panel beside him showing his name, a green Safe meter and a low Anxiety level." />
+    </figure>
+
+    <div class="rule"></div>
+
+    <section id="overview">
+      <div class="section-head" data-num="01">Overview</div>
+      <p>SafeVision is a conceptual product that makes public transit safer and easier to navigate. It combines AI, mixed reality and wearable glasses to give riders tools for personal safety and a better journey.</p>
+      <p><strong>The result:</strong> real time visual reassurance that lowers anxiety and helps riders feel in control.</p>
+      <div class="card-grid">
+        <div><h4>Read the room</h4><p>See how the people nearby are feeling at a glance, so interactions stay calm and aware.</p></div>
+        <div><h4>Danger Mode</h4><p>When tension rises, the glasses switch to Danger Mode with one tap emergency actions.</p></div>
+        <div><h4>Safer routes</h4><p>Get route guidance that knows where you are and what is happening around you.</p></div>
+        <div><h4>Five week process</h4><p>Research, problem framing, ideation, prototyping, then final design and testing.</p></div>
+      </div>
+      <h3>Process</h3>
+      <ul class="list-plain">
+        <li><b>Kickoff:</b> research into who, what and why.</li>
+        <li><b>Week 2:</b> identifying and validating the problem.</li>
+        <li><b>Weeks 3 and 4:</b> ideation, more research, an evaluation plan, storyboards and a prototype.</li>
+        <li><b>Week 5 to final:</b> final design and testing.</li>
+      </ul>
+    </section>
+
+    <section id="research">
+      <div class="section-head" data-num="02">Research</div>
+
+      <h3>Territory map</h3>
+      <p>I started with secondary research into the wider challenges of the MBTA. From that I built a territory map of the main rider groups, like commuters, tourists and elderly passengers, and the issues they face, like poor signage, missing real time information and accessibility gaps.</p>
+      <figure class="figure">
+        <img src="images/territory.jpg" width="1338" height="1358" loading="lazy" alt="Concentric territory map with the MBTA logo at the center, surrounded by transit lines, then rider groups, then issues such as inadequate signage, poor audio announcements and safety and security." />
+        <figcaption>Transit lines, rider groups and the issues around them.</figcaption>
+      </figure>
+
+      <h3>Survey</h3>
+      <p>I surveyed 50 people on Reddit about how safe they feel on the MBTA, especially at night, and which tools they use to feel more secure.</p>
+      <div class="stat-pair three">
+        <div><b>58%</b><span>feel unsafe at night because of poor lighting, few visible staff and general safety concerns.</span></div>
+        <div><b>23%</b><span>feel safe, usually because they ride busier routes and know the system well.</span></div>
+        <div><b>19%</b><span>say apps like Transit and other live tracking tools make them feel more secure.</span></div>
+      </div>
+      <figure class="figure">
+        <img src="images/survey.jpg" width="1400" height="876" loading="lazy" alt="A collage of Reddit comments from MBTA riders describing when and why they feel unsafe on trains and at stations." />
+        <figcaption>Some of the responses from riders on Reddit.</figcaption>
+      </figure>
+
+      <h3>Interviews</h3>
+      <p>I then interviewed 6 people with more than 25 questions. A few of the answers:</p>
+      <dl class="qa">
+        <div><dt>What times of day do you typically travel?</dt><dd>&ldquo;I usually travel during peak hours, which are very crowded.&rdquo;</dd></div>
+        <div><dt>Do you use any tools or apps to help with your MBTA experience?</dt><dd>&ldquo;Apps like Google Maps and Transit are helpful, but they don&rsquo;t always show safety concerns.&rdquo;</dd></div>
+        <div><dt>Have you ever felt unsafe while using the MBTA?</dt><dd>&ldquo;I feel unsafe at night, especially in less busy stations or areas with poor lighting.&rdquo;</dd></div>
+        <div><dt>Are the signage and announcements clear and helpful?</dt><dd>&ldquo;I sometimes miss my stop because the announcements are unclear or inaudible.&rdquo;</dd></div>
+      </dl>
+      <div class="quote-grid">
+        <blockquote>&ldquo;When I&rsquo;m on the train late at night, I keep checking my surroundings. I just wish I knew who&rsquo;s around me, it would make me feel calmer.&rdquo;<cite>User 4</cite></blockquote>
+        <blockquote>&ldquo;If something feels off, I don&rsquo;t always know what to do. I want to feel like I have some control before things get serious.&rdquo;<cite>User 2</cite></blockquote>
+        <blockquote>&ldquo;I don&rsquo;t want the system to make me afraid of people. I want it to help me stay calm and safe, like it&rsquo;s watching out for me quietly.&rdquo;<cite>User 3</cite></blockquote>
+      </div>
+
+      <h3>Journey map</h3>
+      <p>I mapped a real trip from Hung Ave to Park Street. Anxiety peaks while waiting for a delayed train, when a stranger sits close by, and when trying to find the right exit at a crowded station.</p>
+      <figure class="figure">
+        <img src="images/journey.jpg" width="1400" height="671" loading="lazy" alt="Journey map with seven phases from planning the trip to leaving the station, each with a photo and notes, above a line tracking how the rider's mood rises and falls." />
+        <figcaption>Seven phases of one journey and how the rider felt through each.</figcaption>
+      </figure>
+    </section>
+
+    <section id="problem">
+      <div class="section-head" data-num="03">The problem</div>
+      <p>Public transit safety is still a challenge. Riders feel exposed to harassment, violence and emergencies, and have little to help them in the moment.</p>
+      <blockquote class="hmw">How might we help public transit passengers feel safer and more in control during their journeys?</blockquote>
+    </section>
+
+    <section id="ideation">
+      <div class="section-head" data-num="04">Ideation</div>
+      <p>Through ideation sessions and sketching I explored features for the pain points from research: safety concerns, navigation problems and reporting incidents as they happen.</p>
+      <div class="chips">
+        <span>Audio alerts</span><span>SOS in kiosks</span><span>Panic buttons at platforms</span><span>Text to emergency service</span><span>Live location on display</span><span>Weather responsive schedules</span><span>Live crowd heat maps</span><span>Easier CharlieCard access</span><span>Live incident notifications</span><span>Haptic feedback</span><span>AR glasses for safety</span><span>Time based safety features</span><span>Emergency lighting</span><span>Train carriage number</span><span>Emergency contact</span><span>Transfer assistance</span><span>Universal signage</span><span>Interactive digital maps</span><span>Report incidents in app</span><span>Station design</span>
+      </div>
+      <figure class="figure">
+        <img src="images/sketches.jpg" width="1400" height="559" loading="lazy" alt="Eight rough sketches of ideas including a driver call button, station kiosks, a platform alarm, crowd maps and haptic alerts before your stop." />
+        <figcaption>Early sketches, from panic buttons and kiosks to haptic stop alerts.</figcaption>
+      </figure>
+    </section>
+
+    <section id="solution">
+      <div class="section-head" data-num="05">Design solution</div>
+      <p>I used the Three Horizons framework to balance what could help now, like panic buttons and SOS kiosks, with nearer term ideas like crowd heat maps in an app, and a longer term vision: AR glasses.</p>
+      <figure class="figure">
+        <img src="images/concept.jpg" width="1400" height="639" loading="lazy" alt="Silhouette of a woman wearing smart glasses, surrounded by feature labels: Shield Mode, Incident Reporting System, AR Navigation Guidance, Audio Alerts, Easy Conversation and Real Time Crowd Detection." />
+        <figcaption>The glasses and their core features.</figcaption>
+      </figure>
+
+      <h3>Shield Mode: calm, live insight</h3>
+      <p>The glasses scan the carriage and show a calm Safe meter for the people nearby. The green interface offers quiet reassurance, so riders stay aware without being distracted.</p>
+      <figure class="figure">
+        <img src="images/shield.jpg" width="786" height="811" loading="lazy" alt="A woman on a subway train outlined in green and labeled human, with a panel showing her name and a green Safe meter." />
+      </figure>
+
+      <h3>Emergency Shield: immediate response</h3>
+      <p>When high risk cues are detected, the panel turns to Danger with a red meter and one tap actions like Call Emergency, Alert Staff and Share Location, so riders can act quickly and safely.</p>
+      <figure class="figure">
+        <img src="images/emergency.jpg" width="855" height="472" loading="lazy" alt="A man on a subway platform outlined in red, with a panel marking him Unknown, a red Danger meter and a Call Emergency button." />
+      </figure>
+
+      <h3>Safer navigation</h3>
+      <p>Route guidance is drawn onto the street, with the nearest station and a small map, so riders can keep their heads up instead of looking down at a phone.</p>
+      <figure class="figure">
+        <img src="images/navigation.jpg" width="1400" height="712" loading="lazy" alt="A city street seen through the glasses, with blue arrows on the road, a label for Congress station half a minute away, and a map panel showing the route." />
+      </figure>
+    </section>
+
+    <section id="feedback">
+      <div class="section-head" data-num="06">Feedback</div>
+      <div class="split">
+        <img src="images/critique.jpg" width="655" height="874" loading="lazy" alt="A group of people, faces blurred, gathered around a table covered in printed journey maps and sticky notes during a critique." />
+        <div>
+          <p>During the critique, people said that feeling safe also depends on understanding other people&rsquo;s emotions. They described moments when someone seemed tense or distracted and it was hard to know how to act around them.</p>
+          <p><strong>Design response:</strong> safety also means social awareness. That led to the Anxiety Level feature at the top of this page, which lets riders sense how stressed the people around them are, so they know when it is a good time to talk and when to give someone space.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="data">
+      <div class="section-head" data-num="07">Data</div>
+      <p>The glasses would draw on public safety databases, live video feeds, transit system records and feedback from riders. They would also use environmental data like lighting and weather, along with trained AI models, to spot potential threats and alert riders in real time.</p>
+      <figure class="figure">
+        <img src="images/data.jpg" width="1400" height="659" loading="lazy" alt="Mind map of AI data sources: public safety databases, behavioral analysis, transit system data, crowdsourced data, optional user profile data, environmental data and AI training data." />
+        <figcaption>Where the glasses would get their data.</figcaption>
+      </figure>
+    </section>
+
+    <section id="reflection">
+      <div class="section-head" data-num="08">Reflection</div>
+      <p>Through feedback and iteration I learned that safety is also about emotional awareness and social comfort. People don&rsquo;t just want to feel protected, they want to understand how the people around them feel. Designing the Anxiety Level feature showed me how technology can build empathy, calm and connection, not fear.</p>
+    </section>
+
+    <nav class="case-next" aria-label="Case study navigation">
+      <a href="../../#work">&larr; All work</a>
+      <a href="../sensease/">SensEase &rarr;</a>
+    </nav>
+
+    <footer class="foot">
+      <div class="foot-meta">
+        <p class="copy" id="copyright"></p>
+        <div class="meta-lines">
+          <div class="meta-row">
+            <svg class="clock" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line id="hand-h" x1="12" y1="12" x2="12" y2="7.5" />
+              <line id="hand-m" x1="12" y1="12" x2="12" y2="5" />
+            </svg>
+            <div><span id="tz"></span><span id="time"></span></div>
+          </div>
+          <div class="meta-row">
+            <svg class="globe" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <ellipse cx="12" cy="12" rx="4.2" ry="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M4 7h16M4 17h16" />
+            </svg>
+            <div><span id="lat"></span><span id="lon"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="foot-tree">
+        <p class="tree-head">Contact</p>
+        <ul id="foot-contact"></ul>
+      </div>
+      <div class="foot-tree">
+        <p class="tree-head">Index</p>
+        <ul id="foot-index"></ul>
+      </div>
+    </footer>
+
+  </div>
+
+  <nav class="dock" id="dock" aria-label="Quick links"></nav>
+
+  <script src="../../data.js"></script>
+  <script src="../../script.js"></script>
+</body>
+</html>

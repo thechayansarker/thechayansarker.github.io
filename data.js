@@ -30,7 +30,7 @@ window.SITE = {
   },
 
   stats: [
-    { icon: "work",     label: "Work",     meta: "1 project",  href: "#work" },
+    { icon: "work",     label: "Work",     meta: "2 projects",  href: "#work" },
     { icon: "game",     label: "Playing",  meta: "6 games",    href: "#playing" },
     { icon: "book",     label: "Books",    meta: "15 books",   href: "#books" }
   ],
@@ -46,7 +46,8 @@ window.SITE = {
 
   // 02 Work. Each project gets a row; `href` points at its case study page.
   work: [
-    { title: "SensEase", summary: "Sensory friendly navigation for public spaces", year: "2025", href: "work/sensease/" }
+    { title: "SensEase", summary: "Sensory friendly navigation for public spaces", year: "2025", href: "work/sensease/" },
+    { title: "SafeVision", summary: "AR glasses for safer public transit", year: "2024", href: "work/safevision/" }
   ],
 
   // 03 Recently playing. Click a cover to feature it, click the featured
