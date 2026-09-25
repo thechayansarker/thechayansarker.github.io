@@ -770,7 +770,8 @@ html[data-theme="dark"] .case-cover { box-shadow: 0 0 0 1px var(--hairline-stron
 
 /* Photo cover (edge to edge image instead of the dark stage) */
 .case-photo { margin: 0 var(--pad) 34px; }
-.case-photo img { width: 100%; height: auto; display: block; border-radius: 10px; }
+.case-photo img, .case-photo video { width: 100%; height: auto; display: block; border-radius: 10px; }
+.case-photo video { background: #151515; }
 
 .stat-pair.three { grid-template-columns: repeat(3, 1fr); }
 

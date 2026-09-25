@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SafeVision case study, Chayan Sarker</title>
-<meta name="description" content="SafeVision is a computer vision concept for AR glasses that reads the people around a transit rider, predicts how safe the situation is, and responds calmly." />
+<meta name="description" content="SafeVision is a computer vision design experiment for AR glasses that reads the people around a transit rider, predicts how safe the situation is, and responds calmly." />
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +28,7 @@
       <a class="back" href="../../#work">&larr; Work</a>
       <p class="eyebrow">Computer vision &amp; experience design &middot; 2024</p>
       <h1>SafeVision</h1>
-      <p class="lede">A computer vision concept for AR glasses that detects the people around a transit rider, reads their expressions, predicts how safe the situation is, and responds calmly.</p>
+      <p class="lede">A computer vision design experiment for AR glasses that detects the people around a transit rider, reads their expressions, predicts how safe the situation is, and responds calmly.</p>
       <dl class="case-meta">
         <div><dt>Role</dt><dd>Experience design &amp; research</dd></div>
         <div><dt>Timeline</dt><dd>October 2024 to present</dd></div>
@@ -38,13 +38,29 @@
     </header>
 
     <figure class="case-photo">
-      <img src="images/cover.jpg" width="1400" height="898" alt="A man waiting at a transit stop at night, with an AR panel beside him showing a green Safe meter and a low Anxiety level." />
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" width="1600" height="1200" aria-label="A man waiting at a transit stop at night. An AR panel appears beside him showing a green Safe meter and a low Anxiety level.">
+        <source src="media/hero.mp4" type="video/mp4" />
+      </video>
     </figure>
+    <script>
+      // Respect reduced motion: show the still frame instead of playing.
+      // Otherwise start playback explicitly, since browsers may hold off
+      // autoplay for pages opened in a background tab.
+      (function () {
+        var v = document.querySelector(".hero-video");
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          v.removeAttribute("autoplay"); v.pause(); return;
+        }
+        var start = function () { var p = v.play(); if (p) p.catch(function () {}); };
+        start();
+        document.addEventListener("visibilitychange", function () { if (!document.hidden && v.paused) start(); });
+      })();
+    </script>
 
     <div class="glance">
       <div><h4>Problem</h4><p>58% of surveyed MBTA riders feel unsafe at night, with few tools to act when something feels wrong.</p></div>
       <div><h4>Approach</h4><p>Research with riders, then a computer vision pipeline that reads faces and past data, delivered through a three state AR experience.</p></div>
-      <div><h4>Outcome</h4><p>A system design and interactive concept, safeguards for its riskiest assumptions, and a plan to build and evaluate the model.</p></div>
+      <div><h4>Outcome</h4><p>An experimental system design and interactive prototype, safeguards for its riskiest assumptions, and a plan to build and evaluate the model.</p></div>
     </div>
 
     <div class="rule"></div>
