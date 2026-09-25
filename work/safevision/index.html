@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SafeVision case study, Chayan Sarker</title>
-<meta name="description" content="SafeVision explores how an AR experience could help transit riders feel safer, and where such a system should draw the line." />
+<meta name="description" content="SafeVision is a computer vision concept for AR glasses that reads the people around a transit rider, predicts how safe the situation is, and responds calmly." />
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,13 +26,14 @@
 
     <header class="case-hero">
       <a class="back" href="../../#work">&larr; Work</a>
-      <p class="eyebrow">Experience design research &middot; 2024</p>
+      <p class="eyebrow">Computer vision &amp; experience design &middot; 2024</p>
       <h1>SafeVision</h1>
-      <p class="lede">Designing a calm AR experience that helps transit riders feel safer, and working out what such a system should never do.</p>
+      <p class="lede">A computer vision concept for AR glasses that detects the people around a transit rider, reads their expressions, predicts how safe the situation is, and responds calmly.</p>
       <dl class="case-meta">
         <div><dt>Role</dt><dd>Experience design &amp; research</dd></div>
         <div><dt>Timeline</dt><dd>October 2024 to present</dd></div>
         <div><dt>Advisor</dt><dd>Tad Hirsch</dd></div>
+        <div><dt>Focus</dt><dd>Computer vision, AR, HCI</dd></div>
       </dl>
     </header>
 
@@ -42,17 +43,18 @@
 
     <div class="glance">
       <div><h4>Problem</h4><p>58% of surveyed MBTA riders feel unsafe at night, with few tools to act when something feels wrong.</p></div>
-      <div><h4>Approach</h4><p>Survey, interviews and journey mapping, turned into design principles and a three state AR experience.</p></div>
-      <div><h4>Outcome</h4><p>A speculative concept, a critique of its riskiest assumptions, and a plan to test it with riders.</p></div>
+      <div><h4>Approach</h4><p>Research with riders, then a computer vision pipeline that reads faces and past data, delivered through a three state AR experience.</p></div>
+      <div><h4>Outcome</h4><p>A system design and interactive concept, safeguards for its riskiest assumptions, and a plan to build and evaluate the model.</p></div>
     </div>
 
     <div class="rule"></div>
 
     <section id="question">
       <div class="section-head" data-num="01">Research question</div>
-      <blockquote class="hmw">How might an AR experience support transit riders&rsquo; sense of safety without turning the people around them into suspects?</blockquote>
+      <blockquote class="hmw">How might computer vision in AR glasses help transit riders anticipate risk, without turning the people around them into suspects?</blockquote>
       <p>Riders on Boston&rsquo;s MBTA describe feeling exposed at night: poorly lit platforms, few visible staff, and little they can do when a situation feels wrong. Existing apps help with schedules and routes, but not with how safe a journey feels.</p>
-      <p>SafeVision is a speculative concept for AR glasses. It asks how a safety experience could feel calm, give riders control, and stay out of the way. It is experience design, not a built computer vision system: the sensing it imagines is a design assumption, and examining that assumption became a central part of the work.</p>
+      <p>SafeVision uses the camera in a pair of AR glasses to detect the people nearby, analyse their facial expressions in real time, and combine that with previous data to predict how safe the situation is. The prediction drives a calm interface that tells the rider when to relax and when to act.</p>
+      <p>The project covers the full loop: research with riders, the design of the computer vision pipeline, and the experience built on top of it. The pipeline is specified as a system design, and the models are not trained yet.</p>
     </section>
 
     <section id="research">
@@ -102,17 +104,36 @@
 
     <section id="principles">
       <div class="section-head" data-num="04">Design principles</div>
-      <p>The insights point to a tension between awareness and fear. I turned them into four principles that every design decision was tested against.</p>
+      <p>The insights point to a tension between awareness and fear. I turned them into four principles that shaped both the model outputs and the interface.</p>
       <div class="card-grid">
         <div><h4>Calm over alarm</h4><p>The default state should reassure. Alerts are rare, and the interface stays quiet when nothing is wrong.</p></div>
         <div><h4>Control before escalation</h4><p>Give riders clear options early, before a situation becomes an emergency.</p></div>
-        <div><h4>Awareness, not identification</h4><p>Help riders read the situation without labelling or identifying the people in it.</p></div>
+        <div><h4>Show your confidence</h4><p>Every prediction comes with how sure the system is, so riders can weigh it rather than obey it.</p></div>
         <div><h4>Heads up, hands free</h4><p>Keep riders looking at their surroundings, not down at a phone.</p></div>
       </div>
     </section>
 
+    <section id="system">
+      <div class="section-head" data-num="05">How the glasses see</div>
+      <p>SafeVision runs as a five stage computer vision pipeline. Each stage feeds the next, and only the final result reaches the rider.</p>
+      <ol class="insights">
+        <li><b>Capture</b>The glasses&rsquo; forward camera streams video, processed on the device so raw footage never leaves the glasses.</li>
+        <li><b>Detect and track</b>A detection model finds people and faces in each frame and tracks them as they move through the carriage or platform.</li>
+        <li><b>Read the current expression</b>An expression model estimates signs of tension, agitation or calm from each tracked face, updated continuously.</li>
+        <li><b>Add previous data</b>The system combines the live reading with past data: incident history at that station, reports from other riders, time of day and lighting, and records linked to a person where available.</li>
+        <li><b>Predict a safety level</b>A fusion model turns these signals into a safety score with a confidence level, which decides whether the rider sees Shield or Danger.</li>
+      </ol>
+
+      <h3>Where the data comes from</h3>
+      <p>The previous data layer draws on seven kinds of sources, from public safety databases and transit system records to crowdsourced reports and environmental data.</p>
+      <figure class="figure">
+        <img src="images/data.jpg" width="1400" height="659" loading="lazy" alt="Mind map of the data sources the system draws on: public safety databases, behavioral analysis, transit system data, crowdsourced data, optional user profile data, environmental data and AI training data." />
+        <figcaption>Data sources feeding the prediction.</figcaption>
+      </figure>
+    </section>
+
     <section id="experience">
-      <div class="section-head" data-num="05">The experience</div>
+      <div class="section-head" data-num="06">The experience</div>
       <p>I explored twenty early ideas through sketching, from panic buttons and SOS kiosks to crowd maps and haptic stop alerts. Using the Three Horizons framework, I placed them on a timeline: fixes for today, app features for the near term, and AR glasses as the longer term vision this project focuses on.</p>
       <figure class="figure">
         <img src="images/sketches.jpg" width="1400" height="559" loading="lazy" alt="Eight rough sketches of ideas including a driver call button, station kiosks, a platform alarm, crowd maps and haptic alerts before your stop." />
@@ -121,22 +142,22 @@
 
       <p>The experience is built around three states. The transitions between them matter as much as the states themselves.</p>
       <div class="flow" role="list">
-        <div class="state" role="listitem" style="--c:#62c23b"><b>Shield</b><p>Default while travelling. A quiet green meter signals that nothing needs attention.</p></div>
+        <div class="state" role="listitem" style="--c:#62c23b"><b>Shield</b><p>Default while the safety score is high. A quiet green meter signals that nothing needs attention.</p></div>
         <span class="arrow" aria-hidden="true">&rarr;</span>
-        <div class="state" role="listitem" style="--c:#e0452f"><b>Danger</b><p>Triggered when the situation changes. Offers one tap actions, and the rider decides what happens.</p></div>
+        <div class="state" role="listitem" style="--c:#e0452f"><b>Danger</b><p>Triggered when the score drops below a threshold with high confidence. Offers one tap actions, and the rider decides.</p></div>
         <span class="arrow" aria-hidden="true">&rarr;</span>
         <div class="state" role="listitem" style="--c:#3b7bf0"><b>Navigate</b><p>Guides the rider to safety or their destination, with directions drawn onto the street.</p></div>
       </div>
       <p class="flow-note">Riders can dismiss Danger at any time to return to Shield, and can start Navigate on demand.</p>
 
       <h3>Shield: the calm default</h3>
-      <p>While riding, the glasses show only a quiet green meter, so riders can relax without constantly scanning the carriage.</p>
+      <p>While the pipeline reads the carriage as safe, the glasses show only a quiet green meter over the people nearby, so riders can relax without constantly scanning.</p>
       <figure class="figure">
         <img src="images/shield.jpg" width="786" height="811" loading="lazy" alt="A subway carriage seen through the glasses, with a calm green Safe meter beside a seated passenger." />
       </figure>
 
       <h3>Danger: escalation with control</h3>
-      <p>If the situation changes, the panel shifts to a warm red meter and offers one tap actions: call emergency services, alert staff, or share location. The rider chooses what happens next, in line with <em>control before escalation</em>.</p>
+      <p>When the model detects rising tension and its confidence is high, the panel shifts to a warm red meter and offers one tap actions: call emergency services, alert staff, or share location. The rider chooses what happens next, in line with <em>control before escalation</em>.</p>
       <figure class="figure">
         <img src="images/emergency.jpg" width="855" height="472" loading="lazy" alt="A subway platform seen through the glasses, with a red Danger meter and a Call Emergency button." />
       </figure>
@@ -149,46 +170,47 @@
     </section>
 
     <section id="feedback">
-      <div class="section-head" data-num="06">Critique and iteration</div>
+      <div class="section-head" data-num="07">Critique and iteration</div>
       <div class="split">
         <img src="images/critique.jpg" width="655" height="874" loading="lazy" alt="A group of people, faces blurred, gathered around a table covered in printed journey maps and sticky notes during a critique." />
         <div>
           <p>In a critique session, participants said feeling safe also depends on understanding how others are feeling. They described moments when someone nearby seemed tense or distracted, and not knowing whether to engage or give space.</p>
-          <p>This led to an <strong>Anxiety Level</strong> concept, shown at the top of this page, meant to help riders judge when to talk and when to step back.</p>
+          <p>This led to an <strong>Anxiety Level</strong> output from the expression model, shown at the top of this page, meant to help riders judge when to talk and when to step back.</p>
           <p>It also raised the hardest question in the project, which the next section takes on.</p>
         </div>
       </div>
     </section>
 
     <section id="reflection">
-      <div class="section-head" data-num="07">Critical reflection</div>
-      <p>Looking back, several parts of the concept conflict with its own principles. Naming them is one of the most useful outcomes of the project.</p>
+      <div class="section-head" data-num="08">Risks and safeguards</div>
+      <p>A system that reads strangers&rsquo; faces and predicts how safe they are carries real risks. I treated them as design requirements, not afterthoughts.</p>
 
-      <h3>Can feelings be read from faces?</h3>
-      <p>The Anxiety Level feature assumes a system can infer how someone feels from their face. Psychology research questions whether facial movements reliably reveal inner states [1], and face analysis systems have been shown to perform unevenly across skin tones and genders [2]. Inferring a stranger&rsquo;s emotional state would need far stronger evidence before riders could trust it.</p>
+      <h3>Expressions are a noisy signal</h3>
+      <p>Psychology research questions whether facial movements reliably reveal inner states [1]. A tense face can mean worry, cold or tiredness. So the expression reading is never used alone: it is weighed with context and history, and the interface always shows the model&rsquo;s confidence.</p>
 
-      <h3>Awareness, not identification</h3>
-      <p>Early mockups show names and occupations for the people around the rider. That breaks the principle of <em>awareness, not identification</em>, and raises questions of bystander consent: the people being analysed never agreed to it.</p>
+      <h3>Models can be biased</h3>
+      <p>Face analysis systems have been shown to perform unevenly across skin tones and genders [2], and historical records can over represent groups that are already over policed. Before deployment, the models would need testing for accuracy and false alarm rates across demographic groups.</p>
 
-      <h3>Whose data, and who gets flagged</h3>
-      <p>The concept assumed sources like public safety records, video feeds and rider reports. Some of these carry historical bias, so the system could flag certain people more often than others, and the groups already over policed on transit would bear the cost of false alarms.</p>
-      <figure class="figure">
-        <img src="images/data.jpg" width="1400" height="659" loading="lazy" alt="Mind map of data sources the concept assumed: public safety databases, behavioral analysis, transit system data, crowdsourced data, optional user profile data, environmental data and AI training data." />
-        <figcaption>The data sources the concept assumed, several of which I would now remove or restrict.</figcaption>
-      </figure>
+      <h3>Bystanders never agreed to this</h3>
+      <p>The people being analysed are not the ones wearing the glasses. Early mockups showed names and occupations, which exposes far more than a rider needs to feel safe.</p>
 
-      <h3>What I would change</h3>
+      <h3>Safeguards in the design</h3>
       <ul class="list-plain">
-        <li><b>Remove identity</b> from every state of the interface.</li>
-        <li><b>Drop inference about individuals</b> and focus on environmental signals like lighting, crowd density and staff presence.</li>
-        <li><b>Restrict data sources</b> to ones with clear consent and known limitations.</li>
+        <li><b>On device processing,</b> with no storage of strangers&rsquo; faces or footage.</li>
+        <li><b>No identity on screen:</b> riders see a safety level, not who someone is.</li>
+        <li><b>Confidence thresholds,</b> so Danger only appears when the model is sure.</li>
+        <li><b>The rider always decides.</b> The system suggests, and never acts on its own.</li>
+        <li><b>Bias audits</b> before release, and after every model update.</li>
       </ul>
     </section>
 
     <section id="next">
-      <div class="section-head" data-num="08">Next steps</div>
-      <p>The concept hasn&rsquo;t been tested with riders. The next step is a study that can show whether the experience actually helps.</p>
+      <div class="section-head" data-num="09">Next steps</div>
+      <p>The next phase is to build and evaluate the pipeline, and test the experience with riders.</p>
       <ul class="list-plain">
+        <li><b>Prototype the pipeline</b> with existing open source detection and expression models on recorded footage from consenting participants.</li>
+        <li><b>Evaluate the model</b> on precision, recall and false alarm rate for Danger, plus latency on the glasses themselves.</li>
+        <li><b>Test for fairness</b> by comparing error rates across demographic groups.</li>
         <li><b>Wizard of Oz study:</b> simulate the three states in a staged station setting, with a researcher triggering transitions, and measure perceived safety and anxiety before and after.</li>
         <li><b>Bystander interviews:</b> ask riders how they would feel being seen through someone else&rsquo;s glasses.</li>
         <li><b>A broader sample:</b> recruit beyond one online community, including riders with disabilities and frequent night travellers.</li>
@@ -196,9 +218,9 @@
     </section>
 
     <section id="learned">
-      <div class="section-head" data-num="09">What I learned</div>
-      <p>Safety is not only about protection. It is also about emotional awareness and social comfort: people want to understand the situation around them, not to be told whom to fear. The hardest design decisions in this project were about what the system should refuse to do.</p>
-      <p>That is the question I want to keep pursuing: how can AI powered experiences support people&rsquo;s sense of safety without shifting the risk onto others?</p>
+      <div class="section-head" data-num="10">What I learned</div>
+      <p>Safety is not only about protection. It is also about emotional awareness and social comfort: people want to understand the situation around them, not to be told whom to fear. Designing the computer vision pipeline taught me that the hardest decisions sit between the model and the person: what to show, how confident to be, and when to stay quiet.</p>
+      <p>That is the question I want to keep pursuing: how can computer vision systems support people&rsquo;s sense of safety without shifting the risk onto others?</p>
 
       <h3>References</h3>
       <ol class="refs">
