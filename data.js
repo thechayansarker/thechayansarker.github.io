@@ -14,7 +14,7 @@ window.SITE = {
   // background removed so it sits on light and dark mode alike.
   // "ascii" redraws it in monospace characters, "halftone" in dots.
   portrait: "assets/portrait.webp",
-  portraitStyle: "ascii",
+  portraitStyle: "illustration",
 
   bio: [
     "I'm Chayan, a designer and researcher working across *AI*, *computer vision* and *augmented reality*. I'm interested in how these systems can coach and support people in the moment, in health and in public spaces.",
