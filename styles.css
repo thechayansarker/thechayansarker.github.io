@@ -111,6 +111,12 @@ button { font: inherit; color: inherit; }
 
 .portrait { width: 215px; aspect-ratio: 1 / 1; }
 .portrait canvas { width: 100%; height: 100%; display: block; }
+/* dark mode: tone down the white shirt and dissolve its ragged edges */
+html[data-theme="dark"] .portrait canvas {
+  filter: brightness(.86);
+  -webkit-mask-image: radial-gradient(ellipse 62% 70% at 50% 38%, #000 58%, transparent 100%);
+  mask-image: radial-gradient(ellipse 62% 70% at 50% 38%, #000 58%, transparent 100%);
+}
 
 /* ============================================================
    Stats
