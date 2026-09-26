@@ -32,7 +32,7 @@ window.SITE = {
   stats: [
     { icon: "work",     label: "Work",     meta: "3 projects",  href: "#work" },
     { icon: "game",     label: "Playing",  meta: "6 games",    href: "#playing" },
-    { icon: "book",     label: "Books",    meta: "15 books",   href: "#books" }
+    { icon: "book",     label: "Books",    meta: "6 books",   href: "#books" }
   ],
 
   // 01 Education and 02 Experience (from resume). `place` shows under the dates.
@@ -71,27 +71,18 @@ window.SITE = {
 
   // 04 Books. Click a spine to open it, click the open cover to follow its link.
   books: {
-    coverWidth: 144,
+    coverWidth: 144, // default open width; a book can set its own to match its cover
     gap: 1,
     lean: 6,          // degrees; books left of the open one lean -lean, right lean +lean
     titleLine: 148,   // spine titles start this far above the shelf
     align: "packed",  // packed | even | split | centered
     items: [
-      { title: "Book Title",      initials: "AA", color: "#c4552a", ink: "#ffffff", spineWidth: 20, height: 230, cover: null, link: "https://example.com" },
-      { title: "Second Book",     initials: "BB", color: "#2f3d4f", ink: "#ffffff", spineWidth: 20, height: 230, cover: null, link: "https://example.com" },
-      { title: "Third Book",      initials: "CC", color: "#1c1c1c", ink: "#ffffff", spineWidth: 17, height: 230, cover: null, link: "https://example.com" },
-      { title: "Fourth Book",     initials: "DD", color: "#e9e7e2", ink: "#26262a", spineWidth: 22, height: 230, cover: null, link: "https://example.com" },
-      { title: "Fifth Book",      initials: "EE", color: "#bcbab3", ink: "#26262a", spineWidth: 19, height: 230, cover: null, link: "https://example.com" },
-      { title: "Sixth Book",      initials: "FF", color: "#4a3f39", ink: "#ffffff", spineWidth: 18, height: 230, cover: null, link: "https://example.com" },
-      { title: "Seventh Book",    initials: "GG", color: "#d2a017", ink: "#26262a", spineWidth: 21, height: 230, cover: null, link: "https://example.com" },
-      { title: "Eighth Book",     initials: "HH", color: "#cbc9c4", ink: "#26262a", spineWidth: 18, height: 230, cover: null, link: "https://example.com" },
-      { title: "Ninth Book",      initials: "II", color: "#3a3a3a", ink: "#ffffff", spineWidth: 20, height: 230, cover: null, link: "https://example.com" },
-      { title: "Tenth Book",      initials: "JJ", color: "#2b1c2b", ink: "#ffffff", spineWidth: 17, height: 230, cover: null, link: "https://example.com" },
-      { title: "Eleventh Book",   initials: "KK", color: "#8d8d88", ink: "#ffffff", spineWidth: 22, height: 230, cover: null, link: "https://example.com" },
-      { title: "Twelfth Book",    initials: "LL", color: "#6d6d69", ink: "#ffffff", spineWidth: 19, height: 230, cover: null, link: "https://example.com" },
-      { title: "Thirteenth Book", initials: "MM", color: "#dedcd7", ink: "#26262a", spineWidth: 18, height: 230, cover: null, link: "https://example.com" },
-      { title: "Fourteenth Book", initials: "NN", color: "#7b6b5b", ink: "#ffffff", spineWidth: 21, height: 230, cover: null, link: "https://example.com" },
-      { title: "Fifteenth Book",  initials: "OO", color: "#d4592a", ink: "#ffffff", spineWidth: 20, height: 230, cover: null, link: "https://example.com" }
+      { title: "Dieter Rams: The Complete Works", initials: "KK", color: "#f0502a", ink: "#111111", spineWidth: 24, height: 230, coverWidth: 176, cover: "assets/books/dieter-rams.jpg", link: "https://www.goodreads.com/search?q=Dieter+Rams+The+Complete+Works" },
+      { title: "Grid Systems in Graphic Design", initials: "JMB", color: "#ec6726", ink: "#1e1e1e", spineWidth: 20, height: 230, coverWidth: 158, cover: "assets/books/grid-systems.jpg", link: "https://www.goodreads.com/search?q=Grid+Systems+in+Graphic+Design" },
+      { title: "Keep Going", initials: "AK", color: "#0565b1", ink: "#ffffff", spineWidth: 16, height: 230, coverWidth: 230, cover: "assets/books/keep-going.jpg", link: "https://www.goodreads.com/search?q=Keep+Going+Austin+Kleon" },
+      { title: "Steal Like an Artist", initials: "AK", color: "#1d1b1b", ink: "#ffffff", spineWidth: 16, height: 230, coverWidth: 230, cover: "assets/books/steal-like-an-artist.jpg", link: "https://www.goodreads.com/search?q=Steal+Like+an+Artist" },
+      { title: "How to", initials: "MB", color: "#0b0b0b", ink: "#ffffff", spineWidth: 26, height: 230, coverWidth: 222, cover: "assets/books/how-to.jpg", link: "https://www.goodreads.com/search?q=How+to+Michael+Bierut" },
+      { title: "The Design of Everyday Things", initials: "DN", color: "#f6df3a", ink: "#111111", spineWidth: 20, height: 230, coverWidth: 153, cover: "assets/books/design-of-everyday-things.jpg", link: "https://www.goodreads.com/search?q=The+Design+of+Everyday+Things" }
     ]
   },
 

@@ -218,9 +218,11 @@
     // a book leaning `lean` degrees about its base throws its top sideways
     var inset = Math.ceil(tallest * Math.abs(Math.sin(lean * Math.PI / 180)));
     var spineTotal = items.reduce(function (m, b) { return m + b.spineWidth; }, 0);
-    var narrowest = Math.min.apply(null, items.map(function (b) { return b.spineWidth; }));
+    // each book can open to its own cover width, so covers keep their shape
+    function coverOf(b) { return b.coverWidth || coverW; }
+    var widestPush = Math.max.apply(null, items.map(function (b) { return coverOf(b) - b.spineWidth; }));
     var gapsTotal = gap * (n - 1);
-    var minShelf = spineTotal + gapsTotal + (coverW - narrowest);
+    var minShelf = spineTotal + gapsTotal + widestPush;
 
     var root = $("shelf");
     root.innerHTML = '<div class="shelf-row"></div><div class="plank"></div>' +
@@ -250,7 +252,7 @@
       el.innerHTML =
         '<span class="book-shadow"></span>' +
         '<span class="book-lift">' +
-          '<span class="book-inner" style="width:' + coverW + 'px">' +
+          '<span class="book-inner" style="width:' + coverOf(b) + 'px">' +
             '<span class="book-cover" style="' + cover + ";color:" + b.ink + '">' +
               (b.cover ? "" : "<b>" + esc(b.title) + "</b><small>A placeholder cover, swap in your own.</small>") +
             "</span>" +
@@ -279,7 +281,7 @@
     }
 
     function layout() {
-      var push = coverW - items[open].spineWidth;
+      var push = coverOf(items[open]) - items[open].spineWidth;
       var inner = row.clientWidth - inset * 2;
       var slack = Math.max(0, Math.max(inner, minShelf) - (spineTotal + gapsTotal + push));
 
@@ -290,7 +292,7 @@
         el.classList.toggle("is-open", isOpen);
         el.setAttribute("aria-pressed", String(isOpen));
         el.setAttribute("aria-label", (isOpen ? "Open " : "Show ") + items[i].title);
-        el.querySelector(".book-shadow").style.width = (isOpen ? coverW : items[i].spineWidth) + "px";
+        el.querySelector(".book-shadow").style.width = (isOpen ? coverOf(items[i]) : items[i].spineWidth) + "px";
       });
       caption.textContent = items[open].title;
       caption.href = items[open].link || "#";
