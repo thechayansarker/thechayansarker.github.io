@@ -205,7 +205,7 @@
         <figcaption>The SwiftUI prototype running on device, with the code behind it.</figcaption>
       </figure>
       <p>I ran moderated usability sessions with 5 participants, each 45 to 60 minutes, with informed consent for recording. Each session followed the full journey: onboarding, positioning the camera, feedback during movement, feedback after the exercise, and the community feed. I mapped each participant&rsquo;s emotional journey across these phases to find where confidence dropped.</p>
-      <p>One constraint shaped the final design more than any other. A phone on the floor sits a few feet away and below eye level, so reading it in the middle of a rep means breaking form to look. That is why audio came to carry the correction, and the visual overlay became optional. <mark class="todo">Add what you observed or heard in testing that supports this, for example a participant quote.</mark></p>
+      <p>One constraint shaped the final design more than any other. A phone on the floor sits a few feet away and below eye level, so reading it in the middle of a rep means breaking form to look. That is why audio came to carry the correction, and the visual overlay became optional. Testing made the problem concrete. The 3 middle aged participants responded well to the visual feedback, but the 2 older participants found the screen very hard to see from that distance. A design that relied on the screen would have failed the people who need guidance most.</p>
     </section>
 
     <section id="outcome">
@@ -223,7 +223,7 @@
       <h3>Where the camera can be wrong</h3>
       <ul class="list-plain">
         <li><b>Viewing conditions.</b> Pose estimation gets less reliable with poor lighting, loose clothing, unusual camera angles and limbs that block each other.</li>
-        <li><b>Different bodies.</b> Target ranges for form need to work across body sizes, ages and mobility levels, not just an ideal demonstrator.</li>
+        <li><b>Different bodies and eyesight.</b> Target ranges for form need to work across body sizes, ages and mobility levels, and feedback must work for people who can&rsquo;t see a small screen from the floor, as testing with older participants showed.</li>
         <li><b>A camera at home.</b> Recording people in their own space is sensitive. Running pose estimation on the phone keeps video local, but people still need clear control over when the camera is on.</li>
         <li><b>Self reported pain</b> is subjective, so the adaptation logic needs careful validation before it can guide rehabilitation.</li>
       </ul>
