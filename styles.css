@@ -518,8 +518,8 @@ html[data-theme="dark"] .dock button:hover { background: rgba(255,255,255,.07); 
   border-radius: 50%;
   background-color: #fff;
   background-repeat: no-repeat;
-  background-size: 165% auto;
-  background-position: 47% 12%;
+  background-size: 138% auto;
+  background-position: 48% 3px;
   box-shadow: 0 0 0 1px var(--hairline);
 }
 .dock .here::after {
