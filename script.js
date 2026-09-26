@@ -258,7 +258,7 @@
             "</span>" +
             '<span class="book-spine" style="width:' + b.spineWidth + "px;background:" + spine +
               ";color:" + b.ink + ";padding-top:" + Math.max(0, b.height - B.titleLine) + 'px">' +
-              '<span class="spine-title">' + esc(b.title) + "</span>" +
+              '<span class="spine-title">' + esc(b.spine || b.title) + "</span>" +
               '<span class="spine-initials">' + esc(b.initials) + "</span>" +
             "</span>" +
           "</span>" +

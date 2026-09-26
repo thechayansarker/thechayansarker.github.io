@@ -32,7 +32,7 @@ window.SITE = {
   stats: [
     { icon: "work",     label: "Work",     meta: "3 projects",  href: "#work" },
     { icon: "game",     label: "Playing",  meta: "6 games",    href: "#playing" },
-    { icon: "book",     label: "Books",    meta: "6 books",   href: "#books" }
+    { icon: "book",     label: "Books",    meta: "9 books",   href: "#books" }
   ],
 
   // 01 Education and 02 Experience (from resume). `place` shows under the dates.
@@ -69,7 +69,8 @@ window.SITE = {
     ]
   },
 
-  // 04 Books. Click a spine to open it, click the open cover to follow its link.
+  // 05 Books. Click a spine to open it, click the open cover to follow its link.
+  // `spine` is an optional shorter title for the spine when the full one is long.
   books: {
     coverWidth: 144, // default open width; a book can set its own to match its cover
     gap: 1,
@@ -82,7 +83,10 @@ window.SITE = {
       { title: "Keep Going", initials: "AK", color: "#0565b1", ink: "#ffffff", spineWidth: 16, height: 230, coverWidth: 230, cover: "assets/books/keep-going.jpg", link: "https://www.goodreads.com/search?q=Keep+Going+Austin+Kleon" },
       { title: "Steal Like an Artist", initials: "AK", color: "#1d1b1b", ink: "#ffffff", spineWidth: 16, height: 230, coverWidth: 230, cover: "assets/books/steal-like-an-artist.jpg", link: "https://www.goodreads.com/search?q=Steal+Like+an+Artist" },
       { title: "How to", initials: "MB", color: "#0b0b0b", ink: "#ffffff", spineWidth: 26, height: 230, coverWidth: 222, cover: "assets/books/how-to.jpg", link: "https://www.goodreads.com/search?q=How+to+Michael+Bierut" },
-      { title: "The Design of Everyday Things", initials: "DN", color: "#f6df3a", ink: "#111111", spineWidth: 20, height: 230, coverWidth: 153, cover: "assets/books/design-of-everyday-things.jpg", link: "https://www.goodreads.com/search?q=The+Design+of+Everyday+Things" }
+      { title: "The Design of Everyday Things", initials: "DN", color: "#f6df3a", ink: "#111111", spineWidth: 20, height: 230, coverWidth: 153, cover: "assets/books/design-of-everyday-things.jpg", link: "https://www.goodreads.com/search?q=The+Design+of+Everyday+Things" },
+      { title: "Ikigai", initials: "HG FM", color: "#aed9e2", ink: "#111111", spineWidth: 18, height: 230, coverWidth: 162, cover: "assets/books/ikigai.jpg", link: "https://www.goodreads.com/search?q=Ikigai+Hector+Garcia" },
+      { title: "Steve Jobs", initials: "WI", color: "#f4f4f1", ink: "#111111", spineWidth: 26, height: 230, coverWidth: 150, cover: "assets/books/steve-jobs.jpg", link: "https://www.goodreads.com/search?q=Steve+Jobs+Walter+Isaacson" },
+      { title: "100 Things Every Designer Needs to Know About People", spine: "100 Things", initials: "SW", color: "#c9d82c", ink: "#111111", spineWidth: 18, height: 230, coverWidth: 179, cover: "assets/books/100-things.jpg", link: "https://www.goodreads.com/search?q=100+Things+Every+Designer+Needs+to+Know+About+People" }
     ]
   },
 
