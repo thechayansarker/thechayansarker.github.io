@@ -442,9 +442,24 @@
     ctx.drawImage(img, 0, 0, W, H);
     try {
       var d = ctx.getImageData(0, 0, W, H), p = d.data;
-      for (var i = 0; i < p.length; i += 4) {
-        var lo = Math.min(p[i], p[i + 1], p[i + 2]);      // white paper has every channel high
-        if (lo > 236) p[i + 3] = Math.round(p[i + 3] * Math.max(0, (248 - lo) / 12));
+      // only key out white connected to the image border, so light
+      // specks inside the face and shirt stay solid
+      var seen = new Uint8Array(W * H), stack = [];
+      function white(n) { return Math.min(p[n * 4], p[n * 4 + 1], p[n * 4 + 2]) > 236; }
+      function push(n) { if (!seen[n] && white(n)) { seen[n] = 1; stack.push(n); } }
+      for (var x = 0; x < W; x++) { push(x); push((H - 1) * W + x); }
+      for (var y = 0; y < H; y++) { push(y * W); push(y * W + W - 1); }
+      while (stack.length) {
+        var n = stack.pop(), cx = n % W;
+        if (cx > 0) push(n - 1);
+        if (cx < W - 1) push(n + 1);
+        if (n >= W) push(n - W);
+        if (n < W * (H - 1)) push(n + W);
+      }
+      for (var i = 0; i < seen.length; i++) {
+        if (!seen[i]) continue;
+        var lo = Math.min(p[i * 4], p[i * 4 + 1], p[i * 4 + 2]); // white paper has every channel high
+        p[i * 4 + 3] = Math.round(p[i * 4 + 3] * Math.max(0, (248 - lo) / 12));
       }
       ctx.putImageData(d, 0, 0);
     } catch (e) { /* tainted canvas (opened from file://): show unkeyed */ }
