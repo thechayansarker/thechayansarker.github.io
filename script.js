@@ -117,19 +117,25 @@
       '<span class="marker"><span>' + esc(h.dataset.num) + "</span><i></i></span>");
   });
 
-  /* ---- 01 experience ----------------------------------------- */
+  /* ---- 01 education, 02 experience -------------------------- */
+
+  function roles(list) {
+    return (list || []).map(function (r) {
+      var org = r.href
+        ? '<a class="org ext" ' + linkAttrs(r.href) + ">" + esc(r.org) + "</a>"
+        : '<span class="org">' + esc(r.org) + "</span>";
+      return '<div class="role"><div>' + org +
+        '<div class="title">' + esc(r.role) + "</div></div>" +
+        '<div class="when"><div class="period">' + esc(r.period) + "</div>" +
+        (r.place ? '<div class="place">' + esc(r.place) + "</div>" : "") + "</div></div>";
+    }).join("");
+  }
 
   if (isHome) {
-  $("experience-list").innerHTML = S.experience.map(function (r) {
-    var org = r.href
-      ? '<a class="org ext" ' + linkAttrs(r.href) + ">" + esc(r.org) + "</a>"
-      : '<span class="org">' + esc(r.org) + "</span>";
-    return '<div class="role"><div>' + org +
-      '<div class="title">' + esc(r.role) + "</div></div>" +
-      '<div class="period">' + esc(r.period) + "</div></div>";
-  }).join("");
+  $("education-list").innerHTML = roles(S.education);
+  $("experience-list").innerHTML = roles(S.experience);
 
-  /* ---- 02 work ----------------------------------------------- */
+  /* ---- 03 work ----------------------------------------------- */
 
   $("work-list").innerHTML = S.work.map(function (w) {
     return '<a class="post work-item" ' + linkAttrs(w.href || "#") + ">" +
@@ -140,7 +146,7 @@
   }
 
   /* =============================================================
-     03 Recently playing: overlapping covers, click to feature
+     04 Recently playing: overlapping covers, click to feature
      ============================================================= */
 
   (function records() {
@@ -193,7 +199,7 @@
   })();
 
   /* =============================================================
-     04 Books: real 3D books on a shelf
+     05 Books: real 3D books on a shelf
 
      Every book keeps a fixed slot width and is moved only with
      transforms, so the row never reflows. Opening a book rotates

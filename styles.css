@@ -200,7 +200,9 @@ section.bleed .section-head { padding-left: var(--pad); padding-right: var(--pad
 .role:first-child { border-top: 0; }
 .role .org { font-weight: 500; }
 .role .title { color: var(--text-soft); font-size: 13px; }
+.role .when { text-align: right; }
 .role .period { font-family: var(--mono); font-size: 11px; color: var(--muted); white-space: nowrap; }
+.role .place { color: var(--muted); font-size: 12.5px; margin-top: 3px; white-space: nowrap; }
 
 /* Writing */
 .post {
@@ -574,7 +576,8 @@ html[data-theme="dark"] .theme-thumb {
   .portrait { width: 165px; }
   .hero p { max-width: none; }
   .role { grid-template-columns: 1fr; gap: 2px; }
-  .role .period { grid-row: 1; }
+  .role .when { grid-row: 1; display: flex; gap: 10px; align-items: baseline; text-align: left; }
+  .role .place { margin-top: 0; }
   .foot { grid-template-columns: 1fr 1fr; }
   .foot-meta { grid-column: 1 / -1; }
   .meta-lines { margin-top: 20px; }

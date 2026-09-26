@@ -35,23 +35,26 @@ window.SITE = {
     { icon: "book",     label: "Books",    meta: "15 books",   href: "#books" }
   ],
 
-  // 01 Experience (from resume, Aug 23 2026)
+  // 01 Education and 02 Experience (from resume). `place` shows under the dates.
+  education: [
+    { org: "Northeastern University", role: "MS in Experience Design", period: "2025", place: "Boston, MA" }
+  ],
   experience: [
-    { org: "Air Health", role: "Senior Product Designer", period: "2026 → Now" },
-    { org: "Elas",       role: "Product Designer",        period: "2023 → 2024" },
-    { org: "Scripla",    role: "UX/UI Designer",          period: "2022 → 2023" },
-    { org: "Plaeto",     role: "UI/UX Designer",          period: "2021 → 2022" },
-    { org: "Twinbit",    role: "UI/UX Designer",          period: "2020 → 2021" }
+    { org: "Air Health", role: "Senior Product Designer", period: "2026 → Now",  place: "Boston, MA" },
+    { org: "Elas",       role: "Product Designer",        period: "2023 → 2024", place: "California, Remote" },
+    { org: "Scripla",    role: "UX/UI Designer",          period: "2022 → 2023", place: "California, Remote" },
+    { org: "Plaeto",     role: "UI/UX Designer",          period: "2021 → 2022", place: "Florida, Remote" },
+    { org: "Twinbit",    role: "UI/UX Designer",          period: "2020 → 2021", place: "Dhaka, Bangladesh" }
   ],
 
-  // 02 Work. Each project gets a row; `href` points at its case study page.
+  // 03 Work. Each project gets a row; `href` points at its case study page.
   work: [
     { title: "Air Health", summary: "From ACL recovery research to computer vision coaching", year: "2026", href: "work/air-health/" },
     { title: "SensEase", summary: "Sensory friendly navigation for public spaces", year: "2025", href: "work/sensease/" },
     { title: "SafeVision", summary: "Computer vision in AR glasses for safer transit", year: "2024", href: "work/safevision/" }
   ],
 
-  // 03 Recently playing. Click a cover to feature it, click the featured
+  // 04 Recently playing. Click a cover to feature it, click the featured
   // cover to follow its link.
   playing: {
     featured: 2,
@@ -99,6 +102,7 @@ window.SITE = {
     ],
     index: [
       { label: "Home",        href: "#top" },
+      { label: "Education",   href: "#education" },
       { label: "Experience",  href: "#experience" },
       { label: "Work",        href: "#work" },
       { label: "Playing",     href: "#playing" },
