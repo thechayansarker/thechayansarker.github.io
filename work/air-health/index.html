@@ -46,7 +46,7 @@
     <div class="glance">
       <div><h4>Problem</h4><p>Fitness apps log what you did, but can&rsquo;t tell you what today needs or whether your form is right.</p></div>
       <div><h4>Approach</h4><p>Pose estimation on the phone camera, turned into feedback people can act on mid movement, plus a plan that adapts daily.</p></div>
-      <div><h4>Outcome</h4><p>A shipped SwiftUI prototype, 60% faster design to test cycles, and accelerator funding for the startup.</p></div>
+      <div><h4>Outcome</h4><p>A working SwiftUI prototype tested on device, three feedback designs compared, and accelerator funding for the startup.</p></div>
     </div>
 
     <div class="rule"></div>
@@ -54,12 +54,30 @@
     <section id="question">
       <div class="section-head" data-num="01">Research question</div>
       <blockquote class="hmw">How do you tell someone they&rsquo;re doing it wrong, in the middle of a rep, in a way they can notice, trust and act on?</blockquote>
-      <p>Air Health&rsquo;s mission is to help anyone move with confidence and turn any space into a training space. For the business, that means a daily habit rather than a one time download, with retention that justifies a subscription.</p>
-      <p>The camera makes this possible: it can see how someone moves and respond in real time. The design challenge sits between the model and the person. A correct prediction is useless if it arrives at the wrong moment, in the wrong form, or feels like criticism.</p>
+      <p>Air Health helps people exercise at home with a phone camera that can see how they move and respond in real time. The design challenge sits between the model and the person: a correct prediction is useless if it arrives at the wrong moment, in the wrong form, or feels like criticism.</p>
+
+      <h3>Related work</h3>
+      <p>HCI research has explored guiding movement with an augmented reality mirror [1], visual guidance and feedback for physiotherapy exercises at home [2], and modelling correct movement from demonstrations so that mistakes can be flagged [3]. Reviews of motor learning show that the channel and timing of feedback matter, and that constant feedback during a movement can leave learners dependent on it [4]. Most of this work assumes a large screen or dedicated sensors in front of the user. Air Health asks what changes when the only sensor is a phone lying on the floor.</p>
+
+      <h3>My contribution</h3>
+      <ul class="list-plain">
+        <li><b>Research:</b> interviews, Reddit analysis, the competitive audit and all usability testing.</li>
+        <li><b>Translating model output into feedback:</b> the setup check, the feedback states and cues, and when corrections are spoken, working with the machine learning engineer on which detected errors reach the user.</li>
+        <li><b>Prototyping:</b> built the interactive prototype myself in SwiftUI and tested it on device.</li>
+        <li><b>Product design:</b> the adaptive daily plan, session summary and pain check in, and the design system.</li>
+      </ul>
     </section>
 
     <section id="research">
       <div class="section-head" data-num="02">Understanding the problem</div>
+
+      <h3>Methods</h3>
+      <ul class="list-plain">
+        <li><b>Interviews</b> with <mark class="todo">N</mark> people who exercise at home or are recovering from injury.</li>
+        <li><b>Online discussions:</b> threads on Reddit about home workouts, injury and quitting routines.</li>
+        <li><b>Competitive audit</b> of five leading fitness apps.</li>
+        <li><b>Moderated usability testing</b> of the on device prototype with <mark class="todo">N</mark> participants.</li>
+      </ul>
 
       <h3>What existing apps miss</h3>
       <p>I audited five leading apps: Ladder, Nike Training Club, Gymshark, MyFitnessPal and Peloton. They are good at workout libraries and tracking history. None of them offered live feedback on form, and none adapted the plan to how the person felt that day. In short, they tell you what you did, not what today needs.</p>
@@ -79,7 +97,7 @@
       <ol class="insights">
         <li><b>Adaptation</b>&ldquo;Same plan, no matter how I feel.&rdquo; Plans ignore soreness, pain and energy.</li>
         <li><b>Feedback</b>&ldquo;I don&rsquo;t know if I&rsquo;m doing it right.&rdquo; Without a coach, form errors go unnoticed.</li>
-        <li><b>Adherence</b>&ldquo;Miss a day, quit the plan.&rdquo; One missed session often ends the routine. Low adherence to prescribed home exercise has been documented for decades [3].</li>
+        <li><b>Adherence</b>&ldquo;Miss a day, quit the plan.&rdquo; One missed session often ends the routine. Low adherence to prescribed home exercise has been documented for decades [5].</li>
       </ol>
       <p><strong>Objective:</strong> a clear and trustworthy daily plan that adapts to how your body feels, and coaches you while you move.</p>
     </section>
@@ -89,7 +107,7 @@
       <p>The core loop is simple: the camera captures movement, the system evaluates form, and the plan adapts. Underneath, it runs as a six stage pipeline built with the engineering team.</p>
       <ol class="insights">
         <li><b>Frame the body</b>Before a set starts, the app checks that the phone is placed on the floor and the person&rsquo;s full body is in view. Pose estimation fails quietly when limbs are cut off, so this step protects everything after it.</li>
-        <li><b>Estimate the pose</b>Google&rsquo;s MediaPipe Pose Landmarker estimates 33 body landmarks in 3D on every frame, running on the phone [1, 2].</li>
+        <li><b>Estimate the pose</b>Google&rsquo;s MediaPipe Pose Landmarker estimates 33 body landmarks in 3D on every frame, running on the phone [6, 7].</li>
         <li><b>Evaluate form</b>Joint angles derived from the landmarks are compared with a target range for each exercise, so the system can tell when a knee, hip or back drifts from the intended position.</li>
         <li><b>Count reps</b>The system follows the phases of each movement to count repetitions and time holds.</li>
         <li><b>Coach in the moment</b>Form results are turned into feedback: a skeleton overlay, directional cues and spoken corrections.</li>
@@ -160,21 +178,17 @@
         <figcaption>The SwiftUI prototype running on device, with the code behind it.</figcaption>
       </figure>
       <p>I ran moderated usability sessions of 45 to 60 minutes, with informed consent for recording. Each session followed the full journey: onboarding, positioning the camera, feedback during movement, feedback after the exercise, and the community feed. I mapped each participant&rsquo;s emotional journey across these phases to find where confidence dropped.</p>
-      <p>The sessions pointed to a practical constraint that shaped the final design: during a rep, people can&rsquo;t reliably look at a phone on the floor. That is why audio came to carry the correction, and the visual overlay became optional.</p>
+      <p>One constraint shaped the final design more than any other. A phone on the floor sits a few feet away and below eye level, so reading it in the middle of a rep means breaking form to look. That is why audio came to carry the correction, and the visual overlay became optional. <mark class="todo">Add what you observed or heard in testing that supports this, for example a participant quote.</mark></p>
     </section>
 
     <section id="outcome">
       <div class="section-head" data-num="07">Outcome</div>
       <div class="stat-pair three">
         <div><b>60%</b><span>less time from design to a tested interaction, by prototyping in SwiftUI.</span></div>
-        <div><b>33</b><span>body landmarks tracked in 3D on every frame, on the phone.</span></div>
+        <div><b>3</b><span>ways of correcting form mid rep, each designed and tested on device.</span></div>
         <div><b>Funded</b><span>Air Health secured accelerator funding, with startup partnerships with Google and ElevenLabs.</span></div>
       </div>
-      <p>I also built the design system from scratch, with components and variables tied to tokens for colour, spacing, radius and type, so the engineering team could build consistently as the product grew.</p>
-      <figure class="figure">
-        <img src="images/system.jpg" width="1185" height="845" loading="lazy" alt="Design system documentation: button variants, component properties, spacing and radius tokens, and typography variables." />
-        <figcaption>Part of the Air Health design system.</figcaption>
-      </figure>
+      <p>Alongside this, I built the product&rsquo;s design system from scratch, so the engineering team could build consistently as the product grew.</p>
     </section>
 
     <section id="limits">
@@ -201,9 +215,13 @@
 
       <h3>References</h3>
       <ol class="refs">
+        <li>Anderson, F., Grossman, T., Matejka, J., &amp; Fitzmaurice, G. (2013). YouMove: Enhancing movement training with an augmented reality mirror. <em>Proceedings of the 26th Annual ACM Symposium on User Interface Software and Technology</em>, 311-320. <a class="link" href="https://doi.org/10.1145/2501988.2502045" target="_blank" rel="noopener noreferrer">doi.org/10.1145/2501988.2502045</a></li>
+        <li>Tang, R., Yang, X.-D., Bateman, S., Jorge, J., &amp; Tang, A. (2015). Physio@Home: Exploring visual guidance and feedback techniques for physiotherapy exercises. <em>Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems</em>, 4123-4132. <a class="link" href="https://doi.org/10.1145/2702123.2702401" target="_blank" rel="noopener noreferrer">doi.org/10.1145/2702123.2702401</a></li>
+        <li>Velloso, E., Bulling, A., &amp; Gellersen, H. (2013). MotionMA: Motion modelling and analysis by demonstration. <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em>, 1309-1318. <a class="link" href="https://doi.org/10.1145/2470654.2466171" target="_blank" rel="noopener noreferrer">doi.org/10.1145/2470654.2466171</a></li>
+        <li>Sigrist, R., Rauter, G., Riener, R., &amp; Wolf, P. (2013). Augmented visual, auditory, haptic, and multimodal feedback in motor learning: A review. <em>Psychonomic Bulletin &amp; Review, 20</em>(1), 21-53. <a class="link" href="https://doi.org/10.3758/s13423-012-0333-8" target="_blank" rel="noopener noreferrer">doi.org/10.3758/s13423-012-0333-8</a></li>
+        <li>Sluijs, E. M., Kok, G. J., &amp; van der Zee, J. (1993). Correlates of exercise compliance in physical therapy. <em>Physical Therapy, 73</em>(11), 771-782. <a class="link" href="https://doi.org/10.1093/ptj/73.11.771" target="_blank" rel="noopener noreferrer">doi.org/10.1093/ptj/73.11.771</a></li>
         <li>Bazarevsky, V., Grishchenko, I., Raveendran, K., Zhu, T., Zhang, F., &amp; Grundmann, M. (2020). BlazePose: On-device real-time body pose tracking. <em>arXiv:2006.10204.</em> <a class="link" href="https://arxiv.org/abs/2006.10204" target="_blank" rel="noopener noreferrer">arxiv.org/abs/2006.10204</a></li>
         <li>Google. <em>Pose landmark detection guide.</em> MediaPipe, Google AI Edge. <a class="link" href="https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker" target="_blank" rel="noopener noreferrer">ai.google.dev/edge/mediapipe</a></li>
-        <li>Sluijs, E. M., Kok, G. J., &amp; van der Zee, J. (1993). Correlates of exercise compliance in physical therapy. <em>Physical Therapy, 73</em>(11), 771-782. <a class="link" href="https://doi.org/10.1093/ptj/73.11.771" target="_blank" rel="noopener noreferrer">doi.org/10.1093/ptj/73.11.771</a></li>
       </ol>
     </section>
 

@@ -896,3 +896,6 @@ html[data-theme="dark"] .figure.diagram img { filter: invert(1) hue-rotate(180de
 .figure.tall { max-width: 360px; margin-left: auto; margin-right: auto; }
 .figure.tall figcaption { text-align: center; }
 .figure video { width: 100%; height: auto; display: block; border-radius: 6px; border: 1px solid var(--hairline); background: #151515; }
+
+/* Placeholder text to replace: highlighted so it is easy to spot */
+mark.todo { background: rgba(255, 210, 0, .32); color: inherit; padding: 0 3px; border-radius: 3px; }
