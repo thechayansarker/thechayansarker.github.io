@@ -46,7 +46,7 @@ window.SITE = {
 
   // 02 Work. Each project gets a row; `href` points at its case study page.
   work: [
-    { title: "Air Health", summary: "Computer vision coaching in an adaptive wellness app", year: "2026", href: "work/air-health/" },
+    { title: "Air Health", summary: "From ACL recovery research to computer vision coaching", year: "2026", href: "work/air-health/" },
     { title: "SensEase", summary: "Sensory friendly navigation for public spaces", year: "2025", href: "work/sensease/" },
     { title: "SafeVision", summary: "Computer vision in AR glasses for safer transit", year: "2024", href: "work/safevision/" }
   ],

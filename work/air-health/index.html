@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Air Health case study, Chayan Sarker</title>
-<meta name="description" content="Air Health is an adaptive wellness platform that uses the phone camera to read body pose, coach form in the middle of a movement, and adapt each day's plan." />
+<meta name="description" content="Air Health grew from Align, a research project on ACL recovery, into an adaptive wellness platform that uses the phone camera to read body pose, coach form in the middle of a movement, and adapt each day's plan." />
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,13 +26,14 @@
 
     <header class="case-hero">
       <a class="back" href="../../#work">&larr; Work</a>
-      <p class="eyebrow">Computer vision &amp; product design &middot; 2026</p>
+      <p class="eyebrow">Computer vision &amp; product design &middot; 2025 to 2026</p>
       <h1>Air Health</h1>
-      <p class="lede">An adaptive wellness platform that uses the phone camera to read how you move, coach your form in the middle of a rep, and adjust each day&rsquo;s plan to how your body feels.</p>
+      <p class="lede">It began as Align, my research into recovering from an ACL injury at home, and grew into a funded startup. Air Health uses the phone camera to read how you move, coach your form in the middle of a rep, and adjust each day&rsquo;s plan to how your body feels.</p>
       <dl class="case-meta">
-        <div><dt>Role</dt><dd>Senior Product Designer</dd></div>
+        <div><dt>Role</dt><dd>Design &amp; research lead (Align)<br />Senior Product Designer (Air Health)</dd></div>
+        <div><dt>Timeline</dt><dd>Align: June to September 2025<br />Air Health: February 2026 to present</dd></div>
+        <div><dt>Advisor</dt><dd>Dr. Arnold Mages (Align)</dd></div>
         <div><dt>Team</dt><dd>Founders, 1 machine learning engineer, 4 engineers</dd></div>
-        <div><dt>Timeline</dt><dd>February 2026 to present</dd></div>
         <div><dt>Focus</dt><dd>Computer vision, health, HCI</dd></div>
       </dl>
     </header>
@@ -44,24 +45,43 @@
     </figure>
 
     <div class="glance">
-      <div><h4>Problem</h4><p>Fitness apps log what you did, but can&rsquo;t tell you what today needs or whether your form is right.</p></div>
-      <div><h4>Approach</h4><p>Pose estimation on the phone camera, turned into feedback people can act on mid movement, plus a plan that adapts daily.</p></div>
-      <div><h4>Outcome</h4><p>A working SwiftUI prototype tested on device, three feedback designs compared, and accelerator funding for the startup.</p></div>
+      <div><h4>Problem</h4><p>After physical therapy ends, people recover alone for months, unsure if they&rsquo;re improving or doing it right.</p></div>
+      <div><h4>Approach</h4><p>Research with patients and physiotherapists, then pose estimation on the phone camera turned into feedback people can act on mid movement.</p></div>
+      <div><h4>Outcome</h4><p>Two rounds of user testing, a working SwiftUI prototype, and $600K in accelerator funding, with a beta launching August 2026.</p></div>
     </div>
 
     <div class="rule"></div>
 
+    <section id="origin">
+      <div class="section-head" data-num="01">Where it started</div>
+      <p>Air Health began as <strong>Align</strong>, a research project I led from June to September 2025 with Dr. Arnold Mages. Align focused on people recovering from an ACL injury. Recovery takes 9 to 12 months, and most of it happens at home, alone, with no way to know whether you&rsquo;re doing it right.</p>
+      <div class="stat-pair three">
+        <div><b>81%</b><span>of people return to some sport after ACL reconstruction.</span></div>
+        <div><b>65%</b><span>return to the level of sport they played before the injury.</span></div>
+        <div><b>55%</b><span>return to competitive sport [1].</span></div>
+      </div>
+
+      <h3>What I thought I was building</h3>
+      <p>People finish physical therapy, go home with a sheet of exercises, and stop. The fix looked obvious: a better tracker, with clearer instructions and smarter reminders. The research showed I was wrong.</p>
+      <p>People didn&rsquo;t stop because they forgot. They stopped because they couldn&rsquo;t tell whether they were improving, whether their form was right, or how daily habits like sleep and food affected their recovery. As one physiotherapist put it:</p>
+      <blockquote class="hmw">&ldquo;Most patients give up after a week. It&rsquo;s not that they don&rsquo;t care, it&rsquo;s just hard to stay consistent without clear feedback.&rdquo;</blockquote>
+      <p>That reframed Align around one question: <em>how might we help ACL patients stay consistent at home by making their recovery progress easier to see?</em></p>
+
+      <h3>From research project to startup</h3>
+      <p>Across two rounds of user testing, people showed the strongest interest in real time movement guidance. Air Health, a health tech startup, partnered to build it commercially, and I joined as Senior Product Designer. That shifted the work toward the hardest part of the problem: coaching form through the camera.</p>
+    </section>
+
     <section id="question">
-      <div class="section-head" data-num="01">Research question</div>
+      <div class="section-head" data-num="02">Research question</div>
       <blockquote class="hmw">How do you tell someone they&rsquo;re doing it wrong, in the middle of a rep, in a way they can notice, trust and act on?</blockquote>
       <p>Air Health helps people exercise at home with a phone camera that can see how they move and respond in real time. The design challenge sits between the model and the person: a correct prediction is useless if it arrives at the wrong moment, in the wrong form, or feels like criticism.</p>
 
       <h3>Related work</h3>
-      <p>HCI research has explored guiding movement with an augmented reality mirror [1], visual guidance and feedback for physiotherapy exercises at home [2], and modelling correct movement from demonstrations so that mistakes can be flagged [3]. Reviews of motor learning show that the channel and timing of feedback matter, and that constant feedback during a movement can leave learners dependent on it [4]. Most of this work assumes a large screen or dedicated sensors in front of the user. Air Health asks what changes when the only sensor is a phone lying on the floor.</p>
+      <p>HCI research has explored guiding movement with an augmented reality mirror [2], visual guidance and feedback for physiotherapy exercises at home [3], and modelling correct movement from demonstrations so that mistakes can be flagged [4]. Reviews of motor learning show that the channel and timing of feedback matter, and that constant feedback during a movement can leave learners dependent on it [5]. Most of this work assumes a large screen or dedicated sensors in front of the user. Air Health asks what changes when the only sensor is a phone lying on the floor.</p>
 
       <h3>My contribution</h3>
       <ul class="list-plain">
-        <li><b>Research:</b> interviews, Reddit analysis, the competitive audit and all usability testing.</li>
+        <li><b>Research:</b> led Align&rsquo;s research end to end, from patient observation and physiotherapist interviews to synthesis and two rounds of testing, then usability testing for Air Health.</li>
         <li><b>Translating model output into feedback:</b> the setup check, the feedback states and cues, and when corrections are spoken, working with the machine learning engineer on which detected errors reach the user.</li>
         <li><b>Prototyping:</b> built the interactive prototype myself in SwiftUI and tested it on device.</li>
         <li><b>Product design:</b> the adaptive daily plan, session summary and pain check in, and the design system.</li>
@@ -69,14 +89,15 @@
     </section>
 
     <section id="research">
-      <div class="section-head" data-num="02">Understanding the problem</div>
+      <div class="section-head" data-num="03">Understanding the problem</div>
 
       <h3>Methods</h3>
       <ul class="list-plain">
-        <li><b>Interviews</b> with <mark class="todo">N</mark> people who exercise at home or are recovering from injury.</li>
-        <li><b>Online discussions:</b> threads on Reddit about home workouts, injury and quitting routines.</li>
-        <li><b>Competitive audit</b> of five leading fitness apps.</li>
-        <li><b>Moderated usability testing</b> of the on device prototype with <mark class="todo">N</mark> participants.</li>
+        <li><b>Observed sessions:</b> 4 ACL patients walked me through their recovery exercises while I watched and asked questions.</li>
+        <li><b>Expert interviews:</b> 2 physiotherapists, on why recovery breaks down once structured therapy ends.</li>
+        <li><b>Online communities:</b> ACL recovery groups on Reddit, for honest accounts of frustration, fear and small wins.</li>
+        <li><b>App audits:</b> recovery and wellness apps (Kaia Health, Hinge Health, Calm, Headspace) for Align, then five leading fitness apps for Air Health.</li>
+        <li><b>User testing:</b> two rounds on Align, then moderated usability sessions of the Air Health prototype with <mark class="todo">N</mark> participants.</li>
       </ul>
 
       <h3>What existing apps miss</h3>
@@ -87,7 +108,8 @@
       </figure>
 
       <h3>What people told us</h3>
-      <p>I combined interviews, Reddit discussions and the app audit into an affinity map, organising patterns across people&rsquo;s physical, emotional and behavioural recovery journeys. One pattern came up again and again: people push hard on a day they shouldn&rsquo;t, feel worse, and then stop going entirely.</p>
+      <p>I mapped everything into an affinity map, organising patterns across people&rsquo;s physical, emotional and behavioural recovery. Three themes stood out: motivation fades once progress feels slow; tracking is scattered across separate apps for exercise, sleep and food; and people face their hardest moments alone, because apps can measure pain but can&rsquo;t understand it.</p>
+      <p>I synthesised these into three archetypes, the Determined Tracker, the Emotional Healer and the Guided Learner, to keep the design grounded in how different people approach recovery. Later interviews for Air Health added a sharper pattern: people push hard on a day they shouldn&rsquo;t, feel worse, and then stop going entirely.</p>
       <figure class="figure">
         <img src="images/affinity.jpg" width="1060" height="605" loading="lazy" alt="An affinity map of colour coded sticky notes on a wall, grouping insights from interviews, Reddit discussions and app audits." />
         <figcaption>Affinity mapping of qualitative insights.</figcaption>
@@ -97,17 +119,17 @@
       <ol class="insights">
         <li><b>Adaptation</b>&ldquo;Same plan, no matter how I feel.&rdquo; Plans ignore soreness, pain and energy.</li>
         <li><b>Feedback</b>&ldquo;I don&rsquo;t know if I&rsquo;m doing it right.&rdquo; Without a coach, form errors go unnoticed.</li>
-        <li><b>Adherence</b>&ldquo;Miss a day, quit the plan.&rdquo; One missed session often ends the routine. Low adherence to prescribed home exercise has been documented for decades [5].</li>
+        <li><b>Adherence</b>&ldquo;Miss a day, quit the plan.&rdquo; One missed session often ends the routine. Low adherence to prescribed home exercise has been documented for decades [6].</li>
       </ol>
       <p><strong>Objective:</strong> a clear and trustworthy daily plan that adapts to how your body feels, and coaches you while you move.</p>
     </section>
 
     <section id="system">
-      <div class="section-head" data-num="03">How the camera sees</div>
+      <div class="section-head" data-num="04">How the camera sees</div>
       <p>The core loop is simple: the camera captures movement, the system evaluates form, and the plan adapts. Underneath, it runs as a six stage pipeline built with the engineering team.</p>
       <ol class="insights">
         <li><b>Frame the body</b>Before a set starts, the app checks that the phone is placed on the floor and the person&rsquo;s full body is in view. Pose estimation fails quietly when limbs are cut off, so this step protects everything after it.</li>
-        <li><b>Estimate the pose</b>Google&rsquo;s MediaPipe Pose Landmarker estimates 33 body landmarks in 3D on every frame, running on the phone [6, 7].</li>
+        <li><b>Estimate the pose</b>Google&rsquo;s MediaPipe Pose Landmarker estimates 33 body landmarks in 3D on every frame, running on the phone [7, 8].</li>
         <li><b>Evaluate form</b>Joint angles derived from the landmarks are compared with a target range for each exercise, so the system can tell when a knee, hip or back drifts from the intended position.</li>
         <li><b>Count reps</b>The system follows the phases of each movement to count repetitions and time holds.</li>
         <li><b>Coach in the moment</b>Form results are turned into feedback: a skeleton overlay, directional cues and spoken corrections.</li>
@@ -116,7 +138,7 @@
     </section>
 
     <section id="feedback">
-      <div class="section-head" data-num="04">Designing feedback mid rep</div>
+      <div class="section-head" data-num="05">Designing feedback mid rep</div>
       <p>I started with storyboards of one person&rsquo;s journey: setting up a plan around an injury, following guided exercises with live corrections, logging pain, and seeing progress.</p>
       <figure class="figure">
         <img src="images/storyboard.jpg" width="702" height="512" loading="lazy" alt="Five pencil storyboard frames of a user named Alex entering injury details, following AR guided exercises with posture corrections, earning points, logging pain levels, and celebrating a milestone." />
@@ -148,7 +170,7 @@
     </section>
 
     <section id="plan">
-      <div class="section-head" data-num="05">The adaptive plan</div>
+      <div class="section-head" data-num="06">The adaptive plan</div>
       <p>I designed the home screen around one assumption: people open the app asking &ldquo;what should I do today?&rdquo;, not &ldquo;what&rsquo;s available?&rdquo; So it leads with the person&rsquo;s state, then a plan, then one action.</p>
       <div class="flow" role="list">
         <div class="state" role="listitem" style="--c:#f08a24"><b>State</b><p>&ldquo;You seem rested,&rdquo; based on recent sessions and check ins. A later version sums this up as a daily readiness score.</p></div>
@@ -169,7 +191,7 @@
     </section>
 
     <section id="prototype">
-      <div class="section-head" data-num="06">Prototyping and testing</div>
+      <div class="section-head" data-num="07">Prototyping and testing</div>
       <p>Feedback timing couldn&rsquo;t be faked in a clickable prototype. A correction that arrives half a second late feels wrong, and only a real camera, real motion and a real phone in hand reveal that. So I built the prototype in SwiftUI and tested it on device, which cut the time from design to a tested interaction by 60%.</p>
       <figure class="figure tall">
         <video class="auto-video" autoplay muted loop playsinline preload="metadata" poster="images/prototype-poster.jpg" width="540" height="960" aria-label="A phone running the SwiftUI prototype held in front of Xcode, moving from the home screen to an exercise page and into the camera view.">
@@ -182,17 +204,17 @@
     </section>
 
     <section id="outcome">
-      <div class="section-head" data-num="07">Outcome</div>
+      <div class="section-head" data-num="08">Outcome</div>
       <div class="stat-pair three">
         <div><b>60%</b><span>less time from design to a tested interaction, by prototyping in SwiftUI.</span></div>
         <div><b>3</b><span>ways of correcting form mid rep, each designed and tested on device.</span></div>
-        <div><b>Funded</b><span>Air Health secured accelerator funding, with startup partnerships with Google and ElevenLabs.</span></div>
+        <div><b>$600K</b><span>in accelerator funding raised by Air Health, with startup partnerships with Google and ElevenLabs and a beta launching August 2026.</span></div>
       </div>
       <p>Alongside this, I built the product&rsquo;s design system from scratch, so the engineering team could build consistently as the product grew.</p>
     </section>
 
     <section id="limits">
-      <div class="section-head" data-num="08">Limitations and next steps</div>
+      <div class="section-head" data-num="09">Limitations and next steps</div>
       <h3>Where the camera can be wrong</h3>
       <ul class="list-plain">
         <li><b>Viewing conditions.</b> Pose estimation gets less reliable with poor lighting, loose clothing, unusual camera angles and limbs that block each other.</li>
@@ -209,12 +231,13 @@
     </section>
 
     <section id="learned">
-      <div class="section-head" data-num="09">What I learned</div>
-      <p>The accuracy of the model was never the whole story. The hardest problems were human: when to interrupt, how to phrase a correction so it helps rather than discourages, and how much of the model&rsquo;s view to show. Moving the correction from the screen to the voice was a small interface change that reflected a big shift in thinking, from showing what the system sees to supporting what the person is doing.</p>
+      <div class="section-head" data-num="10">What I learned</div>
+      <p>The first lesson came early: I set out to build a tracker, and the research showed the real problem was feedback and visibility. The second came later, with the camera. The accuracy of the model was never the whole story. The hardest problems were human: when to interrupt, how to phrase a correction so it helps rather than discourages, and how much of the model&rsquo;s view to show. Moving the correction from the screen to the voice was a small interface change that reflected a big shift in thinking, from showing what the system sees to supporting what the person is doing.</p>
       <p>That is the question I want to keep exploring: how can computer vision systems coach people in the moment, in ways that build confidence rather than dependence?</p>
 
       <h3>References</h3>
       <ol class="refs">
+        <li>Ardern, C. L., Taylor, N. F., Feller, J. A., &amp; Webster, K. E. (2014). Fifty-five per cent return to competitive sport following anterior cruciate ligament reconstruction surgery: An updated systematic review and meta-analysis including aspects of physical functioning and contextual factors. <em>British Journal of Sports Medicine, 48</em>(21), 1543-1552. <a class="link" href="https://doi.org/10.1136/bjsports-2013-093398" target="_blank" rel="noopener noreferrer">doi.org/10.1136/bjsports-2013-093398</a></li>
         <li>Anderson, F., Grossman, T., Matejka, J., &amp; Fitzmaurice, G. (2013). YouMove: Enhancing movement training with an augmented reality mirror. <em>Proceedings of the 26th Annual ACM Symposium on User Interface Software and Technology</em>, 311-320. <a class="link" href="https://doi.org/10.1145/2501988.2502045" target="_blank" rel="noopener noreferrer">doi.org/10.1145/2501988.2502045</a></li>
         <li>Tang, R., Yang, X.-D., Bateman, S., Jorge, J., &amp; Tang, A. (2015). Physio@Home: Exploring visual guidance and feedback techniques for physiotherapy exercises. <em>Proceedings of the 33rd Annual ACM Conference on Human Factors in Computing Systems</em>, 4123-4132. <a class="link" href="https://doi.org/10.1145/2702123.2702401" target="_blank" rel="noopener noreferrer">doi.org/10.1145/2702123.2702401</a></li>
         <li>Velloso, E., Bulling, A., &amp; Gellersen, H. (2013). MotionMA: Motion modelling and analysis by demonstration. <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em>, 1309-1318. <a class="link" href="https://doi.org/10.1145/2470654.2466171" target="_blank" rel="noopener noreferrer">doi.org/10.1145/2470654.2466171</a></li>
