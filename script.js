@@ -280,37 +280,10 @@
       return base; // packed
     }
 
-    // fill: thicken the spines so the books span the shelf like the game
-    // covers do; whatever is left over is split by `align`
-    var sw = items.map(function (b) { return b.spineWidth; });
-    function fit() {
-      if (!B.fill) return;
-      var inner = row.clientWidth - inset * 2;
-      function need(k) {
-        var tot = 0, most = 0;
-        items.forEach(function (b) {
-          var w = Math.round(b.spineWidth * k);
-          tot += w;
-          most = Math.max(most, coverOf(b) - w);
-        });
-        return tot + gapsTotal + most;
-      }
-      var lo = 1, hi = 3;
-      if (need(lo) < inner) {
-        for (var t = 0; t < 24; t++) { var mid = (lo + hi) / 2; if (need(mid) <= inner) lo = mid; else hi = mid; }
-      }
-      sw = items.map(function (b) { return Math.round(b.spineWidth * lo); });
-      els.forEach(function (el, i) {
-        el.style.width = sw[i] + "px";
-        el.querySelector(".book-spine").style.width = sw[i] + "px";
-      });
-    }
-
     function layout() {
-      var push = coverOf(items[open]) - sw[open];
+      var push = coverOf(items[open]) - items[open].spineWidth;
       var inner = row.clientWidth - inset * 2;
-      var spines = sw.reduce(function (m, w) { return m + w; }, 0);
-      var slack = Math.max(0, Math.max(inner, minShelf) - (spines + gapsTotal + push));
+      var slack = Math.max(0, Math.max(inner, minShelf) - (spineTotal + gapsTotal + push));
 
       els.forEach(function (el, i) {
         var isOpen = i === open;
@@ -319,15 +292,14 @@
         el.classList.toggle("is-open", isOpen);
         el.setAttribute("aria-pressed", String(isOpen));
         el.setAttribute("aria-label", (isOpen ? "Open " : "Show ") + items[i].title);
-        el.querySelector(".book-shadow").style.width = (isOpen ? coverOf(items[i]) : sw[i]) + "px";
+        el.querySelector(".book-shadow").style.width = (isOpen ? coverOf(items[i]) : items[i].spineWidth) + "px";
       });
       caption.textContent = items[open].title;
       caption.href = items[open].link || "#";
     }
 
-    noAnim(root, function () { fit(); layout(); });
-    if (window.ResizeObserver && (B.fill || align !== "packed"))
-      new ResizeObserver(function () { fit(); layout(); }).observe(row);
+    noAnim(root, layout);
+    if (window.ResizeObserver && align !== "packed") new ResizeObserver(layout).observe(row);
   })();
 
   /* ---- footer ------------------------------------------------ */
