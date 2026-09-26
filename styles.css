@@ -133,6 +133,8 @@ html[data-theme="dark"] .portrait canvas {
 .stat:hover { background: rgba(0,0,0,.015); }
 html[data-theme="dark"] .stat:hover { background: rgba(255,255,255,.025); }
 .stat .glyph { height: 54px; display: grid; place-items: center; margin-bottom: 14px; color: var(--muted); }
+.stat .glyph .duo { fill: currentColor; stroke: none; opacity: .18; transition: opacity .15s ease; }
+.stat:hover .glyph .duo { opacity: .3; }
 .stat .label { font-size: 12.5px; font-weight: 500; }
 .stat .meta { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
 

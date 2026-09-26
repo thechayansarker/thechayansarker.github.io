@@ -84,7 +84,12 @@
     disc: '<circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="4"/><path d="M14 24a10 10 0 0 1 10-10M34 24a10 10 0 0 1-10 10"/>',
     book: '<path d="M6 11h12a6 6 0 0 1 6 6v22a4 4 0 0 0-4-4H6zM42 11H30a6 6 0 0 0-6 6v22a4 4 0 0 1 4-4h14z"/>'
   };
+  // stats use the dock's duotone icons, drawn larger; GLYPH covers the rest
   function glyph(name) {
+    if (/class="duo"/.test(ICON[name] || ""))
+      return '<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+        'stroke-width="1.15" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' +
+        ICON[name] + "</svg>";
     return '<svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" ' +
       'stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' +
       (GLYPH[name] || "") + "</svg>";
