@@ -17,9 +17,9 @@ window.SITE = {
   portraitStyle: "illustration",
 
   bio: [
-    "I'm Chayan, a product designer with 6+ years of experience building *0 to 1* products and design systems.",
-    "I'm currently a Senior Product Designer at Air Health, leading design of an AI adaptive fitness platform from idea to launch.",
-    "I've worked across health tech, fintech, and SaaS. I blend research and systems thinking to turn complexity into *clarity*.",
+    "I'm Chayan, a designer and researcher interested in how *computer vision* systems can coach and support people in the moment, in health and in public spaces.",
+    "My work sits between the model and the person: deciding what a system should show, when it should speak up, and what it should *never* do.",
+    "I'm currently a Senior Product Designer at Air Health, where research I began on ACL recovery became a funded product that coaches movement through the phone camera. I hold an MS in Experience Design from Northeastern.",
     "Find me on [LinkedIn](https://www.linkedin.com/in/thechayansarker), at [chayan.design](https://www.chayan.design) and [srchayan@gmail.com](mailto:srchayan@gmail.com)."
   ],
 
