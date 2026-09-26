@@ -27,8 +27,9 @@ Bio paragraphs support two markers:
 
 ### Portrait
 
-Add a square photo at `assets/portrait.jpg`. It is converted to the halftone
-dot style in the browser. Until then a generated silhouette stands in.
+Set `portrait` in `data.js` to your image. `portraitStyle` picks how it is
+drawn: `ascii` (monospace characters), `illustration` (the image as is, white
+background removed) or `halftone` (dots).
 
 ### Books
 

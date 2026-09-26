@@ -428,17 +428,17 @@
     }
   }
 
-  // Draw the image as is, keying out its near white background so it
-  // doesn't show as a white square in dark mode.
-  var illustrated = false;
-  function illustration(img) {
-    // show the whole image at its own proportions, no cropping
+  // The image with its near white background keyed out, so it doesn't
+  // show as a white square in dark mode. Drawn at the image's own
+  // proportions, no cropping.
+  var keyed = null;
+  function keyImage(img) {
     var dpr = Math.min(window.devicePixelRatio || 1, 2), W = SIZE * dpr;
     var H = Math.round(W * img.height / img.width);
-    canvas.width = W;
-    canvas.height = H;
-    canvas.parentElement.style.aspectRatio = img.width + " / " + img.height;
-    var ctx = canvas.getContext("2d");
+    var c = document.createElement("canvas");
+    c.width = W;
+    c.height = H;
+    var ctx = c.getContext("2d");
     ctx.drawImage(img, 0, 0, W, H);
     try {
       var d = ctx.getImageData(0, 0, W, H), p = d.data;
@@ -463,15 +463,78 @@
       }
       ctx.putImageData(d, 0, 0);
     } catch (e) { /* tainted canvas (opened from file://): show unkeyed */ }
-    illustrated = true;
+    canvas.parentElement.style.aspectRatio = img.width + " / " + img.height;
+    return c;
+  }
+
+  function illustration() {
+    canvas.width = keyed.width;
+    canvas.height = keyed.height;
+    canvas.getContext("2d").drawImage(keyed, 0, 0);
+  }
+
+  // ASCII: one monospace character per cell, denser where the drawing
+  // has more ink. Coloured strokes (the glasses) keep their colour.
+  var RAMP = " .,:;-=+*#%@";
+  function ascii() {
+    var dpr = keyed.width / SIZE, w = SIZE, h = keyed.height / dpr;
+    var cw = 2.5, chh = 4, cols = Math.floor(w / cw), rows = Math.floor(h / chh);
+    var small = document.createElement("canvas");
+    small.width = cols;
+    small.height = rows;
+    var sx = small.getContext("2d");
+    sx.imageSmoothingQuality = "high";
+    sx.drawImage(keyed, 0, 0, cols, rows);
+    var data;
+    try { data = sx.getImageData(0, 0, cols, rows).data; }
+    catch (e) { return illustration(); } // tainted canvas (file://)
+
+    canvas.width = keyed.width;
+    canvas.height = keyed.height;
+    var ctx = canvas.getContext("2d"), css = getComputedStyle(document.documentElement);
+    ctx.scale(dpr, dpr);
+    ctx.font = "700 4.3px " + (css.getPropertyValue("--mono").trim() || "monospace");
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    var ink = css.getPropertyValue("--ink").trim() || "#141414", dark = isDark();
+    function nearEmpty(c, r) {
+      for (var dy = -2; dy <= 2; dy++) for (var dx = -2; dx <= 2; dx++) {
+        var x = c + dx, y = r + dy;
+        if (x < 0 || y < 0 || x >= cols || y >= rows || data[(y * cols + x) * 4 + 3] < 128) return true;
+      }
+      return false;
+    }
+    var ox = (w - cols * cw) / 2 + cw / 2, oy = (h - rows * chh) / 2 + chh / 2;
+    for (var r = 0; r < rows; r++) {
+      for (var c = 0; c < cols; c++) {
+        var i = (r * cols + c) * 4, a = data[i + 3] / 255;
+        if (a < 0.2) continue;
+        var R = data[i], G = data[i + 1], B = data[i + 2];
+        var lum = (0.2126 * R + 0.7152 * G + 0.0722 * B) / 255;
+        // in dark mode the drawing's pale halo would read as a bright rim
+        if (dark && lum > 0.72 && nearEmpty(c, r)) continue;
+        // light mode draws the dark ink, dark mode draws the light
+        var dens = Math.min(1, Math.max(0, ((dark ? lum : 1 - lum) - 0.08) / 0.72)) * a;
+        var k = Math.round(dens * (RAMP.length - 1));
+        if (k < 1) continue;
+        var sat = Math.max(R, G, B) - Math.min(R, G, B) > 70;
+        ctx.fillStyle = sat ? "rgb(" + R + "," + G + "," + B + ")" : ink;
+        ctx.fillText(sat ? "@" : RAMP[k], ox + c * cw, oy + r * chh);
+      }
+    }
   }
 
   function drawPortrait() {
     if (!canvas) return;
-    if (S.portraitStyle === "illustration" && S.portrait) {
-      if (illustrated) return;
+    var style = S.portraitStyle;
+    if ((style === "illustration" || style === "ascii") && S.portrait) {
+      var draw = style === "ascii" ? ascii : illustration;
+      if (keyed) return draw();
       var pic = new Image();
-      pic.onload = function () { illustration(pic); };
+      pic.onload = function () {
+        keyed = keyImage(pic);
+        if (document.fonts && style === "ascii") document.fonts.ready.then(draw); else draw();
+      };
       pic.onerror = function () { source = sourceCanvas(null); halftone(source); };
       pic.src = S.portrait;
       return;
