@@ -232,7 +232,7 @@
     row.style.gap = gap + "px";
     row.style.height = tallest + "px";
     row.style.padding = "0 " + inset + "px";
-    if (align !== "packed") row.style.minWidth = (minShelf + inset * 2) + "px";
+    row.style.minWidth = (minShelf + inset * 2) + "px";
 
     var els = items.map(function (b, i) {
       var el = document.createElement("button");
@@ -284,8 +284,6 @@
       var push = coverOf(items[open]) - items[open].spineWidth;
       var inner = row.clientWidth - inset * 2;
       var slack = Math.max(0, Math.max(inner, minShelf) - (spineTotal + gapsTotal + push));
-      // packed: the shelf ends where the books end, no empty plank after them
-      if (align === "packed") row.style.width = (spineTotal + gapsTotal + push + inset * 2) + "px";
 
       els.forEach(function (el, i) {
         var isOpen = i === open;

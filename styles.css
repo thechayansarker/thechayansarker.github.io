@@ -298,11 +298,7 @@ section.bleed .section-head { padding-left: var(--pad); padding-right: var(--pad
   align-items: flex-end;
   position: relative;
   z-index: 1;
-  box-sizing: border-box;
-  transition: width var(--dur) var(--ease);
 }
-/* packed shelf hugs its books instead of filling the column */
-#books .shelf { min-width: 0; margin: 0; }
 
 .book {
   position: relative;
