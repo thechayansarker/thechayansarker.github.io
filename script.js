@@ -351,6 +351,11 @@
           '<button type="button" role="radio" data-mode="dark" aria-label="Dark mode">' + icon("moon") + "</button>" +
         "</div>";
     }
+    if (d.icon === "avatar") {
+      return "<a " + linkAttrs(d.href) + ' class="dock-avatar' + (isHome ? " here" : "") + '" aria-label="' + esc(d.label) + '">' +
+        '<span class="avatar" style="background-image:url(\'' + esc(resolve(S.portrait)) + '\')"></span>' +
+        '<span class="tip">' + esc(d.label) + '</span></a><span class="sep"></span>';
+    }
     return "<a " + linkAttrs(d.href) + ' aria-label="' + esc(d.label) + '">' +
       icon(d.icon) + '<span class="tip">' + esc(d.label) + "</span></a>";
   }).join("");

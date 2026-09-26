@@ -108,7 +108,7 @@ window.SITE = {
   },
 
   dock: [
-    { icon: "home",    label: "Home",        href: "#top" },
+    { icon: "avatar",  label: "Home",        href: "#top" }, // your portrait, then a divider
     { icon: "work",    label: "Work",        href: "#work" },
     { icon: "game",    label: "Playing",     href: "#playing" },
     { icon: "book",    label: "Books",       href: "#books" },
