@@ -19,7 +19,7 @@ window.SITE = {
   bio: [
     "I'm Chayan, a designer and researcher interested in *AI*, *computer vision* and *augmented reality*.",
     "My work sits between the model and the person: deciding what a system should show, when it should speak up, and what it should *never* do.",
-    "I'm currently a Senior Product Designer at [Air Health](https://www.airhealth.co), where research I began on ACL recovery became a funded product that coaches movement through the phone camera. I hold an MS in Experience Design from [Northeastern](https://www.northeastern.edu).",
+    "I'm currently a Senior Product Designer at [Air Health](https://www.airhealth.co), where research I began on ACL recovery became a funded product that coaches movement through the phone camera. I hold an MS in Human Computer Interaction (Experience Design) from [Northeastern](https://www.northeastern.edu).",
     "Find me on [LinkedIn](https://www.linkedin.com/in/thechayansarker), at [chayan.design](https://www.chayan.design) and [srchayan@gmail.com](mailto:srchayan@gmail.com)."
   ],
 
@@ -37,7 +37,8 @@ window.SITE = {
 
   // 01 Education and 02 Experience (from resume). `place` shows under the dates.
   education: [
-    { org: "Northeastern University", role: "MS in Experience Design", period: "2025", place: "Boston, MA" }
+    { org: "Northeastern University", role: "MS in Human Computer Interaction (Experience Design)", period: "2025", place: "Boston, MA",
+      note: "Courses: Research Methods, Design and Accessibility, Design Systems, Design for Behavior (health), Human Centered AI" }
   ],
   experience: [
     { org: "Air Health", role: "Senior Product Designer", period: "2026 → Now",  place: "Boston, MA" },

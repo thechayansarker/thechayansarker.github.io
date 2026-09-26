@@ -125,7 +125,8 @@
         ? '<a class="org ext" ' + linkAttrs(r.href) + ">" + esc(r.org) + "</a>"
         : '<span class="org">' + esc(r.org) + "</span>";
       return '<div class="role"><div>' + org +
-        '<div class="title">' + esc(r.role) + "</div></div>" +
+        '<div class="title">' + esc(r.role) + "</div>" +
+        (r.note ? '<div class="note">' + esc(r.note) + "</div>" : "") + "</div>" +
         '<div class="when"><div class="period">' + esc(r.period) + "</div>" +
         (r.place ? '<div class="place">' + esc(r.place) + "</div>" : "") + "</div></div>";
     }).join("");
