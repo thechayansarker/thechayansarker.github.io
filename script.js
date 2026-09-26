@@ -86,10 +86,16 @@
   };
   // stats use the dock's duotone icons, drawn larger; GLYPH covers the rest
   function glyph(name) {
+    // app icon tile: rounded square, faint icon grid guides, bold duotone icon
     if (/class="duo"/.test(ICON[name] || ""))
-      return '<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
-        'stroke-width="1.15" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' +
-        ICON[name] + "</svg>";
+      return '<span class="tile">' +
+        '<svg class="tile-grid" viewBox="0 0 58 58" aria-hidden="true">' +
+          '<path d="M29 0v58M0 29h58M0 0l58 58M58 0 0 58"/>' +
+          '<rect x="12" y="12" width="34" height="34" rx="3"/>' +
+          '<circle cx="29" cy="29" r="17"/><circle cx="29" cy="29" r="9"/>' +
+        "</svg>" +
+        '<svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">' + ICON[name] + "</svg>" +
+      "</span>";
     return '<svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" ' +
       'stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">' +
       (GLYPH[name] || "") + "</svg>";
