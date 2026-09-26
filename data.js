@@ -76,7 +76,8 @@ window.SITE = {
     gap: 1,
     lean: 6,          // degrees; books left of the open one lean -lean, right lean +lean
     titleLine: 148,   // spine titles start this far above the shelf
-    align: "packed",  // packed | even | split | centered
+    align: "centered", // packed | even | split | centered
+    fill: true,        // thicken spines so the books span the whole shelf
     items: [
       { title: "Dieter Rams: The Complete Works", initials: "KK", color: "#f0502a", ink: "#111111", spineWidth: 24, height: 230, coverWidth: 176, cover: "assets/books/dieter-rams.jpg", link: "https://www.goodreads.com/search?q=Dieter+Rams+The+Complete+Works" },
       { title: "Grid Systems in Graphic Design", initials: "JMB", color: "#ec6726", ink: "#1e1e1e", spineWidth: 20, height: 230, coverWidth: 158, cover: "assets/books/grid-systems.jpg", link: "https://www.goodreads.com/search?q=Grid+Systems+in+Graphic+Design" },
