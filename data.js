@@ -77,12 +77,13 @@ window.SITE = {
     lean: 6,          // degrees; books left of the open one lean -lean, right lean +lean
     titleLine: 148,   // spine titles start this far above the shelf
     align: "packed",  // packed | even | split | centered
+    featured: 4,      // which book is open when the page loads (0 is the first)
     items: [
-      { title: "Dieter Rams: The Complete Works", initials: "KK", color: "#f0502a", ink: "#111111", spineWidth: 24, height: 230, coverWidth: 176, cover: "assets/books/dieter-rams.jpg", link: "https://www.goodreads.com/search?q=Dieter+Rams+The+Complete+Works" },
       { title: "Grid Systems in Graphic Design", initials: "JMB", color: "#ec6726", ink: "#1e1e1e", spineWidth: 20, height: 230, coverWidth: 158, cover: "assets/books/grid-systems.jpg", link: "https://www.goodreads.com/search?q=Grid+Systems+in+Graphic+Design" },
       { title: "Keep Going", initials: "AK", color: "#0565b1", ink: "#ffffff", spineWidth: 16, height: 230, coverWidth: 230, cover: "assets/books/keep-going.jpg", link: "https://www.goodreads.com/search?q=Keep+Going+Austin+Kleon" },
       { title: "Steal Like an Artist", initials: "AK", color: "#1d1b1b", ink: "#ffffff", spineWidth: 16, height: 230, coverWidth: 230, cover: "assets/books/steal-like-an-artist.jpg", link: "https://www.goodreads.com/search?q=Steal+Like+an+Artist" },
       { title: "How to", initials: "MB", color: "#0b0b0b", ink: "#ffffff", spineWidth: 26, height: 230, coverWidth: 222, cover: "assets/books/how-to.jpg", link: "https://www.goodreads.com/search?q=How+to+Michael+Bierut" },
+      { title: "Dieter Rams: The Complete Works", initials: "KK", color: "#f0502a", ink: "#111111", spineWidth: 24, height: 230, coverWidth: 176, cover: "assets/books/dieter-rams.jpg", link: "https://www.goodreads.com/search?q=Dieter+Rams+The+Complete+Works" },
       { title: "The Design of Everyday Things", initials: "DN", color: "#f6df3a", ink: "#111111", spineWidth: 20, height: 230, coverWidth: 153, cover: "assets/books/design-of-everyday-things.jpg", link: "https://www.goodreads.com/search?q=The+Design+of+Everyday+Things" },
       { title: "Ikigai", initials: "HG FM", color: "#aed9e2", ink: "#111111", spineWidth: 18, height: 230, coverWidth: 162, cover: "assets/books/ikigai.jpg", link: "https://www.goodreads.com/search?q=Ikigai+Hector+Garcia" },
       { title: "Steve Jobs", initials: "WI", color: "#f4f4f1", ink: "#111111", spineWidth: 26, height: 230, coverWidth: 150, cover: "assets/books/steve-jobs.jpg", link: "https://www.goodreads.com/search?q=Steve+Jobs+Walter+Isaacson" },

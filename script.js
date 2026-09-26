@@ -212,7 +212,7 @@
     if (!$("shelf")) return;
     var B = S.books, items = B.items, n = items.length;
     var coverW = B.coverWidth, gap = B.gap, lean = B.lean, align = B.align || "packed";
-    var open = 0;
+    var open = Math.min(Math.max(B.featured || 0, 0), n - 1);
 
     var tallest = Math.max.apply(null, items.map(function (b) { return b.height; }));
     // a book leaning `lean` degrees about its base throws its top sideways
