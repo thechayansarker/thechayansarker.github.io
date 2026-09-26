@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Air Health case study, Chayan Sarker</title>
+<meta name="description" content="Air Health is an adaptive wellness platform that uses the phone camera to read body pose, coach form in the middle of a movement, and adapt each day's plan." />
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../styles.css" />
+
+<script>
+  (function () {
+    var saved = localStorage.getItem("theme");
+    var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  })();
+</script>
+</head>
+
+<body id="top" data-root="../../">
+  <div class="frame case">
+
+    <header class="case-hero">
+      <a class="back" href="../../#work">&larr; Work</a>
+      <p class="eyebrow">Computer vision &amp; product design &middot; 2026</p>
+      <h1>Air Health</h1>
+      <p class="lede">An adaptive wellness platform that uses the phone camera to read how you move, coach your form in the middle of a rep, and adjust each day&rsquo;s plan to how your body feels.</p>
+      <dl class="case-meta">
+        <div><dt>Role</dt><dd>Senior Product Designer</dd></div>
+        <div><dt>Team</dt><dd>Founders, 1 machine learning engineer, 4 engineers</dd></div>
+        <div><dt>Timeline</dt><dd>February 2026 to present</dd></div>
+        <div><dt>Focus</dt><dd>Computer vision, health, HCI</dd></div>
+      </dl>
+    </header>
+
+    <figure class="case-photo">
+      <video class="auto-video" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" width="1920" height="1080" aria-label="A loop through the Air Health app: the home screen shows a readiness score of 97 and today&rsquo;s goal, a spoken prompt says you are doing great, then the camera tracks a man doing a banded leg exercise with a skeleton overlay, green chevrons and a rep counter, before returning home.">
+        <source src="media/hero.mp4" type="video/mp4" />
+      </video>
+    </figure>
+
+    <div class="glance">
+      <div><h4>Problem</h4><p>Fitness apps log what you did, but can&rsquo;t tell you what today needs or whether your form is right.</p></div>
+      <div><h4>Approach</h4><p>Pose estimation on the phone camera, turned into feedback people can act on mid movement, plus a plan that adapts daily.</p></div>
+      <div><h4>Outcome</h4><p>A shipped SwiftUI prototype, 60% faster design to test cycles, and accelerator funding for the startup.</p></div>
+    </div>
+
+    <div class="rule"></div>
+
+    <section id="question">
+      <div class="section-head" data-num="01">Research question</div>
+      <blockquote class="hmw">How do you tell someone they&rsquo;re doing it wrong, in the middle of a rep, in a way they can notice, trust and act on?</blockquote>
+      <p>Air Health&rsquo;s mission is to help anyone move with confidence and turn any space into a training space. For the business, that means a daily habit rather than a one time download, with retention that justifies a subscription.</p>
+      <p>The camera makes this possible: it can see how someone moves and respond in real time. The design challenge sits between the model and the person. A correct prediction is useless if it arrives at the wrong moment, in the wrong form, or feels like criticism.</p>
+    </section>
+
+    <section id="research">
+      <div class="section-head" data-num="02">Understanding the problem</div>
+
+      <h3>What existing apps miss</h3>
+      <p>I audited five leading apps: Ladder, Nike Training Club, Gymshark, MyFitnessPal and Peloton. They are good at workout libraries and tracking history. None of them offered live feedback on form, and none adapted the plan to how the person felt that day. In short, they tell you what you did, not what today needs.</p>
+      <figure class="figure">
+        <img src="images/audit.jpg" width="1776" height="684" loading="lazy" alt="Screens from four fitness apps: Ladder, Nike Training Club, Gymshark and MyFitnessPal, each built around workout libraries and tracking." />
+        <figcaption>Part of the competitive audit.</figcaption>
+      </figure>
+
+      <h3>What people told us</h3>
+      <p>I combined interviews, Reddit discussions and the app audit into an affinity map, organising patterns across people&rsquo;s physical, emotional and behavioural recovery journeys. One pattern came up again and again: people push hard on a day they shouldn&rsquo;t, feel worse, and then stop going entirely.</p>
+      <figure class="figure">
+        <img src="images/affinity.jpg" width="1060" height="605" loading="lazy" alt="An affinity map of colour coded sticky notes on a wall, grouping insights from interviews, Reddit discussions and app audits." />
+        <figcaption>Affinity mapping of qualitative insights.</figcaption>
+      </figure>
+
+      <h3>Three problems</h3>
+      <ol class="insights">
+        <li><b>Adaptation</b>&ldquo;Same plan, no matter how I feel.&rdquo; Plans ignore soreness, pain and energy.</li>
+        <li><b>Feedback</b>&ldquo;I don&rsquo;t know if I&rsquo;m doing it right.&rdquo; Without a coach, form errors go unnoticed.</li>
+        <li><b>Adherence</b>&ldquo;Miss a day, quit the plan.&rdquo; One missed session often ends the routine. Low adherence to prescribed home exercise has been documented for decades [3].</li>
+      </ol>
+      <p><strong>Objective:</strong> a clear and trustworthy daily plan that adapts to how your body feels, and coaches you while you move.</p>
+    </section>
+
+    <section id="system">
+      <div class="section-head" data-num="03">How the camera sees</div>
+      <p>The core loop is simple: the camera captures movement, the system evaluates form, and the plan adapts. Underneath, it runs as a six stage pipeline built with the engineering team.</p>
+      <ol class="insights">
+        <li><b>Frame the body</b>Before a set starts, the app checks that the phone is placed on the floor and the person&rsquo;s full body is in view. Pose estimation fails quietly when limbs are cut off, so this step protects everything after it.</li>
+        <li><b>Estimate the pose</b>Google&rsquo;s MediaPipe Pose Landmarker estimates 33 body landmarks in 3D on every frame, running on the phone [1, 2].</li>
+        <li><b>Evaluate form</b>Joint angles derived from the landmarks are compared with a target range for each exercise, so the system can tell when a knee, hip or back drifts from the intended position.</li>
+        <li><b>Count reps</b>The system follows the phases of each movement to count repetitions and time holds.</li>
+        <li><b>Coach in the moment</b>Form results are turned into feedback: a skeleton overlay, directional cues and spoken corrections.</li>
+        <li><b>Adapt the plan</b>Session results and a short pain check in feed tomorrow&rsquo;s plan, so the app can suggest an easier day after a hard one.</li>
+      </ol>
+    </section>
+
+    <section id="feedback">
+      <div class="section-head" data-num="04">Designing feedback mid rep</div>
+      <p>I started with storyboards of one person&rsquo;s journey: setting up a plan around an injury, following guided exercises with live corrections, logging pain, and seeing progress.</p>
+      <figure class="figure">
+        <img src="images/storyboard.jpg" width="702" height="512" loading="lazy" alt="Five pencil storyboard frames of a user named Alex entering injury details, following AR guided exercises with posture corrections, earning points, logging pain levels, and celebrating a milestone." />
+        <figcaption>Early storyboard of the end to end experience.</figcaption>
+      </figure>
+      <p>From there, most of the design work went into one moment: the correction. I explored three ways to deliver it, each tested on a real phone with the real camera.</p>
+
+      <h3>1. Skeleton on the body</h3>
+      <p>A skeleton drawn over the live camera view: white while tracking, yellow when a limb drifts from the target, and a pulse when a rep counts. It made the model&rsquo;s view visible, but reading colour changes on a small screen mid movement is hard.</p>
+      <figure class="figure tall">
+        <img src="images/skeleton.jpg" width="756" height="972" loading="lazy" alt="A phone showing a person doing a side plank, with white and yellow skeleton lines over their body, a rep count of 12 and a timer." />
+      </figure>
+
+      <h3>2. Skeleton and a directional cue</h3>
+      <p>Chevrons were added to show which way to move, with the skeleton turning green when form is correct. This told people what to do, not just that something was wrong. It is shown in motion at the top of this page, along with a short spoken prompt.</p>
+
+      <h3>3. Demo above, you below</h3>
+      <p>The final direction splits the screen: a demonstration above and the person below, so they can watch the shape and match it. Spoken audio carries the correction, so people don&rsquo;t have to read the screen at all. The skeleton overlay became optional, with controls for audio, posture overlay, pose estimation and the demo video.</p>
+      <figure class="figure tall">
+        <img src="images/demo.jpg" width="960" height="918" loading="lazy" alt="Two phone screens. The first shows a demo of a squat above and the user's own squat with a skeleton overlay below. The second shows settings to adjust audio and toggle the posture overlay, pose estimation and workout video." />
+        <figcaption>Split screen coaching, with the overlay settings.</figcaption>
+      </figure>
+
+      <h3>Getting set up</h3>
+      <p>Because everything depends on a clear view of the body, setup became its own flow: choose an exercise, place the phone on the floor, step back until the full body is in view, then a clear confirmation before the set begins.</p>
+      <figure class="figure">
+        <img src="images/setup.jpg" width="1824" height="912" loading="lazy" alt="Four phone screens: a bird dog exercise detail page, an instruction to place your phone on the floor, a prompt that says need your full body view, and a confirmation that says Perfect." />
+      </figure>
+    </section>
+
+    <section id="plan">
+      <div class="section-head" data-num="05">The adaptive plan</div>
+      <p>I designed the home screen around one assumption: people open the app asking &ldquo;what should I do today?&rdquo;, not &ldquo;what&rsquo;s available?&rdquo; So it leads with the person&rsquo;s state, then a plan, then one action.</p>
+      <div class="flow" role="list">
+        <div class="state" role="listitem" style="--c:#f08a24"><b>State</b><p>&ldquo;You seem rested,&rdquo; based on recent sessions and check ins. A later version sums this up as a daily readiness score.</p></div>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+        <div class="state" role="listitem" style="--c:#62c23b"><b>Plan</b><p>Three named exercises chosen for today.</p></div>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+        <div class="state" role="listitem" style="--c:#3b7bf0"><b>Action</b><p>A single Start Workout button.</p></div>
+      </div>
+      <figure class="figure tall">
+        <img src="images/home.jpg" width="912" height="918" loading="lazy" alt="Two versions of the home screen. Each greets Alex, shows exercise progress, says You Seem Rested, and lists today's plan with bird dog and plank, above a Start Workout button." />
+      </figure>
+
+      <h3>Closing the loop</h3>
+      <p>After each session, a summary shows the muscles worked, reps completed and motion insights, such as room to squat lower with a wider stance. A quick pain check in on a 0 to 10 scale lets the plan respond to how the body actually feels.</p>
+      <figure class="figure tall">
+        <img src="images/summary.jpg" width="822" height="810" loading="lazy" alt="Two phone screens: a session summary showing muscles worked, exercises and reps with a motion insight about squat depth, and a pain intensity check in with a 0 to 10 slider and optional notes." />
+      </figure>
+    </section>
+
+    <section id="prototype">
+      <div class="section-head" data-num="06">Prototyping and testing</div>
+      <p>Feedback timing couldn&rsquo;t be faked in a clickable prototype. A correction that arrives half a second late feels wrong, and only a real camera, real motion and a real phone in hand reveal that. So I built the prototype in SwiftUI and tested it on device, which cut the time from design to a tested interaction by 60%.</p>
+      <figure class="figure tall">
+        <video class="auto-video" autoplay muted loop playsinline preload="metadata" poster="images/prototype-poster.jpg" width="540" height="960" aria-label="A phone running the SwiftUI prototype held in front of Xcode, moving from the home screen to an exercise page and into the camera view.">
+          <source src="media/prototype.mp4" type="video/mp4" />
+        </video>
+        <figcaption>The SwiftUI prototype running on device, with the code behind it.</figcaption>
+      </figure>
+      <p>I ran moderated usability sessions of 45 to 60 minutes, with informed consent for recording. Each session followed the full journey: onboarding, positioning the camera, feedback during movement, feedback after the exercise, and the community feed. I mapped each participant&rsquo;s emotional journey across these phases to find where confidence dropped.</p>
+      <p>The sessions pointed to a practical constraint that shaped the final design: during a rep, people can&rsquo;t reliably look at a phone on the floor. That is why audio came to carry the correction, and the visual overlay became optional.</p>
+    </section>
+
+    <section id="outcome">
+      <div class="section-head" data-num="07">Outcome</div>
+      <div class="stat-pair three">
+        <div><b>60%</b><span>less time from design to a tested interaction, by prototyping in SwiftUI.</span></div>
+        <div><b>33</b><span>body landmarks tracked in 3D on every frame, on the phone.</span></div>
+        <div><b>Funded</b><span>Air Health secured accelerator funding, with startup partnerships with Google and ElevenLabs.</span></div>
+      </div>
+      <p>I also built the design system from scratch, with components and variables tied to tokens for colour, spacing, radius and type, so the engineering team could build consistently as the product grew.</p>
+      <figure class="figure">
+        <img src="images/system.jpg" width="1185" height="845" loading="lazy" alt="Design system documentation: button variants, component properties, spacing and radius tokens, and typography variables." />
+        <figcaption>Part of the Air Health design system.</figcaption>
+      </figure>
+    </section>
+
+    <section id="limits">
+      <div class="section-head" data-num="08">Limitations and next steps</div>
+      <h3>Where the camera can be wrong</h3>
+      <ul class="list-plain">
+        <li><b>Viewing conditions.</b> Pose estimation gets less reliable with poor lighting, loose clothing, unusual camera angles and limbs that block each other.</li>
+        <li><b>Different bodies.</b> Target ranges for form need to work across body sizes, ages and mobility levels, not just an ideal demonstrator.</li>
+        <li><b>A camera at home.</b> Recording people in their own space is sensitive. Running pose estimation on the phone keeps video local, but people still need clear control over when the camera is on.</li>
+        <li><b>Self reported pain</b> is subjective, so the adaptation logic needs careful validation before it can guide rehabilitation.</li>
+      </ul>
+      <h3>Next steps</h3>
+      <ul class="list-plain">
+        <li><b>Validate the form feedback</b> by comparing the system&rsquo;s corrections with a physical therapist&rsquo;s judgement.</li>
+        <li><b>Compare feedback channels</b> (visual, audio and haptic) to see which ones people notice and act on mid movement.</li>
+        <li><b>Measure adherence over time,</b> to test whether adaptive plans keep people exercising longer than fixed ones.</li>
+      </ul>
+    </section>
+
+    <section id="learned">
+      <div class="section-head" data-num="09">What I learned</div>
+      <p>The accuracy of the model was never the whole story. The hardest problems were human: when to interrupt, how to phrase a correction so it helps rather than discourages, and how much of the model&rsquo;s view to show. Moving the correction from the screen to the voice was a small interface change that reflected a big shift in thinking, from showing what the system sees to supporting what the person is doing.</p>
+      <p>That is the question I want to keep exploring: how can computer vision systems coach people in the moment, in ways that build confidence rather than dependence?</p>
+
+      <h3>References</h3>
+      <ol class="refs">
+        <li>Bazarevsky, V., Grishchenko, I., Raveendran, K., Zhu, T., Zhang, F., &amp; Grundmann, M. (2020). BlazePose: On-device real-time body pose tracking. <em>arXiv:2006.10204.</em> <a class="link" href="https://arxiv.org/abs/2006.10204" target="_blank" rel="noopener noreferrer">arxiv.org/abs/2006.10204</a></li>
+        <li>Google. <em>Pose landmark detection guide.</em> MediaPipe, Google AI Edge. <a class="link" href="https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker" target="_blank" rel="noopener noreferrer">ai.google.dev/edge/mediapipe</a></li>
+        <li>Sluijs, E. M., Kok, G. J., &amp; van der Zee, J. (1993). Correlates of exercise compliance in physical therapy. <em>Physical Therapy, 73</em>(11), 771-782. <a class="link" href="https://doi.org/10.1093/ptj/73.11.771" target="_blank" rel="noopener noreferrer">doi.org/10.1093/ptj/73.11.771</a></li>
+      </ol>
+    </section>
+
+    <nav class="case-next" aria-label="Case study navigation">
+      <a href="../../#work">&larr; All work</a>
+      <a href="../sensease/">SensEase &rarr;</a>
+    </nav>
+
+    <footer class="foot">
+      <div class="foot-meta">
+        <p class="copy" id="copyright"></p>
+        <div class="meta-lines">
+          <div class="meta-row">
+            <svg class="clock" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line id="hand-h" x1="12" y1="12" x2="12" y2="7.5" />
+              <line id="hand-m" x1="12" y1="12" x2="12" y2="5" />
+            </svg>
+            <div><span id="tz"></span><span id="time"></span></div>
+          </div>
+          <div class="meta-row">
+            <svg class="globe" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <ellipse cx="12" cy="12" rx="4.2" ry="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M4 7h16M4 17h16" />
+            </svg>
+            <div><span id="lat"></span><span id="lon"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="foot-tree">
+        <p class="tree-head">Contact</p>
+        <ul id="foot-contact"></ul>
+      </div>
+      <div class="foot-tree">
+        <p class="tree-head">Index</p>
+        <ul id="foot-index"></ul>
+      </div>
+    </footer>
+
+  </div>
+
+  <nav class="dock" id="dock" aria-label="Quick links"></nav>
+
+  <script>
+    // Autoplay the muted clips, but show still frames to people who prefer
+    // reduced motion.
+    (function () {
+      var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.querySelectorAll(".auto-video").forEach(function (v) {
+        if (reduce) { v.removeAttribute("autoplay"); v.pause(); return; }
+        var start = function () { var p = v.play(); if (p) p.catch(function () {}); };
+        start();
+        document.addEventListener("visibilitychange", function () { if (!document.hidden && v.paused) start(); });
+      });
+    })();
+  </script>
+  <script src="../../data.js"></script>
+  <script src="../../script.js"></script>
+</body>
+</html>

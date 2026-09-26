@@ -891,3 +891,8 @@ html[data-theme="dark"] .case-cover { box-shadow: 0 0 0 1px var(--hairline-stron
 .figure.diagram img { border: 0; border-radius: 0; mix-blend-mode: multiply; }
 html[data-theme="dark"] .figure.diagram img { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
 .refs a { overflow-wrap: anywhere; }
+
+/* Portrait or phone mockup figures: keep them from filling the column */
+.figure.tall { max-width: 360px; margin-left: auto; margin-right: auto; }
+.figure.tall figcaption { text-align: center; }
+.figure video { width: 100%; height: auto; display: block; border-radius: 6px; border: 1px solid var(--hairline); background: #151515; }
