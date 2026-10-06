@@ -17,7 +17,7 @@ window.SITE = {
   portraitStyle: "illustration",
 
   bio: [
-    "I'm Chayan, a designer and researcher interested in *AI*, *computer vision* and *augmented reality*.",
+    "I'm Chayan, a designer and researcher interested in *AI*, *computer vision* and *health*, and how people come to trust these systems in everyday life.",
     "My work sits between the model and the person: deciding what a system should show, when it should speak up, and what it should *never* do.",
     "I'm currently a Senior Product Designer at [Air Health](https://www.airhealth.co), where research I began on ACL recovery became a funded product that coaches movement through the phone camera. I hold an MS in Human Computer Interaction (Experience Design) from [Northeastern](https://www.northeastern.edu).",
     "Find me on [LinkedIn](https://www.linkedin.com/in/thechayansarker), at [chayan.design](https://www.chayan.design) and [srchayan@gmail.com](mailto:srchayan@gmail.com)."
