@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chayan Sarker, Designer and Researcher</title>
-<meta name="description" content="Chayan Sarker is a designer and researcher interested in AI, computer vision and health, and how people come to trust these systems in everyday life." />
+<title>Chayan Sarker · Academic profile</title>
+<meta name="description" content="Chayan Sarker is a designer and researcher in human computer interaction, working on AI, computer vision and health, and how people come to trust these systems in everyday life." />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="home.css" />
 
 <script>
-  // Apply the saved theme before first paint so there's no flash.
   (function () {
-    var saved = localStorage.getItem("theme");
+    var saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (e) {}
     var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
     document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
   })();
@@ -23,85 +23,361 @@
 </head>
 
 <body id="top">
-  <div class="frame">
 
-    <header class="hero">
-      <div class="hero-text">
-        <h1><span id="name"></span><span class="flag" id="flag"></span></h1>
-        <div id="bio"></div>
-      </div>
-      <div class="hero-media">
-        <div class="portrait"><canvas id="portrait-canvas" aria-label="Portrait"></canvas></div>
-      </div>
-    </header>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">Chayan Sarker</a>
+    <div class="topbar-right">
+      <a class="hide-sm ext" href="https://www.chayan.design" target="_blank" rel="noopener">Switch to designer portfolio</a>
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-    <div class="rule"></div>
-    <nav class="stats" id="stats" aria-label="Sections"></nav>
-    <div class="rule"></div>
+<main class="page">
 
-    <section id="education">
-      <div class="section-head" data-num="01">Education</div>
-      <div id="education-list"></div>
-    </section>
-
-    <section id="experience">
-      <div class="section-head" data-num="02">Experience</div>
-      <div id="experience-list"></div>
-    </section>
-
-    <section id="work">
-      <div class="section-head" data-num="03">Work</div>
-      <div id="work-list"></div>
-    </section>
-
-    <section id="playing" class="bleed">
-      <div class="section-head" data-num="04">Recently playing</div>
-      <div class="scroller"><div class="records" id="records"></div></div>
-    </section>
-
-    <section id="books" class="bleed">
-      <div class="section-head" data-num="05">Books I love</div>
-      <div class="scroller"><div class="shelf" id="shelf"></div></div>
-    </section>
-
-    <footer class="foot">
-      <div class="foot-meta">
-        <p class="copy" id="copyright"></p>
-        <div class="meta-lines">
-          <div class="meta-row">
-            <svg class="clock" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" />
-              <line id="hand-h" x1="12" y1="12" x2="12" y2="7.5" />
-              <line id="hand-m" x1="12" y1="12" x2="12" y2="5" />
-            </svg>
-            <div><span id="tz"></span><span id="time"></span></div>
-          </div>
-          <div class="meta-row">
-            <svg class="globe" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" />
-              <ellipse cx="12" cy="12" rx="4.2" ry="10" />
-              <line x1="2" y1="12" x2="22" y2="12" />
-              <path d="M4 7h16M4 17h16" />
-            </svg>
-            <div><span id="lat"></span><span id="lon"></span></div>
-          </div>
-        </div>
-      </div>
-      <div class="foot-tree">
-        <p class="tree-head">Contact</p>
-        <ul id="foot-contact"></ul>
-      </div>
-      <div class="foot-tree">
-        <p class="tree-head">Index</p>
-        <ul id="foot-index"></ul>
-      </div>
-    </footer>
-
+  <div class="intro">
+    <p class="crumb">Academic profile <span aria-hidden="true">&#8627;</span> <strong>Human Computer Interaction · Human-Centered AI · Health</strong></p>
+    <h1>Chayan<br />Sarker</h1>
   </div>
 
-  <nav class="dock" id="dock" aria-label="Quick links"></nav>
+  <div class="layout">
+    <nav class="toc" id="toc" aria-label="On this page">
+      <a href="#profile" class="active">Profile</a>
+      <a href="#bio">Bio</a>
+      <a href="#research">Research</a>
+      <a href="#research-experience">Research experience</a>
+      <a href="#work">Case studies</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#honors">Honors</a>
+      <a href="#skills">Skills</a>
+    </nav>
 
-  <script src="data.js?v=2"></script>
-  <script src="script.js"></script>
+    <div class="content">
+
+      <!-- Profile -->
+      <section class="profile" id="profile">
+        <div class="portrait"><img src="assets/portrait.webp" alt="Illustrated portrait of Chayan Sarker" /></div>
+
+        <div class="facts">
+          <div class="fact">
+            <p class="fact-head">Research interests</p>
+            <ul>
+              <li>Human Computer Interaction</li>
+              <li>Human-Centered AI</li>
+              <li>Computer Vision</li>
+              <li>Digital Health</li>
+              <li>Accessibility</li>
+              <li>Trust in AI Systems</li>
+            </ul>
+          </div>
+          <div class="fact">
+            <p class="fact-head">Find me</p>
+            <ul>
+              <li><a href="mailto:srchayan@gmail.com">srchayan@gmail.com</a></li>
+              <li><a class="ext" href="https://www.linkedin.com/in/thechayansarker" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a class="ext" href="https://www.chayan.design" target="_blank" rel="noopener">chayan.design</a></li>
+              <li>Boston, MA</li>
+            </ul>
+          </div>
+
+          <div class="actions">
+            <a class="btn primary" href="https://www.chayan.design" target="_blank" rel="noopener">Designer portfolio <span aria-hidden="true">&#8599;</span></a>
+            <a class="btn" href="mailto:srchayan@gmail.com">Get in touch <span aria-hidden="true">&#8599;</span></a>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><b>3</b><span>Research projects</span></div>
+            <div class="stat"><b>6+</b><span>Years designing</span></div>
+            <div class="stat"><b>MS</b><span>HCI, Northeastern</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bio -->
+      <section class="sec bio" id="bio">
+        <div class="sec-head"><h2>Bio</h2></div>
+        <p>Designer and researcher in human computer interaction. I study how people understand and come to trust AI, computer vision and health systems in everyday life, and I design the layer between the model and the person: what a system should show, when it should speak up, and what it should never do.</p>
+        <p>My research on recovering from an ACL injury at home, started at Northeastern as Align, became <a href="https://www.airhealth.co" target="_blank" rel="noopener">Air Health</a>, a funded startup that coaches movement through the phone camera. I am its Senior Product Designer. Other work explores computer vision in AR glasses for safer transit and sensory friendly navigation for public spaces.</p>
+        <p>I hold an MS in Human Computer Interaction (Experience Design) from <a href="https://www.northeastern.edu" target="_blank" rel="noopener">Northeastern University</a>, and bring six years of product design across health tech, fintech and SaaS, leading research, prototyping and usability testing.</p>
+      </section>
+
+      <!-- Research -->
+      <section class="sec" id="research">
+        <div class="sec-head">
+          <h2>Research</h2>
+          <div class="filters" id="filters" role="group" aria-label="Filter research">
+            <button type="button" data-f="all" aria-pressed="true">All 3</button>
+            <button type="button" data-f="cv" aria-pressed="false">Computer vision 2</button>
+            <button type="button" data-f="health" aria-pressed="false">Health 1</button>
+            <button type="button" data-f="a11y" aria-pressed="false">Accessibility 1</button>
+          </div>
+        </div>
+
+        <ul class="entries" id="entries">
+          <li class="entry" data-tags="cv health">
+            <div class="entry-type">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              Research · 2025
+            </div>
+            <div>
+              <h3><a href="work/air-health/">Align to Air Health: Camera-Based Movement Coaching for At-Home ACL Recovery</a></h3>
+              <p class="meta"><b>Chayan Sarker</b>. Advisor: Dr. Arnold Mages. 2025 to 2026.</p>
+              <p class="venue">Northeastern University research, now a funded product · <a href="work/air-health/">Case study</a></p>
+            </div>
+            <span class="tag">CV for health</span>
+          </li>
+
+          <li class="entry" data-tags="a11y">
+            <div class="entry-type">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              Research · 2025
+            </div>
+            <div>
+              <h3><a href="work/sensease/">SensEase: Sensory Friendly Navigation for Public Spaces</a></h3>
+              <p class="meta"><b>Chayan Sarker</b>, Preet Singh. Instructor: Dr. Maitraye Das. 2025.</p>
+              <p class="venue">ARTG 6600, Northeastern University · <a href="work/sensease/">Case study</a></p>
+            </div>
+            <span class="tag">Accessibility</span>
+          </li>
+
+          <li class="entry" data-tags="cv">
+            <div class="entry-type">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              Research · 2024
+            </div>
+            <div>
+              <h3><a href="work/safevision/">SafeVision: Computer Vision in AR Glasses for Safer Transit</a></h3>
+              <p class="meta"><b>Chayan Sarker</b>. Advisor: Tad Hirsch. 2024 to present.</p>
+              <p class="venue">Design experiment, Northeastern University · <a href="work/safevision/">Case study</a></p>
+            </div>
+            <span class="tag">CV in AR</span>
+          </li>
+        </ul>
+        <p class="note">More process and outcomes in the <a class="inline-link" href="#work">case studies</a> below.</p>
+      </section>
+
+      <!-- Research experience -->
+      <section class="sec" id="research-experience">
+        <div class="sec-head"><h2>Research experience</h2></div>
+        <div class="rows">
+          <div class="row">
+            <p class="when">Jun 2025 to Sep 2025</p>
+            <div>
+              <h3>Design &amp; Research Lead <span>· Align, Northeastern University</span></h3>
+              <p class="sub">Advisor: Dr. Arnold Mages · Boston, MA</p>
+              <p>Interviews, home recovery audits and storyboards with people rehabbing an ACL injury; led to a camera-based coaching concept that became Air Health.</p>
+            </div>
+          </div>
+          <div class="row">
+            <p class="when">Oct 2024 to Present</p>
+            <div>
+              <h3>Experience Design &amp; Research <span>· SafeVision</span></h3>
+              <p class="sub">Advisor: Tad Hirsch · Northeastern University</p>
+              <p>Computer vision design experiment for AR glasses that reads the people around a transit rider, predicts how safe the situation is, and responds calmly.</p>
+            </div>
+          </div>
+          <div class="row">
+            <p class="when">Undergraduate</p>
+            <div>
+              <h3>Undergraduate Thesis in HCI <span>· Daffodil International University</span></h3>
+              <p class="sub">Dhaka, Bangladesh</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case studies -->
+      <section class="sec" id="work">
+        <div class="sec-head"><h2>Case studies</h2></div>
+        <div class="cards">
+          <a class="card" href="work/air-health/">
+            <p class="kicker">Computer vision &amp; health · 2025 to 2026</p>
+            <h3>Air Health</h3>
+            <p>From ACL recovery research to a phone camera that coaches form mid rep and adapts each day&rsquo;s plan.</p>
+            <span class="go">Case study &#8599;</span>
+          </a>
+          <a class="card" href="work/sensease/">
+            <p class="kicker">Accessibility · 2025</p>
+            <h3>SensEase</h3>
+            <p>Know what a public space will feel like before you walk in, for people with sensory sensitivities.</p>
+            <span class="go">Case study &#8599;</span>
+          </a>
+          <a class="card" href="work/safevision/">
+            <p class="kicker">Computer vision &amp; AR · 2024</p>
+            <h3>SafeVision</h3>
+            <p>AR glasses that detect people nearby, read expressions and help transit riders feel safer.</p>
+            <span class="go">Case study &#8599;</span>
+          </a>
+          <a class="card" href="https://www.chayan.design" target="_blank" rel="noopener">
+            <p class="kicker">Industry work</p>
+            <h3>Designer portfolio</h3>
+            <p>Product work across health tech, fintech and SaaS, from 0 to 1 MVPs to design systems.</p>
+            <span class="go">chayan.design &#8599;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="sec" id="education">
+        <div class="sec-head"><h2>Education</h2></div>
+        <div class="rows">
+          <div class="row">
+            <p class="when">Graduated Dec 2025</p>
+            <div>
+              <h3>Northeastern University</h3>
+              <p class="sub">MS in Human Computer Interaction (Experience Design)</p>
+              <p class="small">Research Methods, Design and Accessibility, Design Systems, Design for Behavior (health), Human-Centered AI · Boston, MA</p>
+            </div>
+          </div>
+          <div class="row">
+            <p class="when">Undergraduate</p>
+            <div>
+              <h3>Daffodil International University</h3>
+              <p class="sub">BS in Multimedia &amp; Creative Technology</p>
+              <p class="small">Undergraduate thesis in HCI · Dhaka, Bangladesh</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Industry experience -->
+      <section class="sec" id="experience">
+        <div class="sec-head"><h2>Industry experience</h2></div>
+        <div class="rows">
+          <div class="row">
+            <p class="when">Feb 2026 to Present</p>
+            <div>
+              <h3>Senior Product Designer <span>· Air Health</span></h3>
+              <p>Leading 0 to 1 design of an AI adaptive fitness platform; working Swift/SwiftUI prototypes cut design to tested interaction time by 60%. Mentoring 3 designers.</p>
+            </div>
+          </div>
+          <div class="row">
+            <p class="when">Nov 2023 to Aug 2024</p>
+            <div>
+              <h3>Product Designer <span>· Elas</span></h3>
+              <p>Improved usability of a data-dense construction operations dashboard by 62%; built an accessible atomic design system.</p>
+            </div>
+          </div>
+          <div class="row">
+            <p class="when">Apr 2022 to May 2023</p>
+            <div>
+              <h3>UX/UI Designer <span>· Scripla</span></h3>
+              <p>Scalable, accessible design system with strong stakeholder adoption; design reviews cut sprint turnaround by 30%.</p>
+            </div>
+          </div>
+          <div class="row">
+            <p class="when">Jan 2021 to Apr 2022</p>
+            <div>
+              <h3>UI/UX Designer <span>· Plaeto</span></h3>
+              <p>Led MVP design from concept to launch in 9 months, supporting a $2.5M raise.</p>
+            </div>
+          </div>
+          <div class="row">
+            <p class="when">Feb 2020 to Jan 2021</p>
+            <div>
+              <h3>UI/UX Designer <span>· Twinbit</span></h3>
+              <p>Led a 6 designer team shipping top ranked apps with 100K+ reviews and 2x revenue growth.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Honors -->
+      <section class="sec" id="honors">
+        <div class="sec-head"><h2>Honors &amp; awards</h2></div>
+        <div class="rows">
+          <div class="row">
+            <p class="when">ICT Carnival</p>
+            <div>
+              <h3>1st Place, Motion Graphics</h3>
+              <p>Selected from 100+ participants.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="sec" id="skills">
+        <div class="sec-head"><h2>Skills &amp; tools</h2></div>
+        <div class="rows skills">
+          <div class="row"><h3>Research</h3><p>User research, usability testing, A/B testing, journey mapping, information architecture, accessibility (WCAG 2.1 AA)</p></div>
+          <div class="row"><h3>Design</h3><p>Human-centered AI, agentic experience design, interaction design, prototyping, design systems, motion</p></div>
+          <div class="row"><h3>Prototyping</h3><p>Swift/SwiftUI, HTML, CSS, Claude, Cursor, Lovable, Framer</p></div>
+          <div class="row"><h3>Tools</h3><p>Figma, Adobe After Effects, Illustrator, Photoshop, Miro, Jitter, Jira</p></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div>
+      <h4>Sitemap</h4>
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#work">Case studies</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Socials</h4>
+      <ul>
+        <li><a class="ext" href="https://www.linkedin.com/in/thechayansarker" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a class="ext" href="https://www.chayan.design" target="_blank" rel="noopener">Portfolio</a></li>
+        <li><a href="mailto:srchayan@gmail.com">Email</a></li>
+      </ul>
+    </div>
+    <div></div>
+    <div class="foot-bottom">
+      <span>&copy; Chayan Sarker <span id="year">2026</span></span>
+      <a href="#top">Back to top &#8593;</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Theme toggle
+  document.getElementById("theme-btn").addEventListener("click", function () {
+    var root = document.documentElement;
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
+  // Research filters
+  var buttons = document.querySelectorAll("#filters button");
+  var entries = document.querySelectorAll("#entries .entry");
+  buttons.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var f = b.getAttribute("data-f");
+      buttons.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      entries.forEach(function (e) {
+        e.hidden = f !== "all" && e.getAttribute("data-tags").split(" ").indexOf(f) === -1;
+      });
+    });
+  });
+
+  // Highlight the current section in the side nav
+  var links = Array.prototype.slice.call(document.querySelectorAll("#toc a"));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  function onScroll() {
+    var y = window.scrollY + 140, idx = 0;
+    targets.forEach(function (t, i) { if (t && t.offsetTop <= y) idx = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) idx = links.length - 1;
+    links.forEach(function (a, i) { a.classList.toggle("active", i === idx); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>
