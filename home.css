@@ -366,3 +366,10 @@ h2 { font-size: 30px; font-weight: 300; letter-spacing: -0.02em; }
 .nav-link { color: var(--text); font-weight: 500; }
 .nav-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 760px) { .topbar-right { gap: 14px; } }
+
+/* Professor and inline links */
+.entry .meta a, .case-meta dd a {
+  text-decoration: underline; text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px; text-decoration-thickness: 1px;
+}
+.entry .meta a:hover, .case-meta dd a:hover { text-decoration-color: var(--text); }
