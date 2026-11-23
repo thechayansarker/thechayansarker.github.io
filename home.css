@@ -169,6 +169,7 @@ h2 { font-size: 30px; font-weight: 300; letter-spacing: -0.02em; }
   padding: 18px 0; border-bottom: 1px solid var(--line);
 }
 .row:first-child { padding-top: 0; }
+.row:last-child { border-bottom: 0; padding-bottom: 0; }
 .row .when { font-size: 13px; color: var(--muted); }
 .row h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.005em; }
 .row h3 span { font-weight: 400; color: var(--soft); }
@@ -194,7 +195,7 @@ h2 { font-size: 30px; font-weight: 300; letter-spacing: -0.02em; }
 .skills .row h3 { font-size: 13px; font-weight: 500; }
 
 /* Footer */
-.foot { margin-top: 20px; }
+.foot { border-top: 1px solid var(--line); margin-top: 20px; }
 .foot-inner {
   max-width: 1216px; margin: 0 auto; padding: 28px 32px 32px;
   display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 32px; font-size: 13px;
