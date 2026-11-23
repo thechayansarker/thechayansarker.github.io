@@ -362,3 +362,7 @@ h2 { font-size: 30px; font-weight: 300; letter-spacing: -0.02em; }
 .a11y-foot { padding: 16px 24px 20px; border-top: 1px solid #e6e6e6; }
 #a11y-reset { width: 100%; padding: 12px; font: inherit; font-size: 14px; color: #333; background: #fff; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; }
 #a11y-reset:hover { background: #f5f5f5; }
+
+.nav-link { color: var(--text); font-weight: 500; }
+.nav-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 760px) { .topbar-right { gap: 14px; } }
