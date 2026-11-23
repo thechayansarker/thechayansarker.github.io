@@ -1,4 +1,4 @@
-/* Academic profile home page. Case study pages still use styles.css. */
+/* Shared styles for every page. Case study pages add case.css on top. */
 :root {
   --bg: #ffffff;
   --text: #0a0a0a;
