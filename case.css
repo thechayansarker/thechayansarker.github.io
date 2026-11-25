@@ -163,3 +163,26 @@ mark.todo { background: rgba(255, 210, 0, .32); color: inherit; padding: 0 3px; 
 .figure.sketch { max-width: 720px; margin-left: auto; margin-right: auto; }
 .figure.sketch img { border-radius: 10px; border: 1px solid var(--line); }
 .sketch-title { margin: 36px 0 4px; color: var(--text); font-weight: 600; }
+
+/* SafeVision pipeline diagram and decision rule */
+.pipeline-fig { margin: 24px 0 28px; }
+.pipeline { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 22px 26px; }
+.pipeline li { position: relative; flex: 1 1 110px; min-width: 110px; padding: 12px 12px 12px; background: var(--card); border-radius: 8px; }
+.pipeline li:not(:last-child)::after { content: "\2192"; position: absolute; right: -19px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 14px; }
+.pipeline span { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.pipeline b { display: block; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.3; }
+.pipeline small { display: block; margin-top: 3px; font-size: 12px; color: var(--soft); line-height: 1.4; }
+.pipeline .out { background: transparent; border: 1px solid var(--line-strong); flex-basis: 150px; }
+.pipeline .out b { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+.pipeline .out i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); display: inline-block; }
+.pipeline .out em { font-style: normal; font-weight: 400; color: var(--muted); }
+.pipeline-fig figcaption { margin-top: 10px; font-size: 13px; color: var(--muted); }
+.rule { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 20px; }
+.rule div { padding: 14px 16px; border-left: 2px solid #e0452f; background: var(--card); }
+.rule b { display: block; font-size: 15px; font-weight: 600; color: var(--text); }
+.rule span { display: block; margin-top: 4px; font-size: 13px; color: var(--soft); line-height: 1.45; }
+@media (max-width: 760px) {
+  .rule { grid-template-columns: 1fr; }
+  .pipeline li { flex-basis: 40%; }
+  .pipeline li:nth-child(2n)::after { display: none; }
+}

@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../../home.css?v=16" />
-<link rel="stylesheet" href="../../case.css?v=3" />
+<link rel="stylesheet" href="../../case.css?v=4" />
 
 <script>
   (function () {
@@ -163,6 +163,17 @@
     <section id="system">
       <div class="section-head" data-num="05">How the glasses see</div>
       <p>SafeVision runs as a five stage computer vision pipeline. Each stage feeds the next, and only the final result reaches the rider.</p>
+      <figure class="pipeline-fig">
+        <ol class="pipeline" aria-label="SafeVision pipeline">
+          <li><span>1</span><b>Capture</b><small>Camera on the frame</small></li>
+          <li><span>2</span><b>Detect and track</b><small>People and faces</small></li>
+          <li><span>3</span><b>Expression</b><small>Tension or calm</small></li>
+          <li><span>4</span><b>Previous data</b><small>Place, time, reports</small></li>
+          <li><span>5</span><b>Safety score</b><small>Score plus confidence</small></li>
+          <li class="out"><b><i style="--c:#62c23b"></i>Shield <em>or</em> <i style="--c:#e0452f"></i>Danger</b><small>What the rider sees</small></li>
+        </ol>
+        <figcaption>Stages 1 to 5 run on the glasses. Only the final state is shown to the rider.</figcaption>
+      </figure>
       <ol class="insights">
         <li><b>Capture</b>The glasses&rsquo; forward camera streams video, processed on the device so raw footage never leaves the glasses.</li>
         <li><b>Detect and track</b>A detection model finds people and faces in each frame and tracks them as they move through the carriage or platform.</li>
@@ -170,6 +181,17 @@
         <li><b>Add previous data</b>The system combines the live reading with past data: incident history at that station, reports from other riders, time of day and lighting, and records linked to a person where available.</li>
         <li><b>Predict a safety level</b>A fusion model turns these signals into a safety score with a confidence level, which decides whether the rider sees Shield or Danger.</li>
       </ol>
+
+      <h3>How the system decides</h3>
+      <p>The step from a score to an alert is the most important decision in the design, so it follows an explicit rule rather than a single number crossing a line. Danger appears only when all three conditions are true at once:</p>
+      <div class="rule">
+        <div><b>Score below 0.35</b><span>on a scale where 1 is fully safe</span></div>
+        <div><b>Confidence above 0.80</b><span>the model is sure of its own reading</span></div>
+        <div><b>Held for 5 seconds</b><span>one tense frame is never enough</span></div>
+      </div>
+      <p>If the score is low but confidence is not, the glasses stay in Shield and keep watching. The system never shows a guess. Getting back to Shield is deliberately harder than leaving it: the score has to rise above 0.55 and stay there for 20 seconds, or the rider dismisses the alert. That gap stops the meter from flickering between states when a reading hovers near the line.</p>
+      <p>In the train scene below, the score drops from 0.72 to 0.41, which is not enough. It then falls to 0.31 with 0.86 confidence and holds for six seconds, so Danger appears.</p>
+      <p class="flow-note">These are planned starting values, not measured results. They will be tuned against false alarm and miss rates in the evaluation described in Next steps.</p>
 
       <h3>How it works on one trip home</h3>
       <p>To make the pipeline concrete, here is how it plays out on a single late night journey. Each sketch follows the same order: what the glasses take in, what the system works out, and what the rider actually sees.</p>
@@ -264,6 +286,20 @@
 
       <h3>Bystanders never agreed to this</h3>
       <p>The people being analysed are not the ones wearing the glasses. Research with bystanders of AR glasses shows real concern about being recorded, and a wish for ways to opt out [7]. Early mockups showed names and occupations, which exposes far more than a rider needs to feel safe.</p>
+
+      <h3>When the system is wrong</h3>
+      <p>Any model like this will make mistakes, so the design plans for both kinds.</p>
+      <div class="card-grid">
+        <div><h4>False alarm</h4><p>Someone laughing loudly, arguing on a phone call, or just cold and tired can read as tense. The cost is real: a rider who is told to worry about a harmless stranger learns to fear people, and starts ignoring alerts.</p></div>
+        <div><h4>Missed danger</h4><p>A threat can look calm on the surface, or happen outside the camera&rsquo;s view. The glasses must never make a rider feel so safe that they stop trusting their own instincts.</p></div>
+      </div>
+      <p>How the design responds:</p>
+      <ul class="list-plain">
+        <li><b>A false alarm costs one tap.</b> Danger only suggests actions and never takes them, so the worst case is a glance and a dismissal that returns the rider to Shield.</li>
+        <li><b>Riders can mark an alert as wrong.</b> That note stays on the device and helps tune the thresholds in future studies, without storing anyone&rsquo;s face.</li>
+        <li><b>The rule leans toward staying quiet.</b> High confidence and a five second hold mean the system will miss some mild moments rather than raise alarms about harmless people.</li>
+        <li><b>Shield is never a promise.</b> It reads as &ldquo;nothing unusual detected&rdquo;, not &ldquo;you are safe&rdquo;, and riders can open the one tap actions at any time without waiting for an alert.</li>
+      </ul>
 
       <h3>Safeguards in the design</h3>
       <ul class="list-plain">
