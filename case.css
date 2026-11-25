@@ -186,3 +186,15 @@ mark.todo { background: rgba(255, 210, 0, .32); color: inherit; padding: 0 3px; 
   .pipeline li { flex-basis: 40%; }
   .pipeline li:nth-child(2n)::after { display: none; }
 }
+
+/* SafeVision exploded parts view */
+.parts { display: grid; grid-template-columns: 1fr; gap: 24px; margin: 20px 0 32px; }
+.parts-fig { margin: 0; }
+.parts-fig img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); }
+.parts-list { list-style: none; margin: 0; padding: 0; counter-reset: part; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 24px; }
+.parts-list li { counter-increment: part; position: relative; padding: 0 0 14px 38px; }
+.parts-list li::before { content: counter(part); position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 12px; font-weight: 600; display: grid; place-items: center; }
+.parts-list b { display: block; font-size: 15px; font-weight: 600; color: var(--text); }
+.parts-list span { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.5; color: var(--soft); }
+@media (max-width: 760px) { .parts-list { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .parts-list { grid-template-columns: 1fr; } }

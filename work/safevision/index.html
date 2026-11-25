@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../../home.css?v=16" />
-<link rel="stylesheet" href="../../case.css?v=4" />
+<link rel="stylesheet" href="../../case.css?v=6" />
 
 <script>
   (function () {
@@ -162,6 +162,24 @@
 
     <section id="system">
       <div class="section-head" data-num="05">How the glasses see</div>
+
+      <h3>What is inside the glasses</h3>
+      <p>Everything SafeVision needs fits into an ordinary looking frame and the rider&rsquo;s phone. The glasses do the seeing and thinking; the phone holds the station data and makes calls.</p>
+      <div class="parts">
+        <figure class="parts-fig">
+          <img src="images/glasses-parts.jpg" width="1536" height="1024" loading="lazy" alt="Pencil sketch exploded view of smart glasses with six numbered parts: 1 a camera module at the front corner of the frame, 2 a small circuit board with an AI chip in the right arm, 3 a transparent display layer in front of the right lens, 4 a speaker grille near the ear, 5 a slim battery in the left arm, and 6 a phone linked wirelessly." />
+        </figure>
+        <ol class="parts-list">
+          <li><b>Camera</b><span>Sees the people nearby. Frames are read and deleted within seconds.</span></li>
+          <li><b>AI chip</b><span>Runs the detection, expression and safety models on the glasses, with no internet needed.</span></li>
+          <li><b>Lens display</b><span>Draws the meter, alerts and arrows in the rider&rsquo;s view.</span></li>
+          <li><b>Speaker</b><span>Gives short voice prompts when the rider should not look away.</span></li>
+          <li><b>Battery</b><span>Powers a night&rsquo;s trip, sitting in the arm of the frame.</span></li>
+          <li><b>Phone</b><span>Holds the downloaded station data and handles calls and location sharing.</span></li>
+        </ol>
+      </div>
+
+      <h3>The pipeline</h3>
       <p>SafeVision runs as a five stage computer vision pipeline. Each stage feeds the next, and only the final result reaches the rider.</p>
       <figure class="pipeline-fig">
         <ol class="pipeline" aria-label="SafeVision pipeline">
