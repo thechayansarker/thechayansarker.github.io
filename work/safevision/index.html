@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../../home.css?v=16" />
-<link rel="stylesheet" href="../../case.css?v=2" />
+<link rel="stylesheet" href="../../case.css?v=3" />
 
 <script>
   (function () {
@@ -170,6 +170,30 @@
         <li><b>Add previous data</b>The system combines the live reading with past data: incident history at that station, reports from other riders, time of day and lighting, and records linked to a person where available.</li>
         <li><b>Predict a safety level</b>A fusion model turns these signals into a safety score with a confidence level, which decides whether the rider sees Shield or Danger.</li>
       </ol>
+
+      <h3>How it works on one trip home</h3>
+      <p>To make the pipeline concrete, here is how it plays out on a single late night journey. Each sketch follows the same order: what the glasses take in, what the system works out, and what the rider actually sees.</p>
+
+      <h4 class="sketch-title">1. Waiting on the platform: Shield</h4>
+      <figure class="figure sketch">
+        <img src="images/how-shield.jpg" width="1024" height="1024" loading="lazy" alt="Rough sketch of a subway platform at night. A rider in the foreground wears glasses with a small camera. A green cone runs from the glasses to two passengers down the platform, each inside a dashed green box, with a small green Safe meter floating above them. Callouts: 1, the camera streams video processed on the glasses; 2, the system detects and tracks the people nearby and reads their expressions as calm; 3, the rider sees only a quiet green Safe meter, with no names or labels." />
+      </figure>
+      <p>It is late and the platform is half lit. The camera on the frame is already streaming, but the footage never leaves the glasses. The detection model finds two people further down the platform and keeps tracking them as they shift and check their phones. Their expressions read as calm, the station has no recent reports, and the fusion model returns a high safety score with high confidence.</p>
+      <p>So the rider sees almost nothing: a small green Safe meter at the edge of their view. There are no names, no labels on strangers and no score for each person. The point of Shield is to give the rider permission to stop scanning the room.</p>
+
+      <h4 class="sketch-title">2. On the train: Danger</h4>
+      <figure class="figure sketch">
+        <img src="images/how-danger.jpg" width="1024" height="1024" loading="lazy" alt="Rough sketch inside a subway carriage. A rider on the left wears camera glasses; a red cone runs to a standing passenger with clenched fists inside a dashed red box. A red panel at the top right offers three buttons: Alert staff, Share and Call 911. Callouts: 1, the expression model sees tension that holds for several seconds; 2, it adds context such as the late hour and two recent rider reports at this stop; 3, the score drops below the threshold with high confidence, so one tap actions appear and the rider decides." />
+      </figure>
+      <p>A passenger standing by the doors becomes agitated. One tense frame is not enough to change anything, so the expression model waits until the reading holds for several seconds. The system then weighs it against context: it is 11:40 pm, and riders have reported two incidents at this stop in the past month.</p>
+      <p>Only when the score falls below the threshold, and the model is confident, does the meter turn red. The panel offers three one tap actions: alert staff, share location, or call 911. Nothing happens until the rider chooses, and a single dismissal returns them to Shield. The design keeps the rider in control and avoids treating the other passenger as a verdict.</p>
+
+      <h4 class="sketch-title">3. Walking out: Navigate</h4>
+      <figure class="figure sketch">
+        <img src="images/how-navigate.jpg" width="1024" height="1024" loading="lazy" alt="Rough sketch of a city sidewalk at night. A rider with a backpack and glasses walks away from the viewer. Blue chevron arrows on the sidewalk lead forward and turn right before a dark, scribbled block, and a small blue map floats above the street. Callouts: 1, the rider starts Navigate on demand or Danger hands off to it; 2, the route avoids the dark block using streetlight and incident data; 3, the rider sees arrows on the sidewalk, a small map and the time to the station." />
+      </figure>
+      <p>The rider leaves the train and starts Navigate, or Danger hands off to it after an alert. The route planner draws on the same previous data layer as the safety score: streetlight coverage, incident reports and time of day. Instead of the shortest path, it picks the one that stays on lit, busier blocks, even when that adds a minute.</p>
+      <p>Directions are drawn onto the sidewalk as arrows, with a small map and the time to the station, so the rider keeps their head up and their eyes on the street rather than on a phone.</p>
 
       <h3>Where the data comes from</h3>
       <p>The previous data layer draws on seven kinds of sources, from public safety databases and transit system records to crowdsourced reports and environmental data.</p>

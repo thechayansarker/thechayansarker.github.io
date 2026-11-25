@@ -158,3 +158,8 @@ mark.todo { background: rgba(255, 210, 0, .32); color: inherit; padding: 0 3px; 
   .split img { max-width: 240px; margin: 0 auto; }
   .lede { font-size: 16px; }
 }
+
+/* Rough how it works sketches (SafeVision) */
+.figure.sketch { max-width: 720px; margin-left: auto; margin-right: auto; }
+.figure.sketch img { border-radius: 10px; border: 1px solid var(--line); }
+.sketch-title { margin: 36px 0 4px; color: var(--text); font-weight: 600; }
