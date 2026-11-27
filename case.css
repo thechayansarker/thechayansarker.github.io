@@ -198,7 +198,3 @@ mark.todo { background: rgba(255, 210, 0, .32); color: inherit; padding: 0 3px; 
 .parts-list span { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.5; color: var(--soft); }
 @media (max-width: 760px) { .parts-list { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 460px) { .parts-list { grid-template-columns: 1fr; } }
-
-/* SafeVision loop sketch */
-.figure.sketch-wide { max-width: 960px; margin: 20px auto 32px; }
-.figure.sketch-wide img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
